@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль пользователя</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f2f2f2; }
+    .container { max-width: 400px; margin: auto; background: #fff; padding: 2rem; border-radius: 5px; }
+    .container a { margin: 0 5px; text-decoration: none; color: #007BFF; }
+    .containeer > picture > img{
+      width:100%;
+      max-width:400px;
+    }
+  </style>
+  <link rel="icon" href="/nodejs.svg" type="image/svg+xml">
+</head>
+<body>
+  <% if (!user.is_verified) { %>
+  <p style="color:red;">Email не подтверждён. <i style="color:rgb(116, 11, 11);">Все не подтвержденные пользователе будут удалены!</i></p>
+  <form action="/resend-verification" method="post" style="margin-top:1rem;">
+    <input type="hidden" name="email" value="<%= user.email %>">
+    <button type="submit">Отправить подтверждение снова</button>
+  </form>
+<% } else { %>
+  <p style="color:green;">Email подтверждён ✅</p>
+<% } %>
+  <div class="container">
+    <% if(user.avatar) { %>
+      <img src="<%= user.avatar %>" alt="Фото профиля" style="max-width:150px; border-radius:50%;">
+    <% } %>
+    <!-- <picture> <img src="<%= user.avatar %>" alt="Фото"></picture> -->
+    <p><strong>Логин:</strong> <%= user.login %></p>
+    <p><strong>Email:</strong> <%= user.email %></p>
+    <p><strong>Имя:</strong> <%= user.name || '-' %></p>
+    <p><strong>Фамилия:</strong> <%= user.lastname || '-' %></p>
+    <p><strong>Возраст:</strong> <%= user.age || '-' %></p>
+    <p><strong>Пол:</strong> <%= user.gender || '-' %></p>
+    <p><strong>Хобби:</strong> <%= user.hobby || '-' %></p>
+    <p><strong>Группа крови(на рукове):</strong> <%= user.blod_type || '-' %></p>
+    <p><strong>Профессия:</strong> <%= user.profession || '-' %></p>
+    <p><strong>Дети:</strong> <%= user.having_children %></p>
+    <p><strong>Материальный статус:</strong> <%= user.marital_status %></p>
+    <p><strong>Образование:</strong> <%= user.education %></p>
+
+    <div style="text-align:center; margin-top:1rem;">
+      <a href="/comments">Comments system</a> | 
+      <a href="/profile/edit">Редактировать профиль</a> | <a href="/ava">Загрузить аватарку</a> | <a href="/">Главная</a> | <a href="/profile/change-password/">сменить пароль </a> |
+      <a href="/logout">Выйти</a>
+    </div>
+  </div>
+  <!-- <p><strong>Email:</strong> <%= user.email %></p> -->
+  
+
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Все посты</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="/nodejs.svg" type="image/svg+xml">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+
+  <main>
+    <article>
+       <h1>This is a blog of the web workshop named after Baron Satoverstausen</h1>
+      <p>The main page with an example of a page, an adaptive suber blog!
+        <strong>and new site where the transition is going <a href="https://www.google.com/search?q=site%3Aqucu.ru%2Fblozhik&amp;client=ubuntu-sn&amp;sca_esv=568085247&amp;channel=fs&amp;biw=1850&amp;bih=968&amp;sxsrf=AM9HkKl_mGfk0etTkW_ZlW9CuVrz3wF9dA%3A1695725055431&amp;ei=_7USZY37GdOqwPAPjsCVYA&amp;ved=0ahUKEwjN9sKMjMiBAxVTFRAIHQ5gBQwQ4dUDCA8&amp;uact=5&amp;oq=site%3Aqucu.ru%2Fblozhik&amp;gs_lp=Egxnd3Mtd2l6LXNlcnAiFHNpdGU6cXVjdS5ydS9ibG96aGlrSIoNUPgHWPgHcAF4AJABAJgBY6ABY6oBATG4AQPIAQD4AQHCAgcQIxiwAxgn4gMEGAEgQYgGAZAGAw&amp;sclient=gws-wiz-serp">qucu.ru</a> </strong>
+      <span style="font-size:47px;">😂</span>
+      <strong>
+      </strong></p>
+  <% articles.forEach(article => { %>
+
+      <h2><%= article.title %></h2>
+      <p> <%= article.description %></p>
+      <p> <%= article.autor %></p>
+      <p><strong>URL:</strong> <a href="<%= article.url %>"><%= article.url %></a></p>
+      <hr>
+
+  <% }) %>
+    </article>
+  </main>
+
+
+</body>
+</html>

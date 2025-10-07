@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Редактировать статью</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 800px; margin: 30px auto; }
+    form { display: flex; flex-direction: column; gap: 15px; }
+    label { font-weight: bold; }
+    input, textarea { padding: 8px; font-size: 16px; width: 100%; }
+    button { padding: 10px 20px; font-size: 16px; cursor: pointer; }
+  </style>
+</head>
+<link rel="icon" href="/nodejs.svg" type="image/svg+xml">
+<body>
+  <h1>Редактировать статью: <%= article.title %></h1>
+
+  <form action="/edit/<%= article.url %>" method="POST">
+    <label for="title">Заголовок</label>
+    <input type="text" id="title" name="title" value="<%= article.title %>" required>
+
+    <label for="description">Описание</label>
+    <input type="text" id="description" name="description" value="<%= article.description %>" required>
+
+    <label for="text">Текст статьи</label>
+    <textarea id="text" name="text" rows="10" required><%= article.text %></textarea>
+
+    <label for="autor">Автор</label>
+    <input type="text" id="autor" name="autor" value="<%= article.autor %>">
+
+    <label for="json">JSON данные (объект)</label>
+    <textarea id="json" name="json" rows="5"><%= article.json %></textarea>
+
+    <button type="submit">Сохранить изменения</button>
+  </form>
+
+  <p><a href="/blozhik/<%= article.url %>">Вернуться к статье</a></p>
+</body>
+</html>

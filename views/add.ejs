@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Добавить статью</title>
+  <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/nodejs.svg" type="image/svg+xml">
+</head>
+<body>
+  <h1>Добавить новую статью</h1>
+  <form action="/add" method="POST">
+    <label>Заголовок</label><br>
+    <input type="text" name="title" required><br><br>
+
+    <label>Описание</label><br>
+    <input type="text" name="description" required><br><br>
+
+    <label>Текст</label><br>
+    <textarea name="text" rows="10" required></textarea><br><br>
+
+    <label>Автор</label><br>
+    <input type="text" name="autor"><br><br>
+
+    <label>URL (чпу)</label><br>
+    <input type="text" name="url" required><br><br>
+
+    <label>JSON (структурированные данные)</label><br>
+    <textarea name="json" rows="6"></textarea><br><br>
+
+    <label>JS код</label><br>
+    <textarea name="js" rows="4"></textarea><br><br>
+
+    <label>Ключевые слова</label><br>
+    <input type="text" name="keywords"><br><br>
+
+    <button type="submit">Добавить</button>
+  </form>
+</body>
+</html>

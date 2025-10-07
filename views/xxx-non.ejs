@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Все пользователи</title>
+   <meta name="robots" content="noindex, nofollow">
+  <style>
+    body { font-family: Arial, sans-serif; background: #f2f2f2; }
+    table { border-collapse: collapse; width: 80%; margin: auto; background: #fff; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #eee; }
+    img { max-width: 50px; max-height: 50px; border-radius: 50%; }
+  </style>
+</head>
+<body>
+  <h2 style="text-align:center;">Список пользователей</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Фото</th>
+        <th>Логин</th>
+        <!-- <th> </th> -->
+        <th>Email</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Возраст</th>
+        <th>Пол</th>
+        <th>visit_date</th>
+        <th>created_at</th>
+        <th>updated_at</th>
+        <th>last_login</th>
+        <th>is_verified</th>
+        <th>verification_token</th>
+        <th>role</th>
+        <th>ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(user => { %>
+        <tr>
+          <td>
+            <% if(user.avatar) { %>
+              <img src="<%= user.avatar %>" alt="Фото">
+            <% } else { %>
+              -
+            <% } %>
+          </td>
+          <td><%= user.login %></td>
+         <!-- <td><%= user.password %></td> -->
+          <td><%= user.email %></td>
+          <td><%= user.name || '-' %></td>
+          <td><%= user.lastname || '-' %></td>
+          <td><%= user.age || '-' %></td>
+          <td><%= user.gender || '-' %></td>
+          <td><%= user.visit_date || "-" %></td>
+          <td><%= user.created_at || "-" %></td>
+          <td><%= user.updated_at || "-" %></td>
+          <td><%= user.last_login || "-" %></td>
+          <td><%= user.is_verified || "-" %></td>
+          <td><%= user.verification_token || "-" %></td>
+          <td><%= user.role || "-" %></td>
+          <td><%= user.id || '-' %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</body>
+</html>
+ <!-- , , , , verification_token -->

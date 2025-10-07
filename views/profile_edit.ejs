@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit</title>
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            background-color: rgb(87, 97, 77);
+            margin-left:auto;
+            margin-right:auto;
+            width:100%;
+            max-width:700px;
+        }
+        form{
+            display:grid;
+            max-width:700px;
+            width:100%;
+        }
+        form > fieldset > legend{
+            color: white;
+        }
+        form > fieldset > input{
+            width:97%;
+            font-size: 20px;
+            height: 30px;
+        }
+        form > button{
+            width:97%;
+            height:30px;
+            border-radius: 7px;
+            color:yellow;
+            background-color: black;
+        }
+        main > a{
+            font-size:30px;
+            color:green;
+            text-shadow:black 1px 1px;
+        }
+    </style>
+    <link rel="icon" href="/nodejs.svg" type="image/svg+xml">
+</head>
+<body>
+
+    <main>
+        <form method="POST" action="/profile/edit">
+        <fieldset>
+            <legend>Name: </legend>
+            <input type="text" name="name" placeholder="Имя" value="<%= user.name || '' %>" />
+        </fieldset>
+        <fieldset>
+            <legend>Lastname:</legend>
+            <input type="text" name="lastname" placeholder="Фамилия" value="<%= user.lastname || '' %>" />
+        </fieldset>
+        <fieldset>
+            <legend>Years Old:</legend>
+            <input type="text" name="age" placeholder="Возраст" value="<%= user.age || '' %>" />
+        </fieldset>
+        <label for="gender">Пол:</label>
+            <select name="gender" id="gender">
+            <option value="">-- выберите пол --</option>
+            <option value="Мужской" <%= user.gender === 'Мужской' ? 'selected' : '' %>>Мужской</option>
+            <option value="Женский" <%= user.gender === 'Женский' ? 'selected' : '' %>>Женский</option>
+            <option value="Другой" <%= user.gender === 'Другой' ? 'selected' : '' %>>Другой</option>
+            </select>
+
+        <input type="text" name="hobby" placeholder="Хобби" value="<%= user.hobby || '' %>" />
+        <input type="text" name="blod_type" placeholder="группа крови" value="<%= user.blod_type || '' %>" />
+        <input type="text" name="profession" placeholder="Профессия" value="<%= user.profession || '' %>" />
+        <input type="text" name="having_children" placeholder="Дети" value="<%= user.having_children || '' %>" />
+        <input type="text" name="marital_status" placeholder="Материальное положение" value="<%= user.marital_status || '' %>" />
+        <input type="text" name="education" placeholder="Образование" value="<%= user.education || '' %>" />
+            <fieldset>
+                <legend>Email</legend>
+                <input type="text" name="email" placeholder="Email" value="<%= user.email || '' %>" />
+            </fieldset>
+        <button type="submit">Сохранить</button>
+    </form>
+    <a href="/">To go Main</a>
+    <p style="text-align:center; margin-top:1rem;">
+    <a href="/logout">Выйти</a>
+    </p>
+    </main>
+
+</body>
+</html>

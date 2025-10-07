@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title><%= article.title %></title>
+  <meta name="description" content="<%= article.description %>">
+  <script type="application/ld+json">
+    <%= article.json %>
+  </script>
+  <link rel="stylesheet" href="/style.css">
+  
+</head>
+<body>
+  <article>
+  <h1><%= article.title %></h1>
+
+  <%- article.text %>
+  <p><strong>Автор:</strong> <%= article.autor %></p>
+  <a href="/blozhik/">go to main page</a>
+  <p><strong>URL:</strong> <a href="<%= article.url %>"><%= article.url %></a></p>
+</article>
+</body>
+</html>

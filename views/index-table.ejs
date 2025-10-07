@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Все пользователи</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f2f2f2; }
+    table { border-collapse: collapse; width: 80%; margin: auto; background: #fff; }
+    th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+    th { background: #eee; }
+    img { max-width: 50px; max-height: 50px; border-radius: 50%; }
+    body > section{
+      width:100%;
+      max-width:1700px;
+      display:grid;
+      gap:7px;
+      justify-content:center;
+      align-items:center;
+      grid-template-columns: repeat(auto-fill , 100px);
+    }
+    body > section > a{
+      display:grid;
+      min-height:70px;
+      height:177px;
+      width:100%;
+      max-width:130px;
+      justify-content: center;
+      align-content: space-between;
+      border:1px solid green;
+      border-radius:7px;
+    }
+    body > section > a > p{
+      margin:3%;
+      max-width:77px;
+      width:100%;
+      text-align: center;
+    }
+  </style>
+  <link rel="icon" href="/nodejs.svg" type="image/svg+xml">
+</head>
+<body>
+  <h2 style="text-align:center;">Список пользователей в таблице</h2>
+  
+   <a href="/login">login</a> | oR | <a href="/register">registration</a> | <a href="/profile"> Main Profile</a>
+<table>
+    <thead>
+      <tr>
+        <th>Фото</th>
+        <th>Логин</th>
+        <th>Email</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Возраст</th>
+        <th>Пол</th>
+        <th>ID</th>
+      </tr>
+    </thead>
+    <tbody>
+     
+      <% users.forEach(user => { %>
+        <tr>
+          <td>
+            <% if(user.avatar) { %>
+              <img src="<%= user.avatar %>" alt="Фото">
+            <% } else { %>
+              -
+            <% } %>
+          </td>
+          <td><%= user.login %></td>
+        
+          <td><%= user.email %></td>
+          <td><%= user.name || '-' %></td>
+          <td><%= user.lastname || '-' %></td>
+          <td><%= user.age || '-' %></td>
+          <td><%= user.gender || '-' %></td>
+          <td><%= user.id || '-' %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+   </table>
+</body>
+</html>

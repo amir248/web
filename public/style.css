@@ -1,0 +1,25 @@
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    display:block;
+    width:100%;
+    max-width:1300px;
+    margin-left:auto;
+    margin-right:auto;
+    font-size:20px;
+    background: linear-gradient(#ffff81, #9198e5);
+    min-height:100vh;
+}
+article > p{
+    margin:1%;
+}
+article > picture > img{
+    width:100%;
+    max-width:100%;
+}
+img{
+    width:100%;
+    max-width:100%;
+}

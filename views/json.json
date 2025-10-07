@@ -1,0 +1,136 @@
+<script type="json-ld>
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Почему стоит доверить создание лендинга Амиру: технологическое превосходство и эффективность",
+    "datePublished": "2025-08-11",
+    "author": {
+        "@type": "Person",
+        "name": "Амир",
+        "url": "https://qucu.ru/resume/Amir"
+    },
+    "image": "https://qucu.ru/images/main.jpg",
+    "description": "Статья о преимуществах работы с Амиром для создания лендинговых страниц, SEO-оптимизации и контекстной рекламы",
+    "articleBody": "В современном мире онлайн-присутствия качественный лендинг-пейдж — это не просто визитка компании в интернете, а мощный инструмент продаж и развития бизнеса.",
+    "about": {
+        "@type": "HowTo",
+        "name": "Создание лендинга с Амиром",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "text": "Использование современных технологий HTML, CSS, JavaScript, Node.js, MySQL"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "Развертывание на Debian/Ubuntu с NGINX"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "SEO-оптимизация и настройка контекстной рекламы"
+            }
+        ]
+    },
+    "potentialAction": {
+        "@type": "ViewAction",
+        "target": "https://qucu.ru/"
+    },
+    "keywords": [
+        "лендинг",
+        "создание сайта",
+        "SEO",
+        "контекстная реклама",
+        "веб-разработка"
+    ],
+    "publisher": {
+        "@type": "Organization",
+        "name": "Студия Амира",
+        "url": "https://qucu.ru/"
+    },
+    "technologies": {
+        "@type": "HowTo",
+        "name": "Используемые технологии",
+        "step": [
+            {
+                "@type": "HowToStep",
+                "text": "HTML, CSS, JavaScript"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "Node.js"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "MySQL"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "Debian/Ubuntu"
+            },
+            {
+                "@type": "HowToStep",
+                "text": "NGINX"
+            }
+        ]
+    },
+    "benefits": {
+        "@type": "ItemList",
+        "itemListElement": [
+            {
+                "@type": "HowToStep",
+                "name": "Оптимизированная архитектура"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Быстрая модификация кода"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Экономичное решение"
+            },
+            {
+                "@type": "HowToStep",
+                "name": "Высокая производительность"
+            }
+        ]
+    }
+}
+
+</script>
+https://new.qucu.ru/blozhik/img/SEO-optimization-for-different-search-engines/1751342791261-900.webp
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>хостинг сайта на собственном сервере</title>
+  <link rel="stylesheet" href="style.css">
+   <script type="application/ld+json">
+    
+{
+  "@context" : "http://schema.org",
+  "@type" : "Article",
+  "name" : "PostgreSQL: мощная и надёжная база данных для современного бизнеса",
+  "headline": "PostgreSQL: мощная и надёжная база данных для современного бизнеса",
+  "author" : {
+    "@type" : "Person",
+    "name" : "Amir Navrutdinov",
+    "alternateName": ["Amir Shikarno", "Амир Наврутдинов","Amir SuperCoder","ChikChicly Spacehands ForsmazHorowich"],
+    "url" : "https://qucu.ru/resume/Amir"
+  },
+  "datePublished" : "2025-09-13T03:14:05.810Z",
+  "dateModified":"2025-09-13T03:14:05.810Z",
+  "image" : "",
+  "articleSection" : "PostgreSQL: мощная и надёжная база данных для современного бизнеса",
+  "articleBody" : "PostgreSQL — это свободная объектно-реляционная база данных с открытым исходным кодом. Она поддерживает стандарты SQL, расширенные функции работы с данными, транзакции, репликацию и масштабирование. PostgreSQL активно развивается сообществом разработчиков и используется во многих крупных компаниях по всему миру.",
+  "url" : "https://qucu.ru/blozhik/postgresql",
+  "publisher" : {
+    "@type" : "Organization",
+    "name" : "web workshop named after Baron Saytoverstauzen",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://qucu.ru/images/logo.png"
+      }
+  }
+}
+
+  </script>
+</head>

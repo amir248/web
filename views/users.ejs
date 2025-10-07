@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dell users</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/nodejs.svg" type="image/svg+xml">
+</head>
+<body>
+    <h2>Список пользователей</h2>
+<table border="1" cellpadding="5">
+  <tr>
+    <th>ID</th>
+    <th>Логин</th>
+    <th>Email</th>
+    <th>Действия</th>
+  </tr>
+  <% users.forEach(user => { %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.login %></td>
+      <td><%= user.email %></td>
+      <td>
+        <a href="/delete-user/<%= user.id %>" onclick="return confirm('Удалить пользователя <%= user.login %>?')">Удалить</a>
+      </td>
+    </tr>
+  <% }) %>
+</table>
+
+</body>
+</html>

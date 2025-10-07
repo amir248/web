@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Редактирование профиля</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; }
+    form { max-width: 400px; margin: 50px auto; background: #fff; padding: 20px; border-radius: 8px; }
+    input, select { width: 100%; padding: 8px; margin-bottom: 10px; border-radius: 4px; border: 1px solid #ccc; }
+    button { padding: 10px 15px; border: none; border-radius: 4px; background: #28a745; color: #fff; cursor: pointer; }
+    img.avatar { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; display: block; margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <form action="/profile/edit" method="POST" enctype="multipart/form-data">
+    <h2>Редактировать профиль</h2>
+
+    <% if (user.avatar) { %>
+      <img class="avatar" src="/<%= user.avatar %>" alt="Аватар">
+    <% } %>
+
+    <label>Имя</label>
+    <input type="text" name="name" value="<%= user.name || '' %>" />
+
+    <label>Фамилия</label>
+    <input type="text" name="lastname" value="<%= user.lastname || '' %>" />
+
+    <label>Возраст</label>
+    <input type="text" name="age" value="<%= user.age || '' %>" />
+
+    <label>Пол</label>
+    <select name="gender">
+      <option value="">Не указан</option>
+      <option value="Мужской" <%= user.gender === 'Мужской' ? 'selected' : '' %>>Мужской</option>
+      <option value="Женский" <%= user.gender === 'Женский' ? 'selected' : '' %>>Женский</option>
+      <option value="Другое" <%= user.gender === 'Другое' ? 'selected' : '' %>>Другое</option>
+    </select>
+
+    <label>Хобби</label>
+    <input type="text" name="hobby" value="<%= user.hobby || '' %>" />
+
+    <label>Тип крови</label>
+    <input type="text" name="blod_type" value="<%= user.blod_type || '' %>" />
+
+    <label>Профессия</label>
+    <input type="text" name="profession" value="<%= user.profession || '' %>" />
+
+    <label>Дети</label>
+    <input type="text" name="having_children" value="<%= user.having_children || '' %>" />
+
+    <label>Семейное положение</label>
+    <input type="text" name="marital_status" value="<%= user.marital_status || '' %>" />
+
+    <label>Образование</label>
+    <input type="text" name="education" value="<%= user.education || '' %>" />
+
+    <label>Загрузить аватар</label>
+    <input type="file" name="avatar" accept="image/*" />
+
+    <button type="submit">Сохранить</button>
+  </form>
+</body>
+</html>

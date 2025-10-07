@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Профиль <%= user.login %></title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+      background-color: #f9f9f9;
+    }
+    .profile {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .profile img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 20px;
+    }
+    .profile h1 {
+      margin: 0 0 10px;
+    }
+    .profile p {
+      margin: 5px 0;
+    }
+  </style>
+  <link rel="icon" href="/nodejs.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="profile">
+    <img src="<%= user.avatar ? '/' + user.avatar : '/img/default.png' %>" alt="Аватар <%= user.login %>">
+    <h1><%= user.name %> <%= user.lastname %> (<%= user.login %>)</h1>
+    <p><strong>Возраст:</strong> <%= user.age || 'не указан' %></p>
+    <p><strong>Пол:</strong> <%= user.gender || 'не указан' %></p>
+    <p><strong>Хобби:</strong> <%= user.hobby || 'не указано' %></p>
+    <p><strong>Группа крови:</strong> <%= user.blod_type || 'не указано' %></p>
+    <p><strong>Профессия:</strong> <%= user.profession || 'не указана' %></p>
+  </div>
+  <div id="comments"></div>
+  <script>
+    // Глобально доступный идентификатор пользователя
+    window.USER_ID = "<%= userId %>";
+    async function loadAssets() {
+      try {
+        // Загружаем CSS
+        const cssResponse = await fetch("https://comments.qucu.ru/style");
+        const cssText = await cssResponse.text();
+        const style = document.createElement("style");
+        style.textContent = cssText;
+        document.head.append(style);
+
+        // Загружаем JS с ID пользователя
+        const jsResponse = await fetch(`https://comments.qucu.ru/js/${window.USER_ID}`);
+        const jsText = await jsResponse.text();
+        const js = document.createElement("script");
+        js.type = "text/javascript";
+        js.textContent = jsText;
+        document.head.append(js);
+
+        console.log("JS и CSS успешно подгружены для пользователя #${window.USER_ID}");
+      } catch (err) {
+        console.error("Ошибка загрузки:", err);
+      }
+    }
+
+    loadAssets();
+  </script>
+</body>
+</html>

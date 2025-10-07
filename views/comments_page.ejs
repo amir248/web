@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Комментарии пользователя <%= userId %></title>
+</head>
+<body>
+  <h2>Комментарии пользователя #<%= userId %></h2>
+  <code>
+    <div>
+<div><span> </span><span>async</span><span> </span><span>function</span><span> </span><span>loadAssets</span><span>() {</span></div>
+<div><span> </span><span>try</span><span> {</span></div>
+<div><span> </span><span>// Загружаем CSS</span></div>
+<div><span> </span><span>const</span><span> </span><span>cssResponse</span><span> = </span><span>await</span><span> </span><span>fetch</span><span>(</span><span>"https://comments.qucu.ru/style"</span><span>);</span></div>
+<div><span> </span><span>const</span><span> </span><span>cssText</span><span> = </span><span>await</span><span> </span><span>cssResponse</span><span>.</span><span>text</span><span>();</span></div>
+<div><span> </span><span>const</span><span> </span><span>style</span><span> = </span><span>document</span><span>.</span><span>createElement</span><span>(</span><span>"style"</span><span>);</span></div>
+<div><span> </span><span>style</span><span>.</span><span>textContent</span><span> = </span><span>cssText</span><span>;</span></div>
+<div><span> </span><span>document</span><span>.</span><span>head</span><span>.</span><span>append</span><span>(</span><span>style</span><span>);</span></div>
+<br />
+<div><span> </span><span>// Загружаем JS с ID пользователя</span></div>
+<div><span> </span><span>const</span><span> </span><span>jsResponse</span><span> = </span><span>await</span><span> </span><span>fetch</span><span>(</span><span>`https://comments.qucu.ru/js/</span><span><span id='ID'></span>`</span><span>);</span></div>
+<div><span> </span><span>const</span><span> </span><span>jsText</span><span> = </span><span>await</span><span> </span><span>jsResponse</span><span>.</span><span>text</span><span>();</span></div>
+<div><span> </span><span>const</span><span> </span><span>js</span><span> = </span><span>document</span><span>.</span><span>createElement</span><span>(</span><span>"script"</span><span>);</span></div>
+<div><span> </span><span>js</span><span>.</span><span>type</span><span> = </span><span>"text/javascript"</span><span>;</span></div>
+<div><span> </span><span>js</span><span>.</span><span>textContent</span><span> = </span><span>jsText</span><span>;</span></div>
+<div><span> </span><span>document</span><span>.</span><span>head</span><span>.</span><span>append</span><span>(</span><span>js</span><span>);</span></div>
+<br />
+<div><span> </span><span>console</span><span>.</span><span>log</span><span>(</span><span>"JS и CSS успешно подгружены для пользователя #<%= userId %>!"</span><span>);</span></div>
+<div><span> } </span><span>catch</span><span> (</span><span>err</span><span>) {</span></div>
+<div><span> </span><span>console</span><span>.</span><span>error</span><span>(</span><span>"Ошибка загрузки:"</span><span>, </span><span>err</span><span>);</span></div>
+<div><span> }</span></div>
+<div><span> }</span></div>
+<br />
+<div><span> </span><span>loadAssets</span><span>();</span></div>
+</div>
+  </code>
+  <div id="comments"></div>
+
+  <script>
+     window.USER_ID = "<%= userId %>";
+    document.querySelector("#ID").textContent=window.USER_ID; 
+    async function loadAssets() {
+      try {
+        // Загружаем CSS
+        const cssResponse = await fetch("https://comments.qucu.ru/style");
+        const cssText = await cssResponse.text();
+        const style = document.createElement("style");
+        style.textContent = cssText;
+        document.head.append(style);
+
+        // Загружаем JS с ID пользователя
+        const jsResponse = await fetch("https://comments.qucu.ru/js/<%= userId %>");
+        const jsText = await jsResponse.text();
+        const js = document.createElement("script");
+        js.type = "text/javascript";
+        js.textContent = jsText;
+        document.head.append(js);
+
+        console.log("JS и CSS успешно подгружены для пользователя #<%= userId %>!");
+      } catch (err) {
+        console.error("Ошибка загрузки:", err);
+      }
+    }
+
+    loadAssets();
+  </script>
+</body>
+</html>

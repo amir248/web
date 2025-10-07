@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit avatar</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="/nodejs.svg" type="image/svg+xml">
+</head>
+<body>
+
+    <form method="POST" action="/avatar/edit" enctype="multipart/form-data">
+<input type="file" name="avatar" accept="image/*" /><br>
+        <button type="submit">Сохранить</button>
+    </form>
+
+    <p style="text-align:center; margin-top:1rem;">
+    <a href="/logout">Выйти</a>
+    </p>
+
+</body>
+</html>

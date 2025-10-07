@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= article.title %></title>
+  <meta name="description" content="<%= article.description %>">
+  <link rel="stylesheet" href="style.css">
+   <script type="application/ld+json">
+    <%- jsonData %>
+  </script>
+  <link rel="icon" href="/nodejs.svg" type="image/svg+xml">
+</head>
+<body>
+  <main>
+      <article>
+        <h1><%= article.title %></h1>
+        
+        <%- article.text %>
+        <p> <%= article.autor %></p>
+        <% if(article.url) { %>
+           <a href="/blozhik"> to go main page</a>
+          
+        <% } %>
+      </article>
+      <%- article.js %>
+      <!-- <a href="https://qucu.ru/blozhik/" style='border:3px solid yellow;border-radius:3px;background:rgba(200,200,200,0.3);font-size:22px;'>to list</a> -->
+      <div id="comments"></div>
+              <script>
+          async function loadAssets() {
+          try{
+            // Загружаем CSS
+            const cssResponse = await fetch("https://comments.qucu.ru/style");
+            const cssText = await cssResponse.text();
+            const style = document.createElement("style");
+            style.textContent = cssText;
+            document.head.append(style);
+            // Загружаем JS
+            const jsResponse = await fetch("https://comments.qucu.ru/js/blozh");
+            const jsText = await jsResponse.text();
+            const js = document.createElement("script");
+            js.type = "text/javascript";
+            js.textContent = jsText;
+            document.head.append(js);
+            console.log("JS и CSS успешно подгружены!");
+          }catch(err){console.error("Ошибка загрузки:", err)};
+        }
+        loadAssets();
+        </script>
+
+  </main>
+  <script defer src='/dateScript.js'></script>
+</body>
+</html>

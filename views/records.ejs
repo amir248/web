@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Список пользователей</title>
+</head>
+<body>
+  <h1>Пользователи</h1>
+  <ul>
+    <% users.forEach(user => { %>
+      <li><%= user.id %> - <%= user.name %></li>
+    <% }); %>
+  </ul>
+</body>
+</html>

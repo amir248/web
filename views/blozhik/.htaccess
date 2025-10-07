@@ -1,0 +1,7 @@
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION BEGIN
+PassengerAppRoot "/home/vh2u23120/blozhik"
+PassengerBaseURI "/blozhik"
+PassengerNodejs "/home/vh2u23120/nodevenv/blozhik/16/bin/node"
+PassengerAppType node
+PassengerStartupFile blozhik.js
+# DO NOT REMOVE. CLOUDLINUX PASSENGER CONFIGURATION END

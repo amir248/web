@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://team.qucu.ru/sitemap.xml
+Sitemap: https://qucu.ru/imagesSitemap.xml
+Sitemap: https://qucu.ru/blozhik/sitemap-blozhik.xml
+Sitemap: https://qucu.ru/resume/sitemap-resume.xml

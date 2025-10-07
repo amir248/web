@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body{
+            display:grid;
+            justify-content: center;
+            align-items: center;
+            width:100%;
+        }
+        form{
+            display:grid;
+        }
+        form > input{
+            width:100%;
+            max-width:400px;
+            height:40px;
+            font-size:20px;
+        }
+        form > button{
+            width:100%;
+            max-width:400px;
+            height:40px;
+        }
+    </style>
+    <link rel="icon" href="/nodejs.svg" type="image/svg+xml">
+</head>
+<body>
+    
+    <form method="POST" action="/login">
+      <input type="text" name="username" placeholder="Логин" required />
+      <input type="password" name="password" placeholder="Пароль" required />
+      <button type="submit">Войти</button>
+      <a href="/register">Регистранция</a>
+    </form>
+  
+</body>
+</html>

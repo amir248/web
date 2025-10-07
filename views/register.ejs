@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <meta name="description" content="Самые крутые программисты nodejs. JS на быстром сервере NGINX Debian.">
+    <link rel="icon" href="/nodejs.svg" type="image/svg+xml">
+    <style>
+    *{
+      margin:0;
+      padding:0;
+    }
+    body{
+      width:100%;
+      margin-left: auto;
+      margin-right:auto;
+      max-width:700px;
+    }
+    form{
+      display:grid;
+    }
+    form > input{
+        width:100%;
+        max-width:400px;
+        height:40px;
+        font-size:20px;
+    }
+    form > button{
+        width:100%;
+        max-width:400px;
+        height:40px;
+    }
+    </style>
+</head>
+<body>
+
+
+<form method="POST" action="/register">
+  <input type="text" placeholder="Логины" name="nickname" style="display:none" tabindex="-1" autocomplete="off" />
+  <input type="text" name="login" placeholder="Логин" required />
+  <input type="email" name="email" placeholder="Email" required />
+  <input type="password" name="password" placeholder="Пароль" required />
+  <!-- <input type="password" name="confirm-password" placeholder="confirm-password" required autocomplete="current-password"/> -->
+  <button type="submit">Зарегистрироваться</button>
+</form>
+<p style="text-align:center; margin-top:1rem;">
+  Уже есть аккаунт? <a href="/login">Войти</a>
+</p>
+<script>
+  let pass=document.querySelector("body > form:nth-child(1) > input:nth-child(4)");
+  let confirm=document.querySelector("body > form:nth-child(1) > input:nth-child(5)");
+  window.addEventListener('keydown',(e)=>{
+    console.log(e);
+    console.log(pass.value);
+    if(pass.value===confirm.value){
+      console.log('OK');
+    }else{
+      console.log('NO');
+    }
+  });
+  
+</script>
+</body>
+</html>
