@@ -1,0 +1,883 @@
+server {
+    listen 80;
+    server_name comments.qucu.ru;
+
+    # Редирект всех HTTP-запросов на HTTPS
+    return 301 https://$host$request_uri;
+}
+server {
+        server_name new.qucu.ru;
+
+        add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+        add_header X-Frame-Options "DENY" always;
+        add_header X-Content-Type-Options "nosniff" always;
+        add_header Referrer-Policy "no-referrer-when-downgrade" always;
+#         add_header Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data:; style-src 'self' 'unsafe-inline';" always;
+# add_header Content-Security-Policy "default-src 'self'; connect-src 'self' https://comments.qucu.ru; script-src 'self' https://comments.qucu.ru; style-src 'self' https://comments.qucu.ru; img-src 'self' data: https://comments.qucu.ru" always;
+        add_header Content-Security-Policy "default-src 'self';
+        connect-src 'self' https://comments.qucu.ru;
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://comments.qucu.ru;
+        style-src 'self' 'unsafe-inline' https://comments.qucu.ru;
+        img-src 'self' data: https://comments.qucu.ru;" always;
+
+
+        # Блок для /login3
+        location /login3 {
+                proxy_pass http://192.168.1.177:3700/login3;
+                proxy_http_version 1.1;
+
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+
+                proxy_hide_header Access-Control-Allow-Origin;
+                proxy_hide_header Access-Control-Allow-Credentials;
+
+                add_header 'Access-Control-Allow-Origin' $cors_origin always;
+                add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS' always;
+                add_header 'Access-Control-Allow-Headers' 'Origin, Content-Type, Accept, Authorization' always;
+                add_header 'Access-Control-Allow-Credentials' 'true' always;
+
+                # Preflight
+                if ($request_method = OPTIONS) {
+                        add_header 'Access-Control-Allow-Origin' $cors_origin always;
+                        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS' always;
+                        add_header 'Access-Control-Allow-Headers' 'Origin, Content-Type, Accept, Authorization' always;
+                        add_header 'Access-Control-Allow-Credentials' 'true' always;
+                        return 204;
+                }
+
+                # POST и GET идут на Node.js
+        }
+        location / {
+                proxy_pass http://192.168.1.177:3700;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                proxy_set_header X-Forwarded-Proto $scheme;
+        }
+
+        location /uploads/ {
+                proxy_pass http://192.168.1.177:3700;  # без /uploads/ на конце
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+    listen 443 ssl; # managed by Certbot
+    listen [::]:443 ssl;
+    ssl_certificate /etc/letsencrypt/live/new.qucu.ru/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/new.qucu.ru/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+server {
+    listen 443 ssl;
+    server_name comments.qucu.ru;
+
+    root /var/www/comments;
+    index index.html index.php;
+
+    ssl_certificate /etc/letsencrypt/live/comments.qucu.ru/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/comments.qucu.ru/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+       
+
+    # Прокси для Node.js
+    location / {
+        proxy_pass http://192.168.1.177:3000;
+        proxy_http_version 1.1;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        # Скрываем CORS заголовки от бэкенда
+        proxy_hide_header Access-Control-Allow-Origin;
+        proxy_hide_header Access-Control-Allow-Credentials;
+
+        # Добавляем нужные CORS-заголовки
+        add_header 'Access-Control-Allow-Origin' $cors_origin always;
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS' always;
+        add_header 'Access-Control-Allow-Headers' 'Origin, Content-Type, Accept, Authorization' always;
+        add_header 'Access-Control-Allow-Credentials' 'true' always;
+
+        # Preflight OPTIONS-запрос
+        if ($request_method = OPTIONS) {
+                add_header 'Access-Control-Allow-Origin' $cors_origin always;
+                add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS' always;
+                add_header 'Access-Control-Allow-Headers' 'Origin, Content-Type, Accept, Authorization' always;
+                add_header 'Access-Control-Allow-Credentials' 'true' always;
+            return 204;
+        }
+    }
+    
+
+
+# Блок для /profile3 (аналогично)
+location /profile3 {
+    proxy_pass http://192.168.1.177:3000/profile3;
+    proxy_http_version 1.1;
+
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header X-Forwarded-Proto $scheme;
+
+    proxy_hide_header Access-Control-Allow-Origin;
+    proxy_hide_header Access-Control-Allow-Credentials;
+
+    add_header 'Access-Control-Allow-Origin' $cors_origin always;
+    add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS' always;
+    add_header 'Access-Control-Allow-Headers' 'Origin, Content-Type, Accept, Authorization' always;
+    add_header 'Access-Control-Allow-Credentials' 'true' always;
+
+    if ($request_method = OPTIONS) {
+        add_header 'Access-Control-Allow-Origin' $cors_origin always;
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS' always;
+        add_header 'Access-Control-Allow-Headers' 'Origin, Content-Type, Accept, Authorization' always;
+        add_header 'Access-Control-Allow-Credentials' 'true' always;
+        return 204;
+    }
+}
+    # Отдельная локация для /allow-cors
+    location /allow-cors {
+        proxy_pass http://192.168.1.177:3000/allow-cors;
+        proxy_http_version 1.1;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        proxy_hide_header Access-Control-Allow-Origin;
+        proxy_hide_header Access-Control-Allow-Credentials;
+
+        add_header 'Access-Control-Allow-Origin' $cors_origin always;
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS' always;
+        add_header 'Access-Control-Allow-Headers' 'Origin, Content-Type, Accept, Authorization' always;
+        add_header 'Access-Control-Allow-Credentials' 'true' always;
+
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+    }
+    # Отдельная локация для /200
+    location /200 {
+        proxy_pass http://192.168.1.177:3000/200;
+        proxy_http_version 1.1;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+
+        proxy_hide_header Access-Control-Allow-Origin;
+        proxy_hide_header Access-Control-Allow-Credentials;
+
+        add_header 'Access-Control-Allow-Origin' $cors_origin always;
+        add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS' always;
+        add_header 'Access-Control-Allow-Headers' 'Origin, Content-Type, Accept, Authorization' always;
+        add_header 'Access-Control-Allow-Credentials' 'true' always;
+
+        if ($request_method = OPTIONS) {
+            return 204;
+        }
+    }
+   
+    # Прокси для /getIp
+    location /getIp {
+        proxy_pass http://192.168.1.177:3000/getIp;
+        proxy_http_version 1.1;
+
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # PHP обработка
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+}
+
+
+server {
+	server_name furniture.sibiro.ru;
+	index index.html index.php;
+	root /var/www/furniture;
+
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/var/run/php/php-fpm.sock;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include fastcgi_params;
+        }
+
+	location / {
+		# try_files $uri $uri/ /index.php;
+		try_files $uri $uri/ =404;
+	}
+	# location / {
+        #         # proxy_pass http://192.168.1.102;
+        #         # proxy_set_header Host $host;
+        # }
+        location /livingRoom {
+                # try_files $uri $uri/ /livingRoom.html;
+                try_files $uri $uri/ /livingRoom.php;
+        }
+        location /kitchen {
+                # try_files $uri $uri/ /kitchen.html;
+                try_files $uri $uri/ /kitchen.php;
+        }
+        location /closet {
+                # try_files $uri $uri/ /closet.html;
+                try_files $uri $uri/ /closet.php;
+        }
+        location /hallways {
+                try_files $uri $uri/ /hallways.php;
+                # try_files $uri $uri/ /hallways.html;
+        }
+        location /retailStoreEquipment {
+                # try_files $uri $uri/ /retailStoreEquipment.html;
+                try_files $uri $uri/ /retailStoreEquipment.php;
+        }
+        location /wardrobe {
+                # try_files $uri $uri/ /wardrobe.html;
+                try_files $uri $uri/ /wardrobe.php;
+        }
+        location /beds-to-order {
+                try_files $uri $uri/ /beds-to-order.php;
+                # try_files $uri $uri/ /beds-to-order.html;
+        }
+        location /custom-cabinet-furniture {
+                try_files $uri $uri/ /custom-cabinet-furniture.php;
+               
+        }
+        location /chestsOfDrawers {
+                try_files $uri $uri/ /chestsOfDrawers.php;
+        }
+        location /design {
+                try_files $uri $uri/ /design.php;
+        }
+        location /footprint {
+                try_files $uri $uri/ /footprint.php;
+        }
+        location /made {
+                try_files $uri $uri/ /made.php;
+        }
+        location /order-cabinet-furniture-in-Novosibirsk {
+                try_files $uri $uri/ /order-cabinet-furniture-in-Novosibirsk.php;
+        }
+        location /promotionDiscounts {
+                try_files $uri $uri/ /promotionDiscounts.php;
+        }
+        location /map {
+                try_files $uri $uri/ /map.php;
+        }
+		
+       	# Настройка кастомной 404 страницы
+    	error_page 404 /404.html;
+	
+	# Статика для 404
+    	location = /404.html {
+        	internal;
+    	}
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/furniture.sibiro.ru/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/furniture.sibiro.ru/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+server {
+
+	root /var/www/qucu;
+
+	# Add index.php to the list if you are using PHP
+	index index.html index.htm index.nginx-debian.html index.php;
+
+	server_name qucu.ru;
+        # Обработка всех запросов
+        location / {
+                try_files $uri $uri/ /index.php?$query_string;
+        }
+        # Обработка PHP
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+
+                # Укажите ваш PHP-FPM сокет или TCP
+                fastcgi_pass unix:/run/php/php8.2-fpm.sock;
+
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                include fastcgi_params;
+        }
+        # CORS заголовки (если нужно для AJAX с другого домена)
+        add_header Access-Control-Allow-Origin *;
+        add_header Access-Control-Allow-Methods "GET, POST, OPTIONS";
+        add_header Access-Control-Allow-Headers "Content-Type";
+
+        location /ok {
+                proxy_pass http://192.168.1.10:3700/ok;
+                proxy_set_header Host $host;
+        }
+        location /registration {
+                proxy_pass http://192.168.1.10:3700/registration;
+                proxy_set_header Host $host;
+        }
+        location /registrations {
+			try_files $uri $uri/ /PHP/registration.php;
+	}
+        location /login {
+                try_files $uri $uri/ /PHP/login.php;
+        }
+        #location /registration2 {
+         #       proxy_pass http://192.168.1.10:3700/registration2;
+          #      proxy_set_header Host $host;
+        #}
+        location /PHP/registration.php {
+                proxy_pass http://192.168.1.10:3700/PHP/registration.php;
+                proxy_set_header Host $host;
+        }
+        location /who-is-faster-php-or-js {
+                proxy_pass http://192.168.1.10:3700/who-is-faster-php-or-js/;
+                proxy_set_header Host $host;
+        }
+        location /who-is-faster-php-or-js_php {
+                # root /var/www/who-is-faster-PHP-or-JS;/
+                # try_files $uri $uri/ $uri.php /404.html =404;
+                # try_files $uri $uri/ $uri.html /404.html =404;
+                # proxy_set_header Host $host;
+                # try_files $uri $uri/ /who-is-faster-PHP-or-JS/index.php;
+                try_files $uri $uri/ /who-is-faster-PHP-or-JS/index.php;
+        }
+        location /who-is-faster-php-or-js_js {
+                # root /var/www/who-is-faster-PHP-or-JS;/
+                # try_files $uri $uri/ $uri.php /404.html =404;
+                # try_files $uri $uri/ $uri.html /404.html =404;
+                # proxy_set_header Host $host;
+                # try_files $uri $uri/ /who-is-faster-PHP-or-JS/index.php;
+                try_files $uri $uri/ /who-is-faster-PHP-or-JS/index.html;
+        }
+	location /images/logo.png {
+			try_files $uri $uri/ /images/logo.png;
+	}
+	location /robots.txt {
+                alias /var/www/qucu/robots.txt;
+		proxy_set_header Host $host;
+                try_files $uri $uri/ $uri.txt /404.html =404;
+	}
+
+        location /script.js {
+		try_files $uri $uri/ /public/script/script.js;
+		proxy_set_header Host $host;
+                #  add_header 'Access-Control-Allow-Origin' '*' always;
+         }
+       
+	location /comments {
+		proxy_pass http://192.168.1.10:3700/comments;
+                proxy_set_header Host $host;
+		# add_header 'Access-Control-Allow-Origin' '*' always;
+	}
+	location /blozhik {
+	        proxy_pass http://192.168.1.177:3700;
+		proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	}
+        location /dateScript.js {
+	        proxy_pass http://192.168.1.177:3700/dateScript.js;
+		proxy_set_header Host $host;
+	}
+        # Раздаём аватары
+        location /uploads/ {
+                alias /var/www/site/public/uploads/;
+                autoindex off;
+        }
+        location /js.svg {
+                proxy_pass http://192.168.1.177:3700/images/js.svg;
+                proxy_set_header Host $host;
+        }
+	location /sitemap.xml {
+                try_files $uri $uri/ /public_old/sitemap.xml;
+        }
+	location /imagesSitemap.xml {
+                try_files $uri $uri/ /public_old/imagesSitemap.xml;
+        }
+	location /sitemap-blozhik.xml {
+                try_files $uri $uri/ /blozhik/sitemap-blozhik.xml;
+        }
+	location /resume/sitemap-resume.xml {
+                try_files $uri $uri/ /public_old/resume/sitemap-resume.xml;
+        }
+	
+
+	location  /yandex/blozhik/ {
+ 		 return 301 /blozhik/;
+	}
+
+	location /adaptive-layout-add-on.html {
+		try_files $uri $uri/ /public_old/adaptive-layout-add-on.html;
+	}
+        location /adaptive-layout-add-on {
+		try_files $uri $uri/ /public_old/adaptive-layout-add-on.html;
+	}
+	location /SEO-site-optimization.html {
+                try_files $uri $uri/ /public_old/SEO-site-optimization.html;
+        }
+        location /SEO-site-optimization {
+                try_files $uri $uri/ /public_old/SEO-site-optimization.html;
+        }
+	location /adaptive-layout.html {
+                try_files $uri $uri/ /public_old/adaptive-layout.html;
+        }
+	location /advertising.html {
+                try_files $uri $uri/ /public_old/advertising.html;
+        }
+	location /SEO-web-site-layout.html {
+		try_files $uri $uri/ /public_old/SEO-web-site-layout.html;
+	}
+	location /animation-on-a-web-page.html {
+                try_files $uri $uri/ /public_old/animation-on-a-web-page.html;
+        }
+	 location /baron-sajtoverstauzen.html {
+                try_files $uri $uri/ /public_old/baron-sajtoverstauzen.html;
+        }
+	 location /burger-menu-with-the-composition-of-all-pages-of-the-site.html {
+                try_files $uri $uri/ /public_old/burger-menu-with-the-composition-of-all-pages-of-the-site.html;
+        }
+	location /comment-system.html {
+                try_files $uri $uri/ /public_old/comment-system.html;
+        }
+	location /contextual-advertising.html {
+                try_files $uri $uri/ /public_old/contextual-advertising.html;
+        }
+	location /curling.html {
+                try_files $uri $uri/ /public_old/curling.html;
+        }
+	location /dog-barking.html {
+                try_files $uri $uri/ /public_old/dog-barking.html;
+        }
+	location /emodzi.html {
+                try_files $uri $uri/ /public_old/emodzi.html;
+        }
+	location /enable-disable-on-javascript.html {
+                try_files $uri $uri/ /public_old/enable-disable-on-javascript.html;
+        }
+	location /experiment.html {
+                try_files $uri $uri/ /public_old/experiment.html;
+        }
+	location /fast-hosting-and-amp.html {
+                try_files $uri $uri/ /public_old/fast-hosting-and-amp.html;
+        }
+	location /feedback-form.html {
+                try_files $uri $uri/ /public_old/feedback-form.html;
+        }
+	location /figma-landing-page-thrivetalk.html {
+                try_files $uri $uri/ /public_old/figma-landing-page-thrivetalk.html;
+        }
+	location /figma-landing-page.html {
+                try_files $uri $uri/ /public_old/figma-landing-page.html;
+        }
+	location /figma-simple-website.html {
+                try_files $uri $uri/ /public_old/figma-simple-website.html;
+        }
+	location /frontend-developer.html {
+                try_files $uri $uri/ /public_old/frontend-developer.html;
+        }
+	location /full-stack.html {
+                try_files $uri $uri/ /public_old/full-stack.html;
+        }
+	location /good-deal.html {
+                try_files $uri $uri/ /public_old/good-deal.html;
+        }
+	location /gorgeous-site-on-free-hosting.html {
+                try_files $uri $uri/ /public_old/gorgeous-site-on-free-hosting.html;
+        }
+	location /html,css,js-coder.html {
+                try_files $uri $uri/ /public_old/html,css,js-coder.html;
+        }
+	location /kostylea.html {
+                try_files $uri $uri/ /public_old/kostylea.html;
+        }
+	location /landing-full-stack.html {
+                try_files $uri $uri/ /public_old/landing-full-stack.html;
+        }
+	location /landing-page-development.html {
+  		try_files $uri $uri/ /public_old/landing-page-development.html;
+	}
+	location /landing-page-development {
+		try_files $uri $uri/ /public_old/landing-page-development.html;
+	}
+	location /landing-page-with-advertising-and-SEO-optimizations.html {
+		  try_files $uri $uri/ /public_old/landing-page-with-advertising-and-SEO-optimizations.html;
+	}
+	location /landing-page.html {
+  		try_files $uri $uri/ /public_old/landing-page.html;
+	}
+        location /landing-page {
+  		try_files $uri $uri/ /public_old/landing-page.html;
+	}
+	location /loading-content-to-enter-the-green-zone-on-page-speed.html {
+                try_files $uri $uri/ /public_old/loading-content-to-enter-the-green-zone-on-page-speed.html;
+        }
+	location /lazy-load.html {
+	 	try_files $uri $uri/ /public_old/lazy-load.html;
+        }
+	location /make-money-with-your-favorite-hobby.html {
+                try_files $uri $uri/ /public_old/make-money-with-your-favorite-hobby.html;
+        }
+	location /marketing-experiment.html {
+                try_files $uri $uri/ /public_old/marketing-experiment.html;
+        }
+	location /mobile-site.html {
+                try_files $uri $uri/ /public_old/mobile-site.html;
+        }
+	 location /multi-landing-page-on-a-bare-front-end.html {
+                try_files $uri $uri/ /public_old/multi-landing-page-on-a-bare-front-end.html;
+        }
+	 location /order-a-landing-page.html {
+                try_files $uri $uri/ /public_old/order-a-landing-page.html;
+        }
+	 location /page.html {
+                try_files $uri $uri/ /public_old/page.html;
+        }
+	 location /path-to-site-creators.html {
+                try_files $uri $uri/ /public_old/path-to-site-creators.html;
+        }
+	 location /php-hidden-ninzja.html {
+                try_files $uri $uri/ /public_old/php-hidden-ninzja.html;
+        }
+	  location /pimple-menu.html {
+                try_files $uri $uri/ /public_old/pimple-menu.html;
+        }
+	location /quiz.html {
+                try_files $uri $uri/ /public_old/quiz.html;
+        }
+	location /ranking-tabs.html {
+                try_files $uri $uri/ /public_old/ranking-tabs.html;
+        }
+	location /rockPaperScissors.html {
+                try_files $uri $uri/ /public_old/rockPaperScissors.html;
+        }
+	location /site-monetization.html {
+                try_files $uri $uri/ /public_old/site-monetization.html;
+        }
+	location /structured-data-markup.html {
+                try_files $uri $uri/ /public_old/structured-data-markup.html;
+        }
+	location /super-landing-page.html {
+                try_files $uri $uri/ /public_old/super-landing-page.html;
+        }
+	location /test-na-verstalshika.html {
+                try_files $uri $uri/ /public_old/test-na-verstalshika.html;
+        }
+	location /typesetter-html-css.html {
+                try_files $uri $uri/ /public_old/typesetter-html-css.html;
+        }
+	location /typesetter-web-pages.html {
+                try_files $uri $uri/ /public_old/typesetter-web-pages.html;
+        }
+	location /up-button.html {
+                try_files $uri $uri/ /public_old/up-button.html;
+        }
+	location /voting.html {
+                try_files $uri $uri/ /public_old/voting.html;
+	}
+	location /working-for-free.html {
+                try_files $uri $uri/ /public_old/working-for-free.html;
+        }
+	location /order-one-page.html {
+                try_files $uri $uri/ /public_old/order-one-page.html;
+        }
+        location /order-one-page {
+                try_files $uri $uri/ /public_old/order-one-page.html;
+        }
+	location /resume/Amir.html {
+                try_files $uri $uri/ /public_old/resume/Amir.html;
+        }
+        location /resume/Amir {
+                try_files $uri $uri/ /public_old/resume/Amir.html;
+        }
+	location /resume/xxx {
+		try_files $uri $uri/ /public_old/resume/xxx.html;
+	}
+	location /resume/Amir-rusName {
+		try_files $uri $uri/ /public_old/resume/Amir-rusName.html;
+	}
+
+location ~ \.php$ {
+    include snippets/fastcgi-php.conf;
+    fastcgi_pass unix:/var/run/php/php-fpm.sock;
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    include fastcgi_params;
+}
+    listen [::]:443 ssl ipv6only=on; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/qucu.ru/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/qucu.ru/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+
+}
+
+
+
+server {
+	listen 80;
+	listen [::]:80;
+
+	server_name 88.204.56.164;
+
+	root /var/www/html;
+	index index.html;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
+
+
+# server {
+# 	listen 80;
+# 	listen [::]:80;
+
+# 	server_name 192.168.1.103;
+
+# 	root /var/www/html;
+# 	index index.html;
+
+# 	location / {
+#                 # proxy_pass http://192.168.1.177;
+#                 # proxy_set_header Host $host;
+# 		try_files $uri $uri/ =404;
+# 	}
+# }
+server {
+	listen 80;
+	listen [::]:80;
+
+	server_name who-is-faster-php-or-js.qucu.ru;
+
+	root /var/www/who-is-faster-PHP-or-JS;
+	index index.html index.php;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+}
+
+server {
+        server_name router.qucu.ru;
+        
+        index index.htm index.html;
+
+        location / {
+                proxy_pass http://192.168.1.1;
+                proxy_set_header Host $host;
+        }
+        location /tenda {
+                proxy_pass http://192.168.1.102/index.html#/;
+                proxy_set_header Host $host;
+        }
+
+    listen [::]:443 ssl; # managed by Certbot
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/router.qucu.ru/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/router.qucu.ru/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+server {
+    if ($host = qucu.ru) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+	listen 80 ;
+	listen [::]:80 ;
+
+	server_name qucu.ru;
+    return 404; # managed by Certbot
+
+
+}
+
+# server {
+
+# 	server_name  super.qucu.ru;
+
+# 	# root /var/www/super;
+# 	index index.html index.php;
+
+# 	location / {
+#                 proxy_pass http://192.168.1.177:777;
+#                 proxy_set_header Host $host;
+# 		# try_files $uri $uri/ =404;
+# 	}
+
+#     listen [::]:443 ssl; # managed by Certbot
+#     listen 443 ssl; # managed by Certbot
+#     ssl_certificate /etc/letsencrypt/live/super.qucu.ru/fullchain.pem; # managed by Certbot
+#     ssl_certificate_key /etc/letsencrypt/live/super.qucu.ru/privkey.pem; # managed by Certbot
+#     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+#     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+# }
+
+server {
+        server_name s.sibiro.ru;
+        index index.html index.php;
+
+        location / {
+                proxy_pass http://192.168.1.177:888;
+                proxy_set_header Host $host;
+        }
+
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/s.sibiro.ru/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/s.sibiro.ru/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+}
+ server {
+
+ 	server_name  chikchicly.qucu.ru;
+
+ 	# root /var/www/super;
+ 	index index.html index.php;
+
+ 	location / {
+                 proxy_pass http://192.168.1.110:977;
+                 proxy_set_header Host $host;
+ 		# try_files $uri $uri/ =404;
+ 	}
+	location /feedback {
+		proxy_pass http://192.168.1.110:3000/feedback;
+		proxy_set_header Host $host;
+		proxy_set_header X-Real-IP $remote_addr;
+   		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+   	 	proxy_set_header X-Forwarded-Proto $scheme;
+	}
+
+     listen 443 ssl; # managed by Certbot
+     ssl_certificate /etc/letsencrypt/live/chikchicly.qucu.ru/fullchain.pem; # managed by Certbot
+     ssl_certificate_key /etc/letsencrypt/live/chikchicly.qucu.ru/privkey.pem; # managed by Certbot
+     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+ }
+# server {
+#         listen 778;
+# 	server_name  super.qucu.ru;
+#         proxy_set_header X-Real-IP  $remote_addr; # pass on real client IP
+# 	location / {
+#                 proxy_pass http://192.168.1.177:22;
+#                 # proxy_set_header Host $host;
+# 	}
+# }
+
+server {
+    if ($host = furniture.sibiro.ru) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+	server_name furniture.sibiro.ru;
+    listen 80;
+    return 404; # managed by Certbot
+
+
+}
+
+# server {
+#     if ($host = super.qucu.ru) {
+#         return 301 https://$host$request_uri;
+#     } # managed by Certbot
+
+
+# 	listen 80;
+# 	listen [::]:80;
+
+# 	server_name  super.qucu.ru;
+#     return 404; # managed by Certbot
+
+
+# }
+ server {
+     if ($host = chikchicly.qucu.ru) {
+         return 301 https://$host$request_uri;
+     } # managed by Certbot
+
+
+
+ 	server_name  chikchicly.qucu.ru;
+     listen 80;
+     return 404; # managed by Certbot
+
+
+ }
+server {
+    if ($host = s.sibiro.ru) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+        server_name s.sibiro.ru;
+    listen 80;
+    return 404; # managed by Certbot
+
+
+}
+# server{
+#     if ($host = comments.qucu.ru) {
+#         return 301 https://$host$request_uri;
+#     } # managed by Certbot
+
+
+#         server_name comments.qucu.ru;
+#     listen 80;
+#     return 404; # managed by Certbot
+
+
+# }
+
+
+server {
+    if ($host = router.qucu.ru) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+        listen 80;
+        listen [::]:80;
+        server_name router.qucu.ru;
+    return 404; # managed by Certbot
+
+
+}
+
+server {
+    if ($host = new.qucu.ru) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+        listen 80;
+        server_name new.qucu.ru;
+    return 404; # managed by Certbot
+
+
+}
