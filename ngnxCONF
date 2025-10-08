@@ -1,0 +1,26 @@
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+error_log /var/log/nginx/error.log;
+include /etc/nginx/modules-enabled/*.conf;
+
+events {
+	worker_connections 768;
+	# multi_accept on;
+}
+
+http {
+	# map $http_origin $cors_origin {
+    # default "";
+	# 	~^https?://([a-z0-9-]+\.)?(qucu\.ru|nasobru\.ru)$ $http_origin;
+	# }
+
+	map $http_origin $cors_origin {
+		default "";
+		"~^https?://(qucu\.ru|github\.qucu\.ru|madness\.qucu\.ru|nasobru\.ru|comments\.qucu\.ru|new\.qucu\.ru|send-json\.qucu\.ru)$" $http_origin;
+	}
+
+
+	##
+	# Basic Settings
+	##
