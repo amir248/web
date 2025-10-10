@@ -153,7 +153,9 @@ app.post("/login3", async (req, res) => {
     res.status(500).json({ message: "Ошибка сервера" });
   }
 });
-
+app.get("/about",(req,res)=>{
+  res.render("about");
+})
 // Публичный просмотр профиля по логину
 app.get("/profile/view/:login", async (req, res) => {
   try {
