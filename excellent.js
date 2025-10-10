@@ -64,7 +64,7 @@ client.connect();
 
 // ======== Middleware ========
 app.use(cors({
-  origin: ['https://wealth.qucu.ru',"https://commnets.qucu.ru","https://send-json.qucu.ru/"], // разрешаем запросы только с этого сайта
+  origin: ['https://nasobe.ru','https://wealth.qucu.ru',"https://commnets.qucu.ru","https://send-json.qucu.ru/"], // разрешаем запросы только с этого сайта
   methods: ['POST', 'GET'],
   credentials: true
 }));
@@ -254,6 +254,23 @@ app.get('/logout', (req, res) => {
     }
     res.clearCookie('connect.sid'); // удаляем cookie сессии
     res.redirect('/'); // перенаправляем на страницу логина
+  });
+});
+app.post('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      console.error("Ошибка при выходе:", err);
+      return res.json({ success: false, message: "Ошибка сервера" });
+    }
+
+    // Для кросс-домена cookie обязательно с SameSite=None и Secure
+    res.clearCookie('connect.sid', { 
+      httpOnly: true, 
+      secure: true, 
+      sameSite: 'None' 
+    });
+
+    res.json({ success: true, message: "Вы вышли из системы" });
   });
 });
 
