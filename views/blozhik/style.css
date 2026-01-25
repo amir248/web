@@ -87,3 +87,35 @@ body{
     width:100%;
     max-width:900px;
 }
+
+body > main > article > article > section > pre {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 12px;
+    box-sizing: border-box;
+    white-space: pre;
+}
+
+body > main > article > article > section > pre > code {
+    width:100%;
+    max-width:100%;
+    display: block;
+    white-space: pre;
+    word-wrap: normal;
+}
+@media(max-width:750px){
+  body > main > article > article > section > pre > code{
+    max-width:390px;
+  }
+}
+@media(max-width:550px){
+  body > main > article > article > section > pre > code{
+    max-width:290px;
+  }
+}
+@media(max-width:350px){
+  body > main > article > article > section > pre > code{
+    max-width:250px;
+  }
+}
+
