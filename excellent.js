@@ -13,6 +13,7 @@ const crypto = require("crypto");
 const { getMaxListeners } = require('events');
 const cron = require("node-cron");
 const cors = require('cors');
+require('dotenv').config();
 
 
 app.set("trust proxy", 1); // доверяем первому прокси
@@ -324,8 +325,8 @@ cron.schedule("0 * * * *", async () => {
   //  const transporter = nodemailer.createTransport({
   //     service: "gmail",
   //     auth: {
-  //       user: "chikchicly@gmail.com",
-  //       pass: "gzpn sthf vtux ypef" // пароль приложения
+  //       user: process.env.GMAIL_USER,
+    //    pass: process.env.GMAIL_PASS // пароль приложения
   //     }
   //   });
     const transporter = nodemailer.createTransport({
@@ -333,8 +334,8 @@ cron.schedule("0 * * * *", async () => {
       port: 465,                  // обычно 465 для SSL или 587 для TLS
       secure: true,               // true для 465, false для 587
       auth: {
-        user: "lucky",   // ваш email
-        pass: ""  
+        user: process.env.SMTP_USER,   // ваш email
+        pass: process.env.SMTP_PASSD  
       }
     });
 // === Маршрут для заявок ===
@@ -400,8 +401,8 @@ app.post("/resend-verification", async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "chikchicly@gmail.com",
-        pass: "gzpn sthf vtux ypef" // пароль приложения
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS // пароль приложения
       }
     });
 
@@ -464,8 +465,8 @@ app.post("/register", registerLimiter, async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "chikchicly@gmail.com",
-        pass: "gzpn sthf vtux ypef"
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_PASS
       }
     });
 
