@@ -21,7 +21,6 @@ main{
 article{
   display:grid;
   justify-content: center;
-  /* align-items: center; */
   max-width:900px;
   width:100%;
 }
@@ -47,7 +46,7 @@ aside a{
 
   aside li{
     display:inline-block;
-    float:right;
+    /* float:right; */
     margin-left: 3%;
     background:green;
     border-radius: 7px;
