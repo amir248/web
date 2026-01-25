@@ -334,7 +334,7 @@ cron.schedule("0 * * * *", async () => {
       secure: true,               // true для 465, false для 587
       auth: {
         user: "lucky",   // ваш email
-        pass: ""  
+        pass: "Lucky&*"       // пароль от почты или пароль приложения
       }
     });
 // === Маршрут для заявок ===
