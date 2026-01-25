@@ -321,14 +321,7 @@ cron.schedule("0 * * * *", async () => {
     console.error("Ошибка при удалении неактивных пользователей:", err);
   }
 });
-// Маршрут обработки формы https://wealth.qucu.ru/request-quote для формы /send-quote ========
-  //  const transporter = nodemailer.createTransport({
-  //     service: "gmail",
-  //     auth: {
-  //       user: process.env.GMAIL_USER,
-    //    pass: process.env.GMAIL_PASS // пароль приложения
-  //     }
-  //   });
+
     const transporter = nodemailer.createTransport({
       host: "mail.qucu.ru",      // адрес вашего SMTP сервера
       port: 465,                  // обычно 465 для SSL или 587 для TLS
