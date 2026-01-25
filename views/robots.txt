@@ -1,0 +1,28 @@
+# robots.txt для https://new.qucu.ru/
+# Автор: Amir Navrutdinov
+# Назначение: SEO-дружественная настройка индексации проекта Super Comment System
+
+User-agent: *
+# Разрешаем индексировать публичные страницы
+Allow: /
+Allow: /about
+Allow: /comments
+Allow: /auth/google
+
+# Закрываем от индексации приватные разделы и API
+Disallow: /login
+Disallow: /logout
+Disallow: /profile
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /api
+Disallow: /auth/
+Disallow: /session
+Disallow: /uploads
+Disallow: /tmp
+
+# Указываем sitemap
+Sitemap: https://new.qucu.ru/sitemap.xml
+
+# Указываем, где находится главная версия сайта
+Host: new.qucu.ru

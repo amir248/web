@@ -703,8 +703,10 @@ app.post('/add',requireAuth, async (req, res) => {
 // Показать форму редактирования поста по URL
 app.get("/edit/:url", requireAuth,async (req, res) => {
   const url = req.params.url;
+  console.log(req.session.user.name);
+  console.log(req.session.user.login);
    // Если нужно, проверка роли администратора requireAuth
-    if (!req.session.user || req.session.user.username !== 'Amir') {
+    if (!req.session.user.name || req.session.user.login !== 'Amir') {
       return res.status(403).send("Доступ запрещён");
     }
   try {

@@ -1,0 +1,49 @@
+.menu{
+    width:70px;
+    height:70px;
+    border-radius: 50%;
+    border:3px solid grey;
+    background:yellow;
+    display: grid;
+    position: sticky;
+    float:right;
+    top:30px;
+    right:10px;
+    opacity:0.3;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    font-size:43px;
+    transition:all ease-out 2s;
+}
+.listMenu{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width:0;
+    height: 100vh;
+    position:fixed;
+    top:0;
+    background: green;
+    transition:all ease-out 1s;
+    font-size:0;
+    opacity:0;
+}
+.openListMenu{
+    width:100%;
+    transition:all ease-out 1s;
+    opacity:1;
+}
+.openListMenu > a{
+    font-size:33px;
+    color:yellow;
+    text-shadow: 2px 2px black;
+    transition:all ease-out 1s;
+}
+.openListMenu > a:hover{
+    color:black;
+    transition:all ease-out 1s;
+    text-decoration: none;
+    text-shadow: 2px 2px yellow;
+}

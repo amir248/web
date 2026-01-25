@@ -10,6 +10,10 @@
             padding:0;
         }
         body{
+            background:black;
+            color:white;
+        }
+        main{
             display:grid;
             justify-content: center;
             align-items: center;
@@ -23,23 +27,29 @@
             max-width:400px;
             height:40px;
             font-size:20px;
+            background: green;
+            text-shadow:black 1px 1px;
         }
         form > button{
             width:100%;
             max-width:400px;
             height:40px;
+            background: yellow;
         }
     </style>
     <link rel="icon" href="/nodejs.svg" type="image/svg+xml">
 </head>
 <body>
-    
-    <form method="POST" action="/login">
-      <input type="text" name="username" placeholder="Логин" required />
-      <input type="password" name="password" placeholder="Пароль" required />
-      <button type="submit">Войти</button>
-      <a href="/register">Регистранция</a>
-    </form>
+    <main>
+        <form method="POST" action="/login">
+            <input type="text" name="username" placeholder="Логин" required />
+            <input type="password" name="password" placeholder="Пароль" required />
+            <button type="submit">Войти</button>
+            <a href="/register">Регистранция</a>
+        </form>
+    </main>
+   
   
 </body>
+ <script defer src="js/menu.js"></script>
 </html>
