@@ -1,15 +1,10 @@
-//blozhik 3700 new.qucu.ru excellent site;
-
-
+//blozhik 3700
 const express = require('express');
 const bcrypt = require('bcrypt');
 const { Client } = require('pg');
 const dbConfig = require('./custom_modules/dbConfig');
 const app = express();
 const path = require("path");
-require('dotenv').config({
-  path: path.join(__dirname, 'custom_modules', '.env')
-});
 const session = require('express-session');
 const multer = require('multer');
 const rateLimit = require("express-rate-limit");
@@ -18,9 +13,6 @@ const crypto = require("crypto");
 const { getMaxListeners } = require('events');
 const cron = require("node-cron");
 const cors = require('cors');
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 
 app.set("trust proxy", 1); // доверяем первому прокси
@@ -70,36 +62,40 @@ const client = new Client(dbConfig);
 
 client.connect();
 
-app.use(express.urlencoded({ extended: true })); // для form-urlencoded
-app.use(express.json()); // для JSON, если используется
-
 // ======== Middleware ========
-const allowedOrigins = [
-  'https://qucu.ru',
-  'https://new.qucu.ru',
-  'https://comments.qucu.ru',
-  'https://send-json.qucu.ru',
-  'https://wealth.qucu.ru',
-  'https://nasobe.ru'
-];
-
 app.use(cors({
   origin: function(origin, callback){
-    console.log('CORS origin:', origin);
-    if (!origin) return callback(null, true); // Postman, curl, серверные запросы
+    const allowedOrigins = [
+      'https://new.qucu.ru',
+      'https://comments.qucu.ru',
+      'https://send-json.qucu.ru',
+      'https:wealth.qucu.ru',
+      'https://nasobe.ru'
+    ];
+    if (!origin) return callback(null, true); // для Postman или сервер-сервер
     if (allowedOrigins.includes(origin)) {
-      console.log( "CORS orign: ", origin);
       callback(null, true);
     } else {
-      console.log("CORS blocked origin:", origin);
       callback(new Error('Not allowed by CORS'));
     }
   },
   credentials: true,
 }));
+// app.use(cors({
+//   origin: ['https://nasobe.ru','https://wealth.qucu.ru',"https://comments.qucu.ru","https://send-json.qucu.ru/"], // разрешаем запросы только с этого сайта
+//   methods: ['POST', 'GET'],
+//   credentials: true
+// }));
+app.use(express.urlencoded({ extended: true })); // для form-urlencoded
+app.use(express.json()); // для JSON, если используется
+// const jsonData = JSON.stringify(req.body.json || {});/
 
-
-
+// app.use(session({
+//   secret: 'superSecretKey', // лучше вынести в .env
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: { secure: false } // true только с HTTPS
+// }));
 app.use(session({
   secret: process.env.SESSION_SECRET || "superSecretKey",
   resave: false,
@@ -330,24 +326,20 @@ cron.schedule("0 * * * *", async () => {
       port: 465,                  // обычно 465 для SSL или 587 для TLS
       secure: true,               // true для 465, false для 587
       auth: {
-        user: process.env.SMTP_USER,   // ваш email
-        pass: process.env.SMTP_PASSD
+        user: "lucky",   // ваш email
+        pass: "Lucky&*"       // пароль от почты или пароль приложения
       }
     });
 // === Маршрут для заявок ===
 app.post("/send-quote", async (req, res) => {
   try {
-    const body = req.body || {};
-    const { fullName, phone, email, goals, page } = body;
-    console.log("SMTP USER:", process.env.SMTP_USER);
-    console.log("SMTP PASS exists:", !!process.env.SMTP_PASSD);
-
+    const { fullName, phone, email, goals, page } = req.body;
 
     console.log("Новая заявка:", fullName, phone, email, goals);
 
     // формируем письмо
     const mailOptions = {
-      from: '"Форма заявки" 177',
+      from: '"Форма заявки" <youremail@yandex.ru>',
       to: "lucky@qucu.ru", // куда получать заявки
       // to: "chikchicly@gmail.com", // куда получать заявки
       subject: "New 💻 " +`${page}`,
@@ -363,7 +355,7 @@ app.post("/send-quote", async (req, res) => {
 
     res.json({ success: true, message: "Заявка отправлена на почту!" });
   } catch (err) {
-    console.error("Ошибка отправки:", err );
+    console.error("Ошибка отправки:", err);
     res.status(500).json({ success: false, message: "Ошибка при отправке письма" });
   }
 });
@@ -401,8 +393,8 @@ app.post("/resend-verification", async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS // пароль приложения
+        user: "chikchicly@gmail.com",
+        pass: "gzpn sthf vtux ypef" // пароль приложения
       }
     });
 
@@ -465,8 +457,8 @@ app.post("/register", registerLimiter, async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS
+        user: "chikchicly@gmail.com",
+        pass: "gzpn sthf vtux ypef"
       }
     });
 
