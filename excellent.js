@@ -20,7 +20,7 @@ const cron = require("node-cron");
 const cors = require('cors');
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+//app.use(express.urlencoded({ extended: true }));
 
 
 app.set("trust proxy", 1); // доверяем первому прокси
@@ -134,8 +134,13 @@ app.get("/profile3", (req, res) => {
 });
 
 app.post("/login3", async (req, res) => {
-  console.log("login3");
-  const { login, password } = req.body;
+  
+  //const { login, password } = req.body;
+const { login, password } = req.body || {};
+
+if (!login || !password) {
+  return res.status(400).json({ message: "Логин и пароль обязательны" });
+}
 
   try {
     const result = await client.query(
@@ -220,7 +225,11 @@ app.get('/login', loginLimiter, (req, res) => {
   res.render('login');
 });
 app.post("/login", async (req, res) => {
-  const { username, password } = req.body;
+  const { username, password } = req.body || {};
+
+if (!username || !password) {
+  return res.send("Введите логин и пароль");
+}
 
   try {
     // ищем пользователя в базе
@@ -329,12 +338,104 @@ cron.schedule("0 * * * *", async () => {
       host: "mail.qucu.ru",      // адрес вашего SMTP сервера
       port: 465,                  // обычно 465 для SSL или 587 для TLS
       secure: true,               // true для 465, false для 587
+      timeout:10000,
       auth: {
         user: process.env.SMTP_USER,   // ваш email
         pass: process.env.SMTP_PASSD
       }
     });
 // === Маршрут для заявок ===
+// app.post("/send-quote-main", async (req, res) => {
+  
+//   try {
+//     const { fullName, phone, email, goals, page } = req.body || {};
+
+//     if (!fullName || !phone || !email) {
+//       return res.status(400).json({ success: false, message: "Заполните все обязательные поля" });
+//     }
+
+//     const mailOptions = {
+//       from: `"Форма заявки", <${process.env.SMTP_USER}>`,
+//       to: "lucky@qucu.ru",
+//       subject: `New 💻 ${page || ""}`,
+//       text: `
+//       Имя: ${fullName}
+//       Телефон: ${phone}
+//       Email: ${email}
+//       Проект: ${goals || ""}
+//       `
+//     };
+
+//     await transporter.sendMail(mailOptions);
+
+//     res.json({ success: true, message: "Заявка успешно отправлена!" });
+//   } catch (err) {
+//     console.error("Ошибка отправки письма:", err);
+//     res.status(500).json({ success: false, message: "Ошибка при отправке письма" });
+//   }
+// });
+app.post("/send-quote-main", async (req, res) => {
+  try {
+    const { fullName, phone, email, goals, page, captcha } = req.body || {};
+
+    // 1️⃣ базовая валидация
+    if (!fullName || !email || !phone) {
+      return res.status(400).json({
+        success: false,
+        message: "Заполните все обязательные поля"
+      });
+    }
+
+    // 2️⃣ если капча пришла — проверяем
+    if (captcha) {
+      const verifyURL = "https://www.google.com/recaptcha/api/siteverify";
+
+      const googleRes = await fetch(verifyURL, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          secret: process.env.SECRET_KEY,
+          response: captcha
+        })
+      });
+
+      const captchaResult = await googleRes.json();
+
+      if (!captchaResult.success) {
+        return res.status(400).json({
+          success: false,
+          message: "Капча не пройдена"
+        });
+      }
+    }
+
+    // 3️⃣ отправка письма
+    await transporter.sendMail({
+      from: `"Форма" <${process.env.SMTP_USER}>`,
+      to: "lucky@qucu.ru",
+      subject: `New 💻 ${page || ""}`,
+      text: `
+Имя: ${fullName}
+Телефон: ${phone}
+Email: ${email}
+Проект: ${goals || ""}
+`
+    });
+
+    res.json({ success: true, message: "Заявка отправлена" });
+
+  } catch (err) {
+    console.error("Ошибка send-quote-main:", err);
+    res.status(500).json({
+      success: false,
+      message: "Ошибка сервера"
+    });
+  }
+});
+
+
+
+
 app.post("/send-quote", async (req, res) => {
   try {
     const body = req.body || {};
@@ -367,6 +468,9 @@ app.post("/send-quote", async (req, res) => {
     res.status(500).json({ success: false, message: "Ошибка при отправке письма" });
   }
 });
+
+
+
 app.post("/resend-verification", async (req, res) => {
   try {
     const { email } = req.body;
@@ -432,7 +536,11 @@ app.post("/register", registerLimiter, async (req, res) => {
       return res.status(400).send("Ботам вход запрещён");
     }
 
-    const { login, password, email } = req.body;
+    const { login, password, email } = req.body || {};
+
+    if (!login || !password || !email) {
+      return res.status(400).send("Заполните все поля");
+    }
 
     // Валидация
     if (login.length > 50) return res.send("Логин слишком длинный");
@@ -571,8 +679,11 @@ app.get("/profile/edit",  async (req, res) => {
 
 app.post('/profile/edit', async (req, res) => {
   try {
-    const { name, lastname, age, gender, hobby, blod_type, profession,
-            having_children, marital_status, education, email } = req.body;
+    const body = req.body || {};
+    const {
+      name, lastname, age, gender, hobby, blod_type, profession,
+      having_children, marital_status, education, email
+    } = body;
 
     // Проверка email на уникальность
     const check = await client.query(
@@ -705,7 +816,15 @@ app.post('/add',requireAuth, async (req, res) => {
   try {
     const { title, description, text, autor, url, json, js, keywords } = req.body;
 
-    const jsonData = json ? JSON.stringify(JSON.parse(json)) : "{}"; // проверка JSON
+    let jsonData = "{}";
+    if (json) {
+      try {
+        jsonData = JSON.stringify(JSON.parse(json));
+      } catch {
+        jsonData = "{}";
+      }
+    }
+
     const query = `
       INSERT INTO article (title, description, text, autor, url, json, js, keywords)
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
@@ -894,5 +1013,5 @@ app.use((req, res) => {
 
 // ======== Старт сервера ========
 
-app.listen(`${port}`, () => console.log('Server started on: '+`${host}`+`${port}`));
+app.listen(`${port}`, () => console.log('Server started on : '+`${host}`+` : `+`${port}`));
 
