@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Комментарии пользователя <%= userId %></title>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
 </head>
 <body>
   <h2>Комментарии пользователя #<%= userId %></h2>
@@ -42,14 +44,18 @@
     async function loadAssets() {
       try {
         // Загружаем CSS
-        const cssResponse = await fetch("https://comments.qucu.ru/style");
+        const cssResponse = await fetch("https://comments.qucu.ru/style", {
+              credentials: "include"
+            });
         const cssText = await cssResponse.text();
         const style = document.createElement("style");
         style.textContent = cssText;
         document.head.append(style);
 
         // Загружаем JS с ID пользователя
-        const jsResponse = await fetch("https://comments.qucu.ru/js/<%= userId %>");
+        const jsResponse = await fetch("https://comments.qucu.ru/no-captcha/<%= userId %>", {
+              credentials: "include"
+            });
         const jsText = await jsResponse.text();
         const js = document.createElement("script");
         js.type = "text/javascript";

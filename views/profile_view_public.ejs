@@ -33,6 +33,8 @@
     }
   </style>
   <link rel="icon" href="/nodejs.svg" type="image/svg+xml">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
 </head>
 <body>
   <div class="profile">
@@ -51,14 +53,18 @@
     async function loadAssets() {
       try {
         // Загружаем CSS
-        const cssResponse = await fetch("https://comments.qucu.ru/style");
+        const cssResponse = await fetch("https://comments.qucu.ru/style", {
+              credentials: "include"
+            });
         const cssText = await cssResponse.text();
         const style = document.createElement("style");
         style.textContent = cssText;
         document.head.append(style);
 
         // Загружаем JS с ID пользователя
-        const jsResponse = await fetch(`https://comments.qucu.ru/js/${window.USER_ID}`);
+        const jsResponse = await fetch(`https://comments.qucu.ru/no-captcha/${window.USER_ID}`, {
+              credentials: "include"
+            });
         const jsText = await jsResponse.text();
         const js = document.createElement("script");
         js.type = "text/javascript";
