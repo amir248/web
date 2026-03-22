@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2026 Amir Navrutdinov
+ * This file is licensed under the GNU General Public License v3.0.
+ */
 //blozhik 3700 new.qucu.ru excellent site;
 
 
