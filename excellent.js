@@ -293,24 +293,54 @@ app.get('/logout', (req, res) => {
     res.redirect('/'); // перенаправляем на страницу логина
   });
 });
-app.post('/logout', (req, res) => {
+app.post("/logout", (req, res) => {
+  console.log("SESSION:", req.session);
+  console.log("COOKIE HEADER:", req.headers.cookie);
+  if (!req.session) {
+    return res.json({ success: true, message: "Нет сессии" });
+  }
+
   req.session.destroy(err => {
     if (err) {
-      console.error("Ошибка при выходе:", err);
-      return res.json({ success: false, message: "Ошибка сервера" });
+      console.error("Ошибка при уничтожении сессии:", err);
+      return res.status(500).json({
+        success: false,
+        message: "Ошибка сервера при logout",
+      });
     }
 
-    // Для кросс-домена cookie обязательно с SameSite=None и Secure
-    res.clearCookie('connect.sid', { 
-      httpOnly: true, 
-      secure: true, 
-      sameSite: 'None',
-      domain: '.qucu.ru'
+    // 🔥 ВАЖНО: параметры должны совпадать с теми, что при установке cookie
+    res.clearCookie("connect.sid", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+      domain: ".qucu.ru"
     });
 
-    res.json({ success: true, message: "Вы вышли из системы" });
+    return res.json({
+      success: true,
+      message: "Вы вышли из системы",
+    });
   });
 });
+// app.post('/logout', (req, res) => {
+//   req.session.destroy(err => {
+//     if (err) {
+//       console.error("Ошибка при выходе:", err);
+//       return res.json({ success: false, message: "Ошибка сервера" });
+//     }
+
+//     // Для кросс-домена cookie обязательно с SameSite=None и Secure
+//     res.clearCookie('connect.sid', { 
+//       httpOnly: true, 
+//       secure: true, 
+//       sameSite: 'None',
+//       domain: '.qucu.ru'
+//     });
+
+//     res.json({ success: true, message: "Вы вышли из системы" });
+//   });
+// });
 
 // ================== Фоновая задача ==================
 // Удаляем неподтвержденных пользователей старше 24 часов
