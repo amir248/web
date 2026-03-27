@@ -700,7 +700,7 @@ app.post('/upload-avatar', upload.single('avatar'), async (req, res) => {
 app.get("/profile/edit",  async (req, res) => {
   try {
     const result = await client.query(
-      "SELECT login, email, name, lastname, age, gender, hobby, blod_type, profession, having_children, marital_status, education FROM barbarians WHERE id = $1",
+      "SELECT login, email, name, lastname, age, gender, hobby, blod_type, profession, having_children, marital_status, education, website FROM barbarians WHERE id = $1",
       [req.session.user.id]
     );
     const user = result.rows[0];
@@ -711,12 +711,18 @@ app.get("/profile/edit",  async (req, res) => {
   }
 });
 
+// Validation Domain name !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11
+function isValidDomain(domain) {
+  return /^[a-z0-9.-]+\.[a-z]{2,}$/i.test(domain);
+}
+
+
 app.post('/profile/edit', async (req, res) => {
   try {
     const body = req.body || {};
     const {
       name, lastname, age, gender, hobby, blod_type, profession,
-      having_children, marital_status, education, email
+      having_children, marital_status, education, email, website
     } = body;
 
     // Проверка email на уникальность
@@ -729,18 +735,22 @@ app.post('/profile/edit', async (req, res) => {
       return res.status(400).send("Email уже используется");
     }
 
+      // ✅ ВАЛИДАЦИЯ (domain name)
+    if (website && !isValidDomain(website)) {
+      return res.send("Invalid domain");
+    }
     const query = `
       UPDATE barbarians
       SET name=$1, lastname=$2, age=$3, gender=$4, hobby=$5, blod_type=$6,
           profession=$7, having_children=$8, marital_status=$9,
-          education=$10, email=$11
-      WHERE id=$12
+          education=$10, email=$11, website=$12
+      WHERE id=$13
     `;
 
     await client.query(query, [
       name, lastname, age, gender, hobby, blod_type,
       profession, having_children, marital_status,
-      education, email, req.session.user.id
+      education, email, website, req.session.user.id
     ]);
 
     res.redirect('/profile');
@@ -758,7 +768,7 @@ app.post('/profile/edit', async (req, res) => {
 app.get("/profile", requireAuth, async (req, res) => {
   try {
     const result = await client.query(
-      `SELECT login, email, name, lastname, age, gender, hobby, blod_type, profession, having_children, marital_status, education, avatar, email, is_verified
+      `SELECT login, email, name, lastname, age, gender, hobby, blod_type, profession, having_children, marital_status, education, avatar, email, website, is_verified
        FROM barbarians
        WHERE id = $1`,
       [req.session.user.id]

@@ -75,6 +75,7 @@
         <input type="text" name="having_children" placeholder="Дети" value="<%= user.having_children || '' %>" />
         <input type="text" name="marital_status" placeholder="Материальное положение" value="<%= user.marital_status || '' %>" />
         <input type="text" name="education" placeholder="Образование" value="<%= user.education || '' %>" />
+        <input type="text" name="website" placeholder="My website with comments system (без https:// )" value="<%= user.website || '' %>" />
             <fieldset>
                 <legend>Email</legend>
                 <input type="text" name="email" placeholder="Email" value="<%= user.email || '' %>" />
@@ -88,5 +89,17 @@
     </main>
 
 </body>
+<script>
+document.querySelector("form").addEventListener("submit", function(e) {
+  const website = document.querySelector('input[name="website"]').value;
+
+  const regex = /^[a-z0-9.-]+\.[a-z]{2,}$/i;
+
+  if (website && !regex.test(website)) {
+    alert("Неверный домен (пример: `${website}`)");
+    e.preventDefault();
+  }
+});
+</script>
 <script defer src="js/menu.js"></script>
 </html>
