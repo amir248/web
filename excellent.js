@@ -23,9 +23,12 @@ const { getMaxListeners } = require('events');
 const cron = require("node-cron");
 const cors = require('cors');
 
-app.use(express.json());
-//app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true })); // для form-urlencoded
+app.use(express.json()); // для JSON, если используется
+// comments/modules/cors.js
+const myCors = require("../comments/modules/cors");
 
+app.use(myCors);// myCors!!!!!!!!!!
 
 app.set("trust proxy", 1); // доверяем первому прокси
 // Ограничитель: максимум 5 запросов с одного IP за минуту
@@ -74,33 +77,32 @@ const client = new Client(dbConfig);
 
 client.connect();
 
-app.use(express.urlencoded({ extended: true })); // для form-urlencoded
-app.use(express.json()); // для JSON, если используется
+
 
 // ======== Middleware ========
-const allowedOrigins = [
-  'https://qucu.ru',
-  'https://new.qucu.ru',
-  'https://comments.qucu.ru',
-  'https://send-json.qucu.ru',
-  'https://wealth.qucu.ru',
-  'https://nasobe.ru'
-];
+// const allowedOrigins = [
+//   'https://qucu.ru',
+//   'https://new.qucu.ru',
+//   'https://comments.qucu.ru',
+//   'https://send-json.qucu.ru',
+//   'https://wealth.qucu.ru',
+//   'https://nasobe.ru'
+// ];
 
-app.use(cors({
-  origin: function(origin, callback){
-    console.log('CORS origin:', origin);
-    if (!origin) return callback(null, true); // Postman, curl, серверные запросы
-    if (allowedOrigins.includes(origin)) {
-      console.log( "CORS orign: ", origin);
-      callback(null, true);
-    } else {
-      console.log("CORS blocked origin:", origin);
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-}));
+// app.use(cors({
+//   origin: function(origin, callback){
+//     console.log('CORS origin:', origin);
+//     if (!origin) return callback(null, true); // Postman, curl, серверные запросы
+//     if (allowedOrigins.includes(origin)) {
+//       console.log( "CORS orign: ", origin);
+//       callback(null, true);
+//     } else {
+//       console.log("CORS blocked origin:", origin);
+//       callback(new Error('Not allowed by CORS'));
+//     }
+//   },
+//   credentials: true,
+// }));
 
 
 
