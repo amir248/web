@@ -140,8 +140,11 @@ npm start</code></pre>
 </main>
 
 <footer>
-  <p>© 2025 Super Comment System — open source проект на <a href="https://github.com/amir248/commentsNODE" target="_blank">GitHub</a></p>
+  <p>© <span id="date"></span> Super Comment System — open source проект на <a href="https://github.com/amir248/commentsNODE" target="_blank">GitHub</a></p>
 </footer>
+<script>
+  document.querySelector("#date").textContent=new Date().getFullYear();
+</script>
   <script defer src="js/menu.js"></script>
 </body>
 </html>
