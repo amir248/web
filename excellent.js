@@ -451,11 +451,11 @@ app.post("/send-quote-main", async (req, res) => {
       to: "lucky@qucu.ru",
       subject: `New 💻 ${page || ""}`,
       text: `
-Имя: ${fullName}
-Телефон: ${phone}
-Email: ${email}
-Проект: ${goals || ""}
-`
+        Имя: ${fullName}
+        Телефон: ${phone}
+        Email: ${email}
+        Проект: ${goals || ""}
+        `
     });
 
     res.json({ success: true, message: "Заявка отправлена" });
