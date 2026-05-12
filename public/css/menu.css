@@ -5,7 +5,7 @@
     border:3px solid grey;
     background:yellow;
     display: grid;
-    position: sticky;
+    position: fixed; /* stycky */
     float:right;
     top:30px;
     right:10px;
