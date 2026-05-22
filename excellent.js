@@ -30,6 +30,8 @@ const myCors = require("../comments/modules/cors");
 
 app.use(myCors);// myCors!!!!!!!!!!
 
+const sendMessageRoute = require('./custom_modules/send-massages-express');
+
 app.set("trust proxy", 1); // доверяем первому прокси
 // Ограничитель: максимум 5 запросов с одного IP за минуту
 const limiter = rateLimit({
@@ -505,7 +507,7 @@ app.post("/send-quote", async (req, res) => {
   }
 });
 
-
+app.use('/', sendMessageRoute);
 
 app.post("/resend-verification", async (req, res) => {
   try {
