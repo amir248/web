@@ -45,7 +45,7 @@
     #offmenu{
         position: fixed;
         overflow:auto;
-        z-index: 0;
+        z-index: 3;
         transition: ease 1s;
     }
     .font{
@@ -85,4 +85,5 @@
     #offmenu a{
         text-decoration: none;
         text-shadow: green 1px 1px;
+        z-index: 999;
     }

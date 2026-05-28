@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>questionnaire</title>
+    <style media="screen">
+      *{
+        margin:0;
+      }
+      main{
+        display:flex;
+        justify-content:center;
+        alitgn-items:center;
+        max-width:100%;
+      }
+      article{
+        display:flex;
+        justify-content:center;
+        alitgn-items:center;
+        max-width:100%;
+      }
+      fieldset{
+        text-align: center;
+        border-radius:10px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <article>
+        <h1>O_o</h1>
+        <form action="the-continue.php" method="POST">
+          <fieldset style="background:rgba(255,0,200,0.3);">
+            <legend>login</legend>
+            <input type="text" name="login" value="login" placeholder="login" style="background:rgba(255,0,200,0.3);">
+          </fieldset>
+
+          <fieldset style="background:rgba(0,255,0,0.3);">
+            <legend>password</legend>
+            <input type="password" name="uno_password" value="password" placeholder="password" style="background:rgba(0,255,0,0.3);">
+          </fieldset>
+
+          <fieldset>
+            <legend>Name</legend>
+            <input type="text" name="Name" placeholder="Name">
+          </fieldset>
+
+          <fieldset>
+          <legend>Lastname</legend>
+            <input type="text" name="Lastname" placeholder="Lastname">
+          </fieldset>
+          <fieldset>
+            <legend>profession</legend>
+            <input type="text" name="profession" value="profession" placeholder="profession">
+          </fieldset>
+
+
+          <fieldset>
+            <legend>email</legend>
+            <input type="email" name="email" value="email" placeholder="email">
+          </fieldset>
+          <!-- <fieldset>
+            <legend>nick</legend>
+            <input type="text" name="nick" value="nick" placeholder="nick">
+          </fieldset> -->
+          <!-- <fieldset>
+            <legend>name</legend>
+            <input type="text" name="name" value="name" placeholder="name">
+          </fieldset> -->
+
+          <fieldset>
+            <legend>age</legend>
+            <input type="number" name="age" value="age" placeholder="age">
+          </fieldset>
+          <fieldset>
+            <legend>Gender</legend>
+            <span>men</span>
+            <input type="radio" name="floor" value="men" placeholder="men">
+            <span>women</span>
+            <input type="radio" name="floor" value="women" placeholder="women">
+            <!-- <input type="text" name="floor" value="floor" placeholder="floor"> -->
+          </fieldset>
+
+          <fieldset style="font-size:14px;">
+            <legend>Blood_type</legend>
+            <span>I+</span>
+            <input type="radio" name="blod_type" value="I+">
+            <span>II+</span>
+            <input type="radio" name="blod_type" value="II+">
+            <span>III+</span>
+            <input type="radio" name="blod_type" value="III+">
+            <span>IV+</span>
+            <input type="radio" name="blod_type" value="IV+"><br>
+            <span>I-</span>
+            <input type="radio" name="blod_type" value="I-">
+            <span>II-</span>
+            <input type="radio" name="blod_type" value="II-">
+            <span>III-</span>
+            <input type="radio" name="blod_type" value="III-">
+            <span>IV-</span>
+            <input type="radio" name="blod_type" value="IV-">
+          </fieldset>
+
+          <fieldset>
+            <legend>Having_children</legend>
+            <input type="text" name="having_children" value="having_children" placeholder="having_children">
+          </fieldset>
+          <fieldset>
+            <legend>marital_status</legend>
+            <input type="text" name="marital_status" value="marital_status" placeholder="marital_status">
+          </fieldset>
+          <fieldset>
+            <legend>Hobby</legend>
+            <input type="text" name="hobby" value="hobby" placeholder="hobby">
+          </fieldset>
+          <fieldset>
+            <legend>education</legend>
+            <input type="text" name="education" value="education" placeholder="education">
+          </fieldset>
+          <button type="submit" name="button">Go</button>
+        </form>
+      </article>
+    </main>
+  </body>
+</html>

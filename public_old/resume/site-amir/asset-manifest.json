@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/resume/site-amir/static/css/main.1c456027.css",
+    "main.js": "/resume/site-amir/static/js/main.5565e897.js",
+    "static/js/787.5afe067e.chunk.js": "/resume/site-amir/static/js/787.5afe067e.chunk.js",
+    "static/media/amir.jpg": "/resume/site-amir/static/media/amir.8ce0a780e4b011a7a537.jpg",
+    "index.html": "/resume/site-amir/index.html",
+    "main.1c456027.css.map": "/resume/site-amir/static/css/main.1c456027.css.map",
+    "main.5565e897.js.map": "/resume/site-amir/static/js/main.5565e897.js.map",
+    "787.5afe067e.chunk.js.map": "/resume/site-amir/static/js/787.5afe067e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1c456027.css",
+    "static/js/main.5565e897.js"
+  ]
+}

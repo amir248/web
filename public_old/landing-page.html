@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Заказать одностраничник, лендинг пейдж, сайт визитку.</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Order landing page. Заказать лендинг по макету из фигмы, с SEO оптимизацией и продвижением в контекстной рекламе. Когда надо просто готовый одностраничник и запустить рекламу.">
+    <link rel="canonical" href="https://qucu.ru/landing-page.html">
+    <meta name="robots" content="all">
+    <meta name="autor" content="Amir Shikarno">
+    <link rel="icon" href="public/images/icon9.svg">
+    <style media="screen">
+    *{
+      margin:0;
+    }
+
+    .nav{
+      display:none;
+    }
+    body{
+      background: white;
+      font-size:20px;
+    }
+    main{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 100%;
+      flex-direction: column;
+    }
+    header{
+      display:flex;
+      justify-content: space-between;
+      align-items:center;
+      max-width: 100%;
+      width:1920px;
+      min-height:100vh;
+      font-family:arial;
+      background: linear-gradient(55.95deg, rgba(252, 76, 0,0.3), rgba(252, 76, 0,0.2));
+      flex-direction:column;
+    }
+    header nav ul li{
+      display:inline-block;
+      margin-right:7%;
+    }
+    header nav{
+      /* min-height:70px; */
+      display:inline-block;
+      width:100%;
+      /* background: green; */
+    }
+    header nav ul{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height:70px;
+    }
+    header nav ul li a{
+      text-decoration:none;
+    }
+    .bed{
+      display:flex;
+      min-height:70px;
+      justify-content:center;
+      align-items:center;
+      width:1920px;
+      max-width:100%;
+      background:coral;
+      text-align:center;
+      flex-wrap:wrap;
+    }
+    .bed ul li{
+      display:inline-block;
+    }
+    .bed ul span{
+      display:inline-block;
+      width:7px;
+      height:7px;
+      background:rgba(255,70,0,0.3);
+      border-radius:50%;
+    }
+    header button{
+      background:none;
+      border-radius:10px;
+      width:200px;
+      height:52px;
+      background:rgba(200,50,0,0.3);
+      color:white;
+      text-shadow:black 1px 1px;
+      font-size:20px
+    }
+    header button a{
+      color:white;
+      text-decoration:none;
+    }
+    header button:hover{
+      background:black;
+      color:yellow;
+    }
+    header button:hover a{
+      background:black;
+      color:yellow;
+    }
+    header img{
+      width:602px;
+      height:551px;
+      max-width:100%;
+    }
+    header section{
+      display:flex;
+      flex-direction:row;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    header section div{
+      min-height:110px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      flex-direction:column;
+    }
+    header section div{
+      min-height:333px;
+    }
+    @media(max-width:1000px){
+      header section div{
+        min-height:200px;
+      }
+    }
+    article section img{
+      max-width:100%;
+      width:850px;
+      background: white;
+    }
+    /* ARTICLE */
+    article{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 100%;
+      width:1920px;
+      flex-direction:column;
+    }
+    article section{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      width:1200px;
+      max-width:100%;
+      background:white;
+      /* flex-direction:column;
+       */
+       flex-wrap:wrap;
+    }
+    .text{
+      width:300px;
+      max-width:100%;
+      margin-left:3%;
+    }
+    article section:nth-child(2){
+      width:1200px;
+      flex-direction:column;
+    }
+    article section:nth-child(2) p{
+      margin:3%;
+    }
+    footer{
+      display:flex;
+      background:#1E212C;
+      width:100%;
+      max-width:100%;
+      min-height:396px;
+      justify-content:center;
+      align-items:center;
+      width:1920px;
+    }
+    footer strong{
+      color:white;
+    }
+    footer div{
+      display:flex;
+      justify-content:space-around;
+      align-items:flex-start;
+      flex-direction:row;
+      width:1200px;
+      max-width:100%;
+      flex-wrap:wrap;
+    }
+    footer div li{
+      width:200px;
+      max-width:100%;
+      list-style-type:none;
+      color:grey;
+    }
+    footer div li a{
+      color:green;
+    }
+    .bottom{
+      background:rgb(30,30,30);
+      color:white;
+      width:1200px;
+      max-width:100%;
+      display:flex;
+      justify-content:space-between;
+      flex-direction:row;
+    }
+    .bottom p a{
+      color:white;
+      text-decoration:none;
+      max-width:100%;
+    }
+    .bot{
+      display:flex;
+      justify-content:center;
+      width:1920px;
+      max-width:100%;
+      background:rgb(30,30,30);
+    }
+    @media(max-width:700px){
+      header nav ul{
+        display:none;
+      }
+      header nav{
+        background:green;
+
+        width:100%;
+        min-height: 50px;
+      }
+      .nav{
+        display:block;
+      }
+      .line{
+        display:block;
+        width:30px;
+        height:5px;
+        background:yellow;
+        margin:9px;
+      }
+    }
+
+    section:nth-child(3){
+      /* flex-direction: column; */
+      flex-wrap:wrap;
+      /* background: green; */
+    }
+      section:nth-child(3) h2{
+        width:100%;
+        text-align: center;
+      }
+    section:nth-child(3) button{
+      width:100%;
+    }
+      section:nth-child(4) div{
+        width:300px;
+      }
+      section:nth-child(4) div p{
+        margin-left:3%;
+      }
+
+    .textTwo{
+      width:300px;
+      margin-right:3%;
+      /* flex-direction: column; */
+    }
+    section:nth-child(5){
+      background: linear-gradient(55.95deg, rgba(200,100,0,0.3), rgba(190,150,0,0.3));
+      /* opacity: 0.2; */
+      flex-wrap:wrap;
+    }
+    section:nth-child(5) h2{
+      width:100%;
+      text-align: center;
+    }
+    section:nth-child(5) img{
+      width:300px;
+      max-width: 100%;
+      border-radius: 3px;
+    }
+    section:nth-child(5) p{
+      opacity:1;
+      text-shadow: 1px 1px black;
+      width:300px;
+    }
+    section:nth-child(5) div{
+      margin:.5%;
+      max-width: 100%;
+    }
+    section:nth-child(5) div p{
+      width:300px;
+      max-width:100%;
+      color:green;
+    }
+    article section:nth-child(5) strong{
+      margin:1%;
+    }
+    @media(max-width:1200px){
+      .text{
+        width:100%;
+        max-width: calc(100% - 6%);
+      }
+      .text p{
+        width:900px;
+        max-width: calc(100% - 6%);
+        margin:3%;
+      }
+      .textTwo{
+        width:100%;
+        max-width: calc(100% - 6%);
+      }
+      article section:nth-child(4) div{
+        width:100%;
+        max-width: calc(100% - 3%);
+      }
+    }
+    .burg{
+      display:inline-block !important;
+      position:relative !important;
+      z-index: 999;
+      right:0 !important;
+      top:0 !important;
+      height:25px !important;
+    }
+    .comments{
+      flex-direction: column;
+    }
+    #comments{
+      width:100%;
+    }
+    #three > div{
+      display:flex;
+      justify-content: center;
+      align-items: baseline;
+      flex-direction: column;
+    }
+    li > label > fieldset > legend{
+      font-size: 15px;
+    }
+    li > label > fieldset{
+      border-radius: 7px;
+    }
+    </style>
+    <!-- Разметка JSON-LD, созданная Мастером разметки структурированных данных Google. -->
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://qucu.ru/landing-page.html"
+ },
+  "name" : "Заказать лендинг пейдж",
+  "headline": "Order landing page, адаптивный сайт с поисковой оптимизацией и продвижением в контекстно рекламе.",
+  "author" : {
+     "@type" : "Person",
+     "name" : "Amir Navrutdinov",
+     "alternateName": ["Amir Shikarno", "Амир Наврутдинов"],
+     "url" : "https://qucu.ru/resume/Amir.html"
+   },
+  "datePublished" : "2020-11-28",
+  "dateModified" : "2024-02-27T07:07:07+07:00",
+  "image" : "https://qucu.ru/images/imgClickFlipping/illustration.png",
+  "articleSection" : "Landing page",
+  "articleBody" : [ "Лендинг пейдж по макету из фигмы. По любому макету, который потом будет запушен   на гитхаб. Чтобы его можно было протестировать. Landing page на флексах, гридах, с семантическими тегами, структурированной разметкой данных, дает высокие позиции в поиске гугл. Меню на яваскрипте, чтобы все было как в сказке: открыть, закрыть, позвонить. С таким шикарным лендингом или одностраничником  все конкуренты будут завидовать." ],
+  "url" : "https://qucu.ru/landing-page.html",
+  "publisher" : {
+    "@type" : "Organization",
+    "name" : "Веб мастерская имени Барона Сайтоверстаузена",
+    "logo": {
+        "@type": "ImageObject",
+        "url": "https://qucu.ru/public/images/lol/spa.webp"
+      }
+  }
+}
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CTRLNMFNGY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-CTRLNMFNGY');
+</script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <p class="nav">
+          <span class='line'></span>
+          <span class='line'></span>
+          <span class='line'></span>
+        </p>
+        <ul>
+          <li><a href="https://qucu.ru"><span style="color:lightgreen;text-shadow:black 1px 1px;">Q</span><span style="color:orange;text-shadow:black 1px 1px;">u</span><span style="color:green;text-shadow:black 1px 1px;">C</span><span style="color:red;text-shadow:black 1px 1px;">u</span>.<span style="color:blue;text-shadow:black 1px 1px;">ru</span></a></li>
+          <li onclick='three()'>About</li>
+          <li onclick='one()'><span style='color:red;'>NO</span>communism</li>
+          <li onclick='bottom()'>bottom</li>
+          <li onclick='console.log("Yes!")' class='burg'>Menu</li>
+          <li onClick='EnglishLanguage()'>
+              <label>
+                <fieldset>
+                  <legend>Language</legend>
+                  Eng <input type="checkbox" name="" value="">
+                </fieldset>
+              </label>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <div>
+          <h1><span style="color:red;text-shadow:black 1px 1px;">Заказать</span> <span style="color:violet;text-shadow:black 1px 1px;">одностраничник</span><br> <span style="color:green;text-shadow: 1px 1px black;">лендинг пейдж<wbr></span> по макету из <span style="color:red"><a href="https://www.figma.com/file/2ZWX21Kfd6rLZVAm7hO8lz/Free-%231.-Online-course?node-id=2234%3A8798">фигмы</a></span></h1>
+          <p style="background:rgba(33,33,33,0.3);font-size:30px;"><span style="color:coral">for</span> <span style="color:brown">seven</span> <span style="color:white;text-shadow:black 1px 1px;">оЙ</span><span style="color:blue;text-shadow:black 1px 1px;">ру</span><span style="color:red;text-shadow:black 1px 1px;">Бля</span>.</p>
+          <button><a href="tel:+79528885656">Позвонить!</a></button>
+        </div>
+        <img src="public/images/imgClickFlipping/illustration.png" alt="Заказать лендинг одностраничник">
+      </section>
+      <div class="bed">
+        <ul>
+          <li onclick='one()'>one</li>
+          <span></span>
+          <li onclick='two()'>two</li>
+          <span></span>
+          <li onclick='three()'>three</li>
+        </ul>
+      </div>
+    </header>
+    <article>
+      <section id='one'>
+        <img src="public/images/imgClickFlipping/image.png" alt="Заказать сайт">
+        <div class="text">
+          <h2>Лендинг пейдж по макету из фигмы.</h2>
+          <p>По любому макету, который потом будет запушен   на гитхаб. Чтобы его можно было протестировать. Landing page на флексах, гридах, с семантическими тегами, структурированной разметкой данных, дает высокие позиции в поиске гугл. Меню на яваскрипте, чтобы все было как в сказке: открыть, закрыть, позвонить. С таким шикарным лендингом или одностраничником  все конкуренты будут завидовать.</p>
+        </div>
+      </section>
+      <section>
+        <h2>Сколько может стоять одностраничник?</h2>
+        <p>Чем дальше в лес, тем больше дров. Landing page по макету из фигмы может стоять очень дешево, а может и очень дорого. Вся разница в том что если его сделает жирный-зажравшийся прогер с дипломом(настоящим) html-coderа, снимающий офис в центре города. То: выплачивая взятки и гонорары всей коммунистической банде. Простой одностраничник с одной страницей и надписей состоящей из трех коммунистических букв, будет не по карману обычному персонажу.</p>
+        <h2>Заказать лендиг пейдж дорого!</h2>
+        <strong>Landing page is expensive!</strong>
+        <p>Что значит дорого? В стране в которой есть специальный продуктовый охранник, охраняющий продукты от воровства, потому что проще платить охранникам чем нести убытки от кражи еды. Ведь не даром на работе одним из правил существует, правило: ознакомиться с инструкцией по предотвращению голодного обморока. Потому что есть один из суровых законов который называется как великое поражение на войне: “прожиточный минимум”! Ничего более ущемленного придумать фантазии не хватило. Потому что “прожиточный минимум”, самое суровое ограничение, не только для того чтобы уехать! На такое ограничение можно констатировать только один “необъяснимый но факт” из телепередачи ученых с ренТв необъяснимо но факт, к коммунистическим персонажам "успешным" приходит: “голодный обморок”. Вычисление дёшовки: коммунистический прожиточный минимум ~15 000 О_о коммунистических недоразумений. Итого = ~15000 / 17 рабочих дней в месяце = 882,3 коммунистических недоразумений один рабочий день (9 часов без обеда и перерывов). Даже для законченного коммуниста это очень мало, но только не для московии, великой дёшёвки или - карликового, мини государства, бункерного типа, военных преступников, третьего рейха. Таким образом чтобы избежать очередного “голодного обморока” платитье Уважаемый персонаж столько сколько сможете, например “три рубля”! И будет Вам счастье!</p>
+        <h2>Заказать landing page за три рубля.</h2>
+        <p>Поэтому почему бы и не заказать у фрилансера, который не снимает офис в центре города, а работает дома на условиях самозанятого и честно выплачивает налоги за каждый реализованный одностраничник или лендинг пейдж. Также за модификацию, внесение изменений в код и теги html,css.</p>
+      </section>
+      <section>
+        <h2>Вычисление cost landing page:</h2>
+        <div class="textTwo">
+          <p>Подсчет: Коммунистический прожиточный минимум: по коммунистическому законо 14 000 (и да рублей, это когда в рублях рублями 14 оЙруБля). 14 000 / 30 = 467 коммунистических рубля! Такова примерная стоимость лендинга по московскому зкону.</p>
+          <p>Сюда же яндекс объяснять что 467 рублей это деньги. Такие законы придумывали не какие нибудь умалишенные.</p>
+          <p>По закону LP сделанный за один день должен стоить 500 коммунистических рублей что по всем законам логики и здравого смысла, ниже плинтуса самого дна. Но для москвы это обычный уровень.</p>
+          <p>
+            Вот Вам за математическй расчет: <span style="color:red;">5+</span>
+          </p>
+        </div>
+        <img src="public/images/imgClickFlipping/illustrationTwo.png" alt="заказать landing page">
+      </section>
+      <section id='two'>
+        <h2>Документальная фотосъёмка: <span style="color:red; text-shadow: 1px 1px black;">(and ClickFlipping)</span></h2>
+        <picture>
+          <source media="(max-width: 3940px)" srcset="public/images/imgClickFlipping/DSC_8204-900.webp" />
+          <source media="(max-width: 3940px)" alt="order a landing page with SEO optimization" srcset="public/images/imgClickFlipping/DSC_8204-900.JPG">
+
+          <source srcset="public/images/imgClickFlipping/DSC_8204.webp" type="image/webp" />
+          <img src="public/images/imgClickFlipping/DSC_8204.JPG" alt="order a landing page with SEO optimization" id="imG">
+        </picture>
+        <div>
+          <p>Невероятно шикарная фото галерея по принципу Click Flipping - это когда неограниченное количество фотографий перелистываются по клику на саму фотографию! Гениально, вместительно под любой лендинг!</p>
+          <p>Скачать скрипт можно абсолютно бесплатно. <a href="https://github.com/amir248/easy-gallery/blob/master/main.js">Мой гитхаб пожалуйста.</a></p>
+          <p><strong>Клик по фотографии перелистнет на новую фотографию.</strong></p>
+        </div>
+      </section>
+      <section id='three'>
+        <h2>Примеры:</h2>
+        <strong>лендингов по версии “веб мастерской имени барона сайтоверстаузена”, которые запущены и успешно бороздят просторы бескрайнего Ёнтернета.</strong>
+        <div>
+          <a href="https://qucu.ru/figma-landing-page.html">
+            <img src="public/images/imgClickFlipping/imgOne.png" alt="Landing Page">
+          </a>
+          <p><a href="https://qucu.ru/figma-landing-page.html">Langing Page</a></p>
+          <p>
+            <span>Смена языков, дополния +SEO</span>
+          </p>
+        </div>
+        <div>
+          <a href="https://qucu.ru/order-one-page.html">
+            <img src="public/images/imgClickFlipping/imgTwo.png" alt="Сopywriting">
+          </a>
+          <p><a href="https://qucu.ru/order-one-page.html">Сopywriting</a></p>
+          <p>
+            <span>Цена лендинга, по макету из фигмы в полном комплекте.</span>
+          </p>
+        </div>
+        <div>
+          <a href="https://qucu.ru/blozhik/JS-Gallery">
+            <img src="public/images/imgClickFlipping/imgThree.png" alt="creativity">
+          </a>
+          <p><a href="https://qucu.ru/blozhik/JS-Gallery">Photo Gallery</a></p>
+          <p>
+            <span>По макету из фигмы с JS, семантическими тегами и структурированной разметкой данных.</span>
+          </p>
+        </div>
+        <!-- <div>
+          <a href="https://qucu.ru/figma-simple-website.html">
+            <img src="images/imgClickFlipping/imgFour.png" alt="creativity">
+          </a>
+          <p><a href="https://qucu.ru/figma-simple-website.html">По макету из фигмы</a></p>
+          <p>
+            <span>По макету фигмы или какого нибудь другого макета.</span>
+          </p>
+        </div> -->
+        <div>
+          <a href="https://qucu.ru/landing-page-development.html">
+            <img src="public/images/imgClickFlipping/imgFive.png" alt="Development">
+          </a>
+          <p><a href="https://qucu.ru/landing-page-development.html">Development</a></p>
+          <p>
+            <span>Landing Page точно такой-же как в мечте!</span>
+          </p>
+        </div>
+      </section>
+      <section class='comments'>
+        <p>Comments</p>
+        <div id="comments"></div>
+        <a href="https://qucu.ru/comments/" style="font-size: 17px;">https://qucu.ru/comments/</a>
+        <script type="text/javascript">
+          const site={
+            origin: 'https://qucu.ru/',
+            referrer: "https://qucu.ru/landing-page.html"
+          }
+          const importantBag={id:"nasoberu",site:window.location};
+            // const id='nasoberu';// important!!!
+            const script =document.createElement('script');
+            const url ='https://qucu.ru/allow-cors/';
+            async function goComments(){
+              await fetch(url,{
+                origin:site.origin,
+                method: "POST",
+                referrer: site.referrer,
+                referrerPolicy: "origin-when-cross-origin",
+                mode:"cors",
+                credentials: "omit",
+                cache: "no-store",
+              }).then(response=>response.text()).then(result=>{
+                document.querySelector('#comments').append(script);
+                let oK = document.querySelector('#comments > script');
+                oK.innerHTML=result;
+              });
+            };
+            setTimeout(()=>goComments(),300);
+        </script>
+
+      </section>
+      <footer id='bottom'>
+        <div>
+          <ul>
+            <strong>qucu.ru</strong>
+            <li>Это не шутки, а серьезное дело, но в позитивном ключе, с высоко профессиональными специалистами.</li>
+          </ul>
+          <ul>
+            <strong>Sitemap</strong>
+            <li>About Us</li>
+            <li onclick='two()'>Text</li>
+            <li>footer</li>
+          </ul>
+          <ul>
+            <strong>Lendingi</strong>
+            <li onclick='marketing()'>Marketing</li>
+            <li onclick='marketing()'>Продажи</li>
+            <li onclick='linkPrice()'>Цена лендинга</li>
+
+          </ul>
+          <ul>
+            <strong>contact us</strong>
+            <li onclick='Amir()'>великий Верстальщик</li>
+            <li onclick="AmirTel()">+7 952 888 5656</li>
+          </ul>
+          <ul>
+            <strong>Написать:</strong>
+            <li>
+              <a href="mailto:chikchicly@gmail.com">отправить письмо</a>
+            </li>
+          </ul>
+        </div>
+
+      </footer>
+      <div class="bot">
+        <div class="bottom" name="bottom">
+          <p> by Createx Studio "<a href="https://qucu.ru">веб мастерская имени барона сайтоверстаузена</a>"
+          </p>
+          <p><a href="#">GO TO TOP</a></p>
+        </div>
+      </div>
+    </article>
+    <script type="text/javascript">
+
+  const one=()=>{
+    // console.log("one");
+    window.location.href='#one';
+  };
+  const two=()=>{
+    // console.log("two");
+    window.location.href='#two';
+  };
+  const three=()=>{
+    // console.log("three");
+    window.location.href='#three';
+  };
+  const bottom=()=>{
+    // console.log("bottom");
+    window.location.href='#bottom';
+  };
+  const Amir=()=>{
+    window.location.href=`https://qucu.ru/resume/Amir.html`;
+  };
+  const AmirTel=()=>{
+    window.location.href=`tel:+79528885656`;
+  };
+  const marketing=()=>{
+    window.location.href=`https://qucu.ru/contextual-advertising.html`;
+  }
+  const linkPrice=()=>{
+    window.location.href=`https://qucu.ru/order-one-page.html`;
+  }
+const list = ['<a href="https://qucu.ru"><span style="color:lightgreen;text-shadow:black 1px 1px;">Q</span><span style="color:orange;text-shadow:black 1px 1px;">u</span><span style="color:green;text-shadow:black 1px 1px;">C</span><span style="color:red;text-shadow:black 1px 1px;">u</span>.<span style="color:blue;text-shadow:black 1px 1px;">ru</span></a>','<a href="#one">one</a> ', '<a href="#two">two</a>', '<a href="#three">three</a>','<a href="tel:+79528885656">+79528885656</a>','<label><fieldset><legend>Language</legend> Eng <input type="checkbox" name="" value="" onClick="smailEnglish()"></fieldset></label>'];
+
+    function menuShka(){
+        if(document.querySelector('body > div:nth-child(1)')){
+          // console.log("Уже есть!");
+        }else{
+          let boX=document.createElement('div');
+          document.querySelector('body').prepend(boX);
+        }
+      document.querySelector('body > div:nth-child(1)').style.cssText=`
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        position:absolute;
+        top:0;
+        width:100%;
+        min-height:100vh;
+        background:rgba(255,0,255,0.7);
+        z-index:1;
+        flex-wrap:wrap;
+        flex-direction:column;
+        font-size:37px;
+      `;
+      // Этот клик закрывает блок с меню!
+      document.querySelector('body > div:nth-child(1)').addEventListener('click',()=>{
+        // console.log('ok');
+        // document.remove(boX);
+        document.querySelector('body > div:nth-child(1)').remove();
+        closeM();
+      });
+    }
+    function closeM(){
+      document.querySelectorAll('.line')[1].style.cssText=`display:block;`
+      document.querySelectorAll('.line')[0].style.cssText=`
+      width:30px;
+      transform:rotate(0deg);
+      `;
+      document.querySelectorAll('.line')[2].style.cssText=`
+        width:30px;
+        transform:rotate(0deg);
+      `;
+      countClick=0;
+
+      document.querySelector('body').style.cssText=`
+        overflow:scroll;
+      `;
+    };
+
+    let countClick=+0;
+    document.querySelector('.nav').addEventListener('click',()=>{
+      countClick++;
+      if(countClick===1){
+        document.querySelectorAll('.line')[1].style.cssText=`display:none;`
+        document.querySelectorAll('.line')[0].style.cssText=`
+        width:50px;
+        transform:rotate(45deg);
+        margin-top:15px;
+        margin-bottom:0;
+        margin-right:0;
+        margin-left:0;
+        `;
+        menuShka();
+        // if(document.querySelector('body > div:nth-child(1)')){
+        //   console.log("Уже есть!");
+        //   menuShka();
+        // }else{
+        //   menuShka();
+        // }
+        document.querySelectorAll('.line')[2].style.cssText=`
+          width:50px;
+          transform:rotate(-45deg);
+          margin:0;
+        `;
+        document.querySelector('body > div:nth-child(1)').innerHTML=list;
+        document.querySelector('body').style.cssText=`
+          overflow:hidden;
+        `;
+        //---------^_^----------------------------
+        if(document.querySelector('input[type="checkbox"]').checked==true||window.location.search=='?eng'){
+
+          document.querySelector('body > div > label > fieldset > input').checked=true;
+        }else{
+          document.querySelector('body > div > label > fieldset > input').checked=false;
+
+        }
+
+      }else if(countClick===2){
+        closeM();
+        document.querySelector('body').style.cssText=`
+          overflow:scroll;
+        `;
+      }else{
+
+      }
+    });
+
+  const okWebp=['images/imgClickFlipping/DSC_8204-900.webp','images/imgClickFlipping/DSC_6955.webp','images/imgClickFlipping/KommunismRaschet.webp','images/imgClickFlipping/P20630-083419.webp','images/imgClickFlipping/P20630-083425.webp','images/imgClickFlipping/P20702-110210.webp','images/imgClickFlipping/P20702-111102.webp'];
+    const okWebpF=['images/imgClickFlipping/DSC_8204.webp','images/imgClickFlipping/DSC_6955.webp','images/imgClickFlipping/KommunismRaschet.webp','images/imgClickFlipping/P20630-083419.webp','images/imgClickFlipping/P20630-083425.webp','images/imgClickFlipping/P20702-110210.webp','images/imgClickFlipping/P20702-111102.webp'];
+
+    const ok=['images/imgClickFlipping/DSC_8204-900.JPG','images/imgClickFlipping/DSC_6955.JPG','images/imgClickFlipping/KommunismRaschet.png','images/imgClickFlipping/P20630-083419.jpg','images/imgClickFlipping/P20630-083425.jpg','images/imgClickFlipping/P20702-110210.jpg','images/imgClickFlipping/P20702-111102.jpg'];
+    const okF=['images/imgClickFlipping/DSC_8204.JPG','images/imgClickFlipping/DSC_6955.JPG','images/imgClickFlipping/KommunismRaschet.png','images/imgClickFlipping/P20630-083419.jpg','images/imgClickFlipping/P20630-083425.jpg','images/imgClickFlipping/P20702-110210.jpg','images/imgClickFlipping/P20702-111102.jpg'];
+let aj=+0;
+    document.querySelector('#imG').addEventListener('click',()=>{
+      // console.log('Excellent gallery on JS a click flipping');
+      aj++;
+      document.querySelector('#imG').setAttribute('src',ok[aj]);
+      document.querySelector('#two > picture > source').setAttribute('srcset',okWebp[aj]);
+      document.querySelector('#two > picture > source:nth-child(2)').setAttribute('srcset',okF[aj]);
+      document.querySelector('#two > picture > source:nth-child(3)').setAttribute('srcset',okF[aj]);
+      if(aj===ok.length){
+        aj=0;
+        return oKi();
+      }
+      function oKi(){
+        document.querySelector('#two > picture > source').setAttribute('srcset',okWebp[aj]);
+        document.querySelector('#imG').setAttribute('src',ok[aj]);
+      };
+    });
+    // ok.forEach(element=>console.log(element));
+
+    function smailEnglish(){
+      if(document.querySelector('body > div:nth-child(1) > label:nth-child(6) > fieldset:nth-child(1) > input:nth-child(2)').checked==true){
+        window.location.search='?eng';
+      }else if(document.querySelector('body > div:nth-child(1) > label:nth-child(6) > fieldset:nth-child(1) > input:nth-child(2)').checked==false){
+        window.location.href='landing-page.html';
+      }else{
+        console.log('else');
+      }
+    };
+    window.addEventListener('DOMContentLoaded',EnglishLanguageTwo());
+    function EnglishLanguageTwo(){
+      if(window.location.search=='?eng'){
+        document.querySelector('input[type="checkbox"]').checked=true;
+        // console.log('oKs');
+        EnglishLanguage();
+        // console.log(countClick);
+        if(countClick==1){
+          window.location.search=='?eng';
+          document.querySelector('input[type="checkbox"]').checked=true;
+        }else if(countClick==2){
+          countClick=0;
+        }
+        // window.location.search=null;
+      }else{
+        // if(window.location.search=''){
+        //
+        // }
+        // window.location.search="eng";
+        // console.log(countClick);
+        // console.log('oK');
+        document.querySelector('input[type="checkbox"]').checked=false;
+      }
+    }//EnglishLanguageTwo
+
+    function EnglishLanguage(){
+      if(document.querySelector('input[type="checkbox"]').checked==true){
+        // console.log('checboxChecken '+ countClick);
+document.querySelector('head > title').innerHTML=`Order a one-page website, landing page, business card website.`;
+document.querySelector('head > meta:nth-child(4)').setAttribute('content',`Order landing page. Order a landing page based on a figma layout, with SEO optimization and promotion in contextual advertising. When you just need a ready-made one-page website and run advertising.`);
+        document.querySelector('body > header > section > div').innerHTML=`<div><h1><span style="color:red;text-shadow:black 1px 1px;">Order</span> <span style="color:violet;text-shadow:black 1px 1px;">one-page</span ><br> <span style="color:green;text-shadow: 1px 1px black;">landing page<wbr></span> based on the layout from <span style="color:red"><a href=" https://www.figma.com/file/2ZWX21Kfd6rLZVAm7hO8lz/Free-%231.-Online-course?node-id=2234%3A8798">figma</a></span></h1>
+           <p style="background:rgba(33,33,33,0.3);font-size:30px;"><span style="color:coral">for</span> <span style="color:brown" >seven</span> <span style="color:white;text-shadow:black 1px 1px;">оЙ</span><span style="color:blue;text-shadow:black 1px 1px;">ру</span><span style="color:red;text-shadow:black 1px 1px;">Бля</span>.</p>
+           <button><a href="tel:+79528885656">Call me!</a></button>
+         </div>`;
+         document.querySelector('.text').innerHTML=`<h2>Landing page based on a figma layout.</h2><p>For any layout, which will then be published on GitHub. So that it can be tested. Landing page on flexes, grids, with semantic tags, structured data markup, gives high positions in Google search. The menu is in JavaScript, so that everything is like in a fairy tale: open, close, call. With such a gorgeous landing page or one-pager, all your competitors will be jealous.</p>`;
+         document.querySelector('body > article > section:nth-child(2)').innerHTML=`<h2>How much can a one-page website cost?</h2>
+         <p>The further into the forest, the more firewood. A landing page based on a figma layout can be very cheap, or maybe very expensive. The only difference is that if it is made by a fat, snickering programmer with a (real) html-coder diploma, who rents an office in the city center. Then: paying bribes and fees to the entire communist gang. A simple one-page website with one page and inscriptions consisting of three communist letters will not be affordable for an ordinary character.</p>
+         <h2>Ordering a landing page is expensive!</h2>
+         <strong>Landing page is expensive!</strong>
+         <p>What does expensive mean? In a country where there is a special food security guard who protects food from theft, because it is easier to pay security guards than to incur losses from food theft. It’s not for nothing that one of the rules at work exists, the rule: read the instructions for preventing hungry fainting. Because there is one of the harsh laws that is called as a great defeat in the war: “living wage”! My imagination was unable to come up with anything more depressing. Because the “living wage”, the most severe restriction, is not only for leaving! In response to such a limitation, only one “inexplicable but fact” can be stated from the TV program of scientists from RTV inexplicably but a fact, the “successful” communist characters come: “fainting from hunger.” Calculation of cheapness: communist subsistence minimum ~15,000 About communist misunderstandings. Total = ~15000 / 17 working days in a month = 882.3 communist misunderstandings one working day (9 hours without lunch and breaks). Even for a complete communist, this is very little, but not for Muscovy, the great cheapness or - a dwarf, mini state, bunker type, war criminals, the Third Reich. Thus, to avoid another “hunger faint,” pay Dear Character as much as you can, for example, “three rubles”! And you will be happy!</p>
+         <h2>Order a landing page for three rubles.</h2>
+         <p>So why not order from a freelancer who does not rent an office in the city center, but works from home on a self-employed basis and honestly pays taxes for each one-page or landing page implemented. Also for modifying, making changes to the code and html, css tags.</p>`;
+         document.querySelector('body > article > section:nth-child(3) > h2:nth-child(1)').innerHTML=`<h2>Calculation of cost landing page:</h2>`;
+         document.querySelector('.textTwo').innerHTML=`<p>Calculation: Communist cost of living: according to communist law, 14,000 (and yes, in rubles, this is when in rubles there are 14 rubles). 14,000 / 30 = 467 communist rubles! This is the approximate cost of a landing page according to the Moscow law.</p>
+           <p>Here Yandex explains that 467 rubles is money. Such laws were not invented by some crazy people.</p>
+           <p>According to the law, an LP made in one day should cost 500 communist rubles, which, according to all the laws of logic and common sense, is below the plinth of the very bottom. But for Moscow this is the usual level.</p> <p>Here's a mathematical calculation for you: <span style="color:red;">5+</span>`;
+           document.querySelector('#two > h2:nth-child(1)').innerHTML=`Documentary photography: <span style="color:red; text-shadow: 1px 1px black;">(and ClickFlipping)</span>`;
+           document.querySelector('#two > div:nth-child(3)').innerHTML=`<p>An incredibly chic photo gallery based on the Click Flipping principle - this is when an unlimited number of photos are flipped by clicking on the photo itself! Brilliant, roomy for any landing page!</p>
+              <p>You can download the script absolutely free. <a href="https://github.com/amir248/easy-gallery/blob/master/main.js">My github please.</a></p>
+              <p><strong>Clicking on a photo will scroll to a new photo.</strong></p>`;
+
+              document.querySelector('#three > h2:nth-child(1)').innerHTML=`Examples:`;
+              document.querySelector('#three > strong:nth-child(2)').innerHTML=`landing pages according to the “web workshop named after Baron Siteverstausen”, which have been launched and are successfully surfing the vastness of the endless Internet..`;
+      }else{
+        document.querySelector('head > title').innerHTML=`Заказать одностраничник, лендинг пейдж, сайт визитку.`;
+        document.querySelector('head > meta:nth-child(4)').setAttribute('content',`Order landing page. Заказать лендинг по макету из фигмы, с SEO оптимизацией и продвижением в контекстной рекламе. Когда надо просто готовый одностраничник и запустить рекламу.`);
+
+        document.querySelector('body > header > section > div').innerHTML=`<div><h1><span style="color:red;text-shadow:black 1px 1px;">Заказать</span> <span style="color:violet;text-shadow:black 1px 1px;">одностраничник</span><br> <span style="color:green;text-shadow: 1px 1px black;">лендинг пейдж<wbr></span> по макету из <span style="color:red"><a href="https://www.figma.com/file/2ZWX21Kfd6rLZVAm7hO8lz/Free-%231.-Online-course?node-id=2234%3A8798">фигмы</a></span></h1>
+          <p style="background:rgba(33,33,33,0.3);font-size:30px;"><span style="color:coral">for</span> <span style="color:brown">seven</span> <span style="color:white;text-shadow:black 1px 1px;">оЙ</span><span style="color:blue;text-shadow:black 1px 1px;">ру</span><span style="color:red;text-shadow:black 1px 1px;">Бля</span>.</p>
+          <button><a href="tel:+79528885656">Позвонить!</a></button>
+        </div>`;
+
+document.querySelector('.text').innerHTML=`<h2>Лендинг пейдж по макету из фигмы.</h2>
+          <p>По любому макету, который потом будет запушен   на гитхаб. Чтобы его можно было протестировать. Landing page на флексах, гридах, с семантическими тегами, структурированной разметкой данных, дает высокие позиции в поиске гугл. Меню на яваскрипте, чтобы все было как в сказке: открыть, закрыть, позвонить. С таким шикарным лендингом или одностраничником  все конкуренты будут завидовать.</p>`;
+
+          document.querySelector('body > article > section:nth-child(2)').innerHTML=`<h2>Сколько может стоять одностраничник?</h2>
+        <p>Чем дальше в лес, тем больше дров. Landing page по макету из фигмы может стоять очень дешево, а может и очень дорого. Вся разница в том что если его сделает жирный-зажравшийся прогер с дипломом(настоящим) html-coderа, снимающий офис в центре города. То: выплачивая взятки и гонорары всей коммунистической банде. Простой одностраничник с одной страницей и надписей состоящей из трех коммунистических букв, будет не по карману обычному персонажу.</p>
+        <h2>Заказать лендиг пейдж дорого!</h2><strong>Landing page is expensive!</strong><p>Что значит дорого? В стране в которой есть специальный продуктовый охранник, охраняющий продукты от воровства, потому что проще платить охранникам чем нести убытки от кражи еды. Ведь не даром на работе одним из правил существует, правило: ознакомиться с инструкцией по предотвращению голодного обморока. Потому что есть один из суровых законов который называется как великое поражение на войне: “прожиточный минимум”! Ничего более ущемленного придумать фантазии не хватило. Потому что “прожиточный минимум”, самое суровое ограничение, не только для того чтобы уехать! На такое ограничение можно констатировать только один “необъяснимый но факт” из телепередачи ученых с ренТв необъяснимо но факт, к коммунистическим персонажам "успешным" приходит: “голодный обморок”. Вычисление дёшовки: коммунистический прожиточный минимум ~15 000 О_о коммунистических недоразумений. Итого = ~15000 / 17 рабочих дней в месяце = 882,3 коммунистических недоразумений один рабочий день (9 часов без обеда и перерывов). Даже для законченного коммуниста это очень мало, но только не для московии, великой дёшёвки или - карликового, мини государства, бункерного типа, военных преступников, третьего рейха. Таким образом чтобы избежать очередного “голодного обморока” платитье Уважаемый персонаж столько сколько сможете, например “три рубля”! И будет Вам счастье!</p>
+        <h2>Заказать landing page за три рубля.</h2>
+        <p>Поэтому почему бы и не заказать у фрилансера, который не снимает офис в центре города, а работает дома на условиях самозанятого и честно выплачивает налоги за каждый реализованный одностраничник или лендинг пейдж. Также за модификацию, внесение изменений в код и теги html,css.</p>`;
+        document.querySelector('body > article > section:nth-child(3) > h2:nth-child(1)').innerHTML=`<h2>Расчет стоимости лендинга:</h2>`;
+        document.querySelector('.textTwo').innerHTML=`<p>Расчет: Коммунистический прожиточный минимум: по коммунистическому закону 14 тысяч (и да, в рублях, это когда в рублях 14 рублей). 14 000/30 = 467 коммунистических рублей! Это примерная стоимость лендинга по законодательству Москвы.</p>
+           <p>Здесь Яндекс объясняет, что 467 рублей — это деньги. Такие законы не придумали какие-то сумасшедшие.</p>
+           <p>По закону сделанная за один день пластинка должна стоить 500 коммунистических рублей, что по всем законам логики и здравого смысла находится ниже плинтуса самого дна. Но для Москвы это обычный уровень.</p> <p>Вот вам математический расчет: <span style="color:red;">5+</span>`;
+           document.querySelector('#two > h2:nth-child(1)').innerHTML=`Документальная фотосъёмка: <span style="color:red; text-shadow: 1px 1px black;">(and ClickFlipping)</span>`;
+
+           document.querySelector('#two > div:nth-child(3)').innerHTML=`<p>Невероятно шикарная фото галерея по принципу Click Flipping - это когда неограниченное количество фотографий перелистываются по клику на саму фотографию! Гениально, вместительно под любой лендинг!</p>
+          <p>Скачать скрипт можно абсолютно бесплатно. <a href="https://github.com/amir248/easy-gallery/blob/master/main.js">Мой гитхаб пожалуйста.</a></p>
+          <p><strong>Клик по фотографии перелистнет на новую фотографию.</strong></p>`;
+
+
+          document.querySelector('#three > h2:nth-child(1)').innerHTML=`Примеры:`;
+          document.querySelector('#three > strong:nth-child(2)').innerHTML=`лендингов по версии “веб мастерской имени барона сайтоверстаузена”, которые запущены и успешно бороздят просторы бескрайнего Ёнтернета.`;
+
+      }
+
+    }
+    </script>
+  </body>
+
+   <script>
+
+       //--------------------------------------------------------------
+       //--------ОТПРАВИТЬ ЗАПРОС ЧТОБЫ ПОЛУЧИТЬ МЕНЮ------------------
+       //--------------------------------------------------------------
+   function run(){
+       var xhr = new XMLHttpRequest();
+       xhr.open("GET", 'public_old/menu/menu.html', true);
+       xhr.onreadystatechange = function() {//Вызывает функцию при смене состояния.
+       if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+       document.getElementById("menu").innerHTML = this.responseText;
+           }
+       }
+       xhr.send();
+   }
+   /*--------------------------------------------------------------------------
+   ----------------ТУТ_ПРОИСХОДИТ_ОБНОВЛЕНИЕ_МЕНЮШКИ!--------------------------
+   --------------------------------------------------------------------------*/
+                       setTimeout(run, 700);
+
+   </script>
+   <p id='menu'></p>
+   <link rel="stylesheet" href="public_old/menu/style-menu.css">
+   <script src="public_old/menu/script-menu.js"></script>
+</html>

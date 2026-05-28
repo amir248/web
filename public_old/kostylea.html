@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <meta name="robots" content="all">
+        <meta name="autor" content="Amir Navrutdinov">
+        <title>Быстрая фото галерея на javascript 'Котылея'</title>
+        <meta name='description' cotnent="Костылея, как обычная галерея только на костылях для ускоренной загрузки, потому что на костылях все происходит быстрее.">
+        <link rel="icon" href="public/images/icon9.svg">
+        <link rel="canonical" href="https://qucu.ru/kostylea.html">
+        <style>
+            *{
+                margin:0px;
+            }
+            body{
+                background: linear-gradient(rgb(255, 255, 126), rgb(83, 83, 255));
+                font-size: 20px;
+            }
+            main{
+                display: flex;
+                max-width: 100%;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                /* background-color: bisque; */
+            }
+            article{
+                display:flex;
+                max-width: 100%;
+                width: 700px;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(240, 224, 255, 0.253);
+                flex-direction: column;
+            }
+
+            .stFir{
+                display:flex;
+                max-width: 100%;
+                width: 700px;
+                justify-content: center;
+                align-items: center;
+                background: linear-gradient(rgba(240, 224, 255, 0.253), rgba(255, 255, 255, 0.164));
+                flex-direction: column;
+            }
+            #button{
+                display:flex;
+                width: 70px;
+                height: 40px;
+                background: linear-gradient(darkgreen, rgb(0, 187, 0));
+                justify-content: center;
+                align-items: center;
+                border-radius: 25px;
+                margin:1%;
+                border:1%;
+                color: cyan;
+            }
+
+        .margin{
+            margin:1%;
+        }
+        h1,h2{
+            background:rgb(255, 242, 56);
+            width: 100%;
+            text-align: center;
+            border: orange solid 1px;
+        }
+        footer{
+            display:flex;
+            background-color: thistle;
+            max-width: 100%;
+            width: 700px;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: left;
+            flex-direction: column;
+        }
+        .first{
+            display: flex;
+            max-width: 100%;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+        }
+        li{
+          list-style-image: url(public/images/red_star.png);
+        }
+        #sigCommentsBlock{
+          max-width: 100%;
+          width:700px;
+        }
+        </style>
+            <!-- Разметка JSON-LD, созданная Мастером разметки структурированных данных Google. -->
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Article",
+  "name" : "Костылея",
+  "headline": "Легкая фото галерея с адаптацией для скорости.",
+  "author" : {
+    "@type" : "Person",
+    "name" : "Amir Navrutdinov",
+    "alternateName": ["Amir Shikarno", "Амир Наврутдинов"],
+    "url" : "https://qucu.ru/resume/Amir.html"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://qucu.ru/kostylea.html"
+ },
+  "datePublished" : "2021-02-07",
+  "dateModified" : "2024-02-27",
+  "image" : "https://qucu.ru/public/spaa/images/3.jpg",
+  "articleSection" : "Ускоренная галерея на яваскрипте с оптимизацией.",
+  "articleBody" : "Галерея с подгрузкой.",
+  "url" : "https://qucu.ru/kostylea.html",
+  "publisher" : {
+    "@type" : "Organization",
+    "name" : "Веб мастерская имени Барона Сайтоверстаузена.",
+
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://qucu.ru/public/images/logo.png"
+     }
+    }
+}
+</script>
+    </head>
+    <body>
+        <main>
+            <article>
+                <h1><span style="color: purple">Костылея.</span></h1>
+                <p class="margin">Костылея - это обычная фото галерея, только на костылях.</p>
+                <h2>Modified</h2>
+                <p class="margin">Костылея дополнилась модификациями:
+                  <ul style="color:green; text-shadow:1px 1px 2px black; background:rgba(255,150,150,0.3); border:1px solid black;">
+                    <li>Прослушка ширины изображения. Модифицирующий периметр для вставки в страницу пространства подстраивающийся в процентном соотношении, чтобы пролистывая галерею не было прыжков. И нижние блоки и текст не прыгали создавая ассоциации хлипкой конструкции, кое-как держащейся на плаву. Успех пришел с помощью математической формулы = (width*100)/window.innerWidth;
+                    Это хоть и дает моргание при загрузке нового изображения, но предотвращает прыжки текста, как это было без формулы вычитания процентного соотношения периметра.
+                    </li>
+                    <li>Изображение отображается с якорем для видимости снаружи того места на котором удалось остановится листая фотографии. С помощью виндов локейшин.</li>
+                    <li>Методика обхода массива на условиях с учетом виндов локейшин “якоря ссылки”, что даёт точечную сегментацию положения в галереи и отображении её с неописуемой точностью во всех двадцати шести измерениях! Ну и напоследок система комментариев без рекламных блоков от сиг коммент вместо дешевого дискуса.</li>
+                  </ul></p>
+                <h2><span style="color:blue">Идея костылеи.</span></h2>
+                    <p class="margin">На костылях быстрее! +галерея реакт и галерея скрипт JS <a href="https://qucu.ru/blozhik/JS-Gallery">js script</a>
+                        </p>
+                <!--  ---------АХТУНГ------------>
+                <!-- Это Настоящая Костылея! -->
+                <!------------------------------>
+    <style>
+        .boxFirst{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items:center;
+            max-width: 100%;
+        }
+        #leftButton{
+            display:flex;
+            border:blueviolet solid 2px;
+            /* border-radius: 50%; */
+            background-color: burlywood;
+            width: 70px;
+            justify-content: center;
+            align-items: center;
+            padding:10px;
+        }
+        #leftButton:hover{
+            background-color: rgb(247, 177, 85);
+        }
+        #leftButton:active{
+            background-color: rgb(212, 67, 0);
+        }
+        #rightButton{
+            display:flex;
+            border:blueviolet solid 2px;
+            /* border-radius: 50%; */
+            background-color: burlywood;
+            width: 70px;
+            justify-content: center;
+            align-items: center;
+            padding:10px;
+        }
+        #rightButton:hover{
+            background-color: rgb(247, 177, 85);
+        }
+        #rightButton:active{
+            background-color: rgb(212, 67, 0);
+        }
+        .buttony{
+            display: flex;
+            justify-content: space-around;
+            /* text-align: center; */
+            width: 100%;
+            background-color: rgb(80, 135, 255);
+        }
+        /* .imagesWindow{
+            display: flex;
+            width: 100%;
+            height: 100%;
+
+            max-width: 100%;
+            max-height: 100%;
+            background-color: rgba(0, 100, 0, 0.144);
+        } */
+    </style>
+    <div class="boxFirst">
+        <div class='imagesWindow'>
+            <div id="news"></div>
+        </div>
+        <div class="buttony">
+            <div id="leftButton" style="font-size:25px;">⬅</div>
+            <div id="rightButton" style="font-size:25px;">➡</div>
+        </div>
+    </div>
+    <script>
+    if(window.innerWidth<=700){
+
+      let rpoZh=700-window.innerWidth;
+        let andE =(700*100)/window.innerWidth;
+        console.log(rpoZh+"____"+andE+'_Prosto andE');
+        let height = (300*100)/(andE);
+        console.log(height+'_proverka height');
+        document.querySelector('.imagesWindow').style.cssText=`
+      display:flex;
+      height: ${height}px;
+      `;
+      console.log(`${andE}`+'Туту написано из оттдуа');
+    }else{
+      document.querySelector('.imagesWindow').style.cssText=`
+      display:flex;
+      height:300px;
+      width:700px;
+      `;
+    }
+         let imgPod = ['/public_old/spaa/images/images1.html','public_old/spaa/images/images2.html','public_oldspaa/images/images3.html', 'public_old/spaa/images/images4.html', 'public_old/spaa/images/images5.html','public_old/spaa/images/images6.html'];
+        let i=+0;
+
+        if(window.location.hash=="#1"){
+        i=1;
+       nextImages();
+        }else if(window.location.hash=="#2"){
+          i=2;
+       nextImages();
+        }else if(window.location.hash=="#3"){
+          i=3;
+          nextImages();
+        }else if(window.location.hash=="#4"){
+          i=4;
+            nextImages();
+        }else if(window.location.hash=="#5"){
+          i=5;
+            nextImages();
+        }else if(window.location.hash=="#6"){
+          i=6;
+            nextImages();
+        }else if(window.location.hash=="#7"){
+          i=7;
+            nextImages();
+}
+            function nextImages(){
+                let podimgl = new XMLHttpRequest();
+                podimgl.open('GET', `${imgPod[i]}`);
+                podimgl.send();
+                podimgl.onload = function(){
+                    if(podimgl.status ==200){
+                        responseType ="Text";
+                        document.querySelector('#news').innerHTML = this.response;
+                    }
+                }
+            }
+               nextImages();
+                leftButton.addEventListener('click',function(){
+                    if(i>=1){
+                        i--;
+                        window.location='/kostylea.html#'+[i];
+                        setTimeout(nextImages(),10);
+                        console.log(imgPod);
+                        console.log(i);
+                    }else if(i==0){
+                        i=6;
+                        window.location='/kostylea.html#'+[i];
+                        console.log(imgPod);
+                        console.log(i);
+                    }else{
+                        window.location='/kostylea.html#'+[i];
+                        setTimeout(nextImages(),10);
+                        console.log('ну незнаю!');
+                    }
+                });
+                rightButton.addEventListener('click',function(){
+                    if(i<5){
+                        i++;
+                        window.location='/kostylea.html#'+[i];
+                        setTimeout(nextImages(),10);
+                        console.log(imgPod);
+                        console.log(i);
+                    }else if(i==5){
+                        i=0;
+                        window.location='/kostylea.html#'+[i];
+                        setTimeout(nextImages(),10);
+                        console.log(imgPod);
+                        console.log(i);
+                    }else{
+                      window.location='/kostylea.html#'+[i];
+                        setTimeout(nextImages(),10);
+                        console.log('ну незнаю2!');
+                        console.log(imgPod);
+                        console.log(i);
+                    }
+                });
+
+
+    </script>
+<!-- THE END ------>
+<!--  костылеи  ---->
+<!-------------------->
+<h2>Принцип работы костылеи.</h2>
+<p class="margin">Начало работы это созданный документ html с одним только тегом picture в котором собственно и прописаны теги img src=”images.jpeg” и для нынешнего ускорения img set type=image/webp, чтобы скорость во всех браузерах была рекордно высокой, а так же обычный img для того чтобы еще и произвести успешное открытие в технологиях apple, потому как изображения webp формата у них до сих пор не поддерживается. И проще поставить на выбор браузеру отдельный html документ с прописанными пикчерами, чем пихать коллекцию одного формата в массив. Проще собрать массив из html документов в котором тег пикчер расфасован форматами и размерами, чтобы браузер сам выбирал лучший для него.
+</p>
+<p class="margin">Далее ява скрипт по технологии аякс и массив с изображениями.
+    В яваскрипте нельзя обратиться к директории чтобы прощупать её содержимое, поэтому в скрипт нужно будет прописывать каждый html документ с картинками в ручную.
+    </p>
+<p class="margin">Останется только записать эти страницы в массив и обращаться к ним через аякс на удобном яваскрипте.
+</p>
+<p class="margin">Скорость работы костылеи обеспечивается тем что изображение загружается отдельно с помощью аякса, то есть соседних картинок нет и не видно на странице, до нажатия кнопки перелистывания. Поэтому их изображение в поиске, не произойдет. Если не модифицировать скрипт до отображения к каждой странице с пикчерами якорной ссылки.
+</p>
+<p class="margin">Тогда все! =) Отображения пикчеров с якорными ссылками будет доступно в поиске для обнаружения!
+</p>
+            </article>
+        </main>
+        <div class="first">
+            <footer>
+              <!--
+               XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                                      Here commentsBlock!
+              XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+              -->
+              <div id="comments"></div>
+              <a href="https://qucu.ru/comments/" style="font-size: 17px;">https://qucu.ru/comments/</a>
+              <script type="text/javascript">
+                const site={
+                  origin: 'https://qucu.ru/',
+                  referrer: "https://qucu.ru/"
+                }
+                const importantBag={id:"nasoberu",site:window.location};
+                  // const id='nasoberu';// important!!!
+                  const script =document.createElement('script');
+                  const url ='https://qucu.ru/allow-cors/';
+                  async function goComments(){
+                    await fetch(url,{
+                      origin:site.origin,
+                      method: "POST",
+                      referrer: site.referrer,
+                      referrerPolicy: "origin-when-cross-origin",
+                      mode:"cors",
+                      credentials: "omit",
+                      cache: "no-store",
+                    }).then(response=>response.text()).then(result=>{
+                      document.querySelector('#comments').append(script);
+                      let oK = document.querySelector('#comments > script');
+                      oK.innerHTML=result;
+                    });
+                  };
+                  setTimeout(()=>goComments(),300);
+              </script>
+            </footer>
+
+        </div>
+
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-CTRLNMFNGY"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-CTRLNMFNGY');
+      </script>
+
+</body>
+    <!-- ХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХ
+                    Начало меню!
+    ХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХ-->
+    <div id="menu"></div>
+    <noscript>
+        <a href="https://qucu.ru">
+    </noscript>
+<button class="burg">
+  <span style="font-size: 50px;">🍔</span>
+</button>
+    <noscript>
+        </a>
+    </noscript>
+
+
+    <!-- теперь все кнопки после этого стилая пропадают.-->
+    <script>
+
+        //--------------------------------------------------------------
+        //--------ОТПРАВИТЬ ЗАПРОС ЧТОБЫ ПОЛУЧИТЬ МЕНЮ------------------
+        //--------------------------------------------------------------
+    function run(){
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", 'public_old/menu/menu.html', true);
+        xhr.onreadystatechange = function() {//Вызывает функцию при смене состояния.
+        if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+        document.getElementById("menu").innerHTML = this.responseText;
+            }
+        }
+        xhr.send();
+    }
+    /*--------------------------------------------------------------------------
+    ----------------ТУТ_ПРОИСХОДИТ_ОБНОВЛЕНИЕ_МЕНЮШКИ!--------------------------
+    --------------------------------------------------------------------------*/
+                        //setInterval(run, 700);
+                        run();
+    </script>
+    <link rel="stylesheet" href="public_old/menu/style-menu.css">
+    <script src="public_old/menu/script-menu.js"></script>
+</html>

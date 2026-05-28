@@ -5,7 +5,7 @@
     <title>comments sustem</title>
     <!-- <link rel="stylesheet" href="/public/style/main.css">
     <link rel="stylesheet" href="/public/style/registration.css"> -->
-    <link rel="icon" href="https://qucu.ru/img/js.svg" type="image/svg+xml">
+    <link rel="icon" href="/img/js.svg" type="image/svg+xml">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Разметка JSON-LD, созданная Мастером разметки структурированных данных Google. -->
@@ -133,7 +133,7 @@
 </div>
   </code>
   <strong>DOWNLOAD <a href="https://qucu.ru/app-comments.apk
-">CommentsApp</a></strong> <a href="https://new.qucu.ru/">Page Persons</a>
+">CommentsApp</a></strong> <a href="https://qucu.ru/user">Page Persons</a>
   <div id="comments"></div>
 
   <script>
@@ -144,36 +144,32 @@
     if (idElem) {
         idElem.textContent = window.USER_ID;
     }
-
-    async function loadAssets() {
-        try {
+async function loadAssets() {
+          try{
             // Загружаем CSS
-            const cssResponse = await fetch("https://qucu.ru/style", { credentials: "include" });
+            const cssResponse = await fetch("https://qucu.ru/comments/style",{
+              credentials: "include" // <- cookie
+            });
             const cssText = await cssResponse.text();
             const style = document.createElement("style");
             style.textContent = cssText;
             document.head.append(style);
-
-            // Загружаем JS с ID пользователя
-            const jsResponse = await fetch(`https://qucu.ru/js/<%= userId %>`, { credentials: "include" });
+            // Загружаем JS
+            const jsResponse = await fetch("https://qucu.ru/comments/js/<%= userId %>",{
+              credentials: "include" // <- cookie
+            });
             const jsText = await jsResponse.text();
-            // console.log("Fetched JS content:", jsText); // ✅ лог для проверки
-
             const js = document.createElement("script");
             js.type = "text/javascript";
             js.textContent = jsText;
             document.head.append(js);
-
-            console.log(`JS и CSS успешно подгружены для пользователя #<%= userId %>!`);
-        } catch (err) {
-            console.error("Ошибка загрузки:", err);
-        }
-    }
-
-    loadAssets();
+            console.log("JS и CSS успешно подгружены!");
+            }catch(err){console.error("Ошибка загрузки:", err)};
+          }
+        loadAssets();
 });
 
   </script>
   </body>
-   <script defer src="https://new.qucu.ru/js/menu.js"></script>
+   <script defer src="https://qucu.ru/js/menu.js"></script>
 </html>

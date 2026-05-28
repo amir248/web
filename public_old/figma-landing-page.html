@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <meta name="description" content="Верстка лендинг пейджа из фигмы. Из готовых макетов или по обстрактному описанияю.">
+        <link rel="canonical" href="https://qucu.ru/landing-page.html">
+        <meta name="robots" content="all">
+        <meta name="autor" content="Amir Shikarno">
+        <title>Верска из фигмы.</title>
+        <style>
+            *{
+                margin:0;
+            }
+            body{
+                background-color: rgb(255, 242, 242);
+                display:flex;
+                justify-content: center;
+                max-width: 100%;
+                font-family: Gilroy-Bold;
+                font-size:18px;
+            }
+            main{
+               display: flex;
+               flex-direction: column;
+               max-width: 100%;
+               width: 946px;
+            }
+            .menu{
+                display: flex;
+                justify-content: space-between;
+                width:940.6px;
+                max-width: 100%;
+            }
+            .hr{
+                display:flex;
+                flex-direction: row;
+                width:940.6px;
+                border:1px sloid black;
+                max-width: 100%;
+            }
+            .twoBlock{
+                display:flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                max-width: 100%;
+                flex-wrap: wrap;
+            }
+            #about{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                max-width:100%;
+                width: 485px;
+                flex-direction: column;
+
+            }
+            .aboutBox{
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                height: 506px;
+                background: #F6F6F6;
+            }
+            #skills{
+                display:flex;
+                justify-content: space-around;
+                align-items: center;
+                height: 610px;
+                max-width: 100%;
+                max-height: 100%;
+                background-color: rgb(255, 255, 255);
+                flex-direction: column;
+
+            }
+            .skil{
+                display:flex;
+                justify-content: space-around;
+                align-items: center;
+                background-color: rgb(255, 255, 255);
+                flex-direction: column;
+
+            }
+            .imG{
+                width: 150px;
+                height: 150px;
+            }
+            .column{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            .row{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 485px;
+                max-height: 100%;
+                max-width: 100%;
+            }
+            a{
+                text-decoration: none;
+                color:black;
+            }
+            a:hover{
+
+                border-radius: 50%;
+                color:red;
+            }
+            #portfolio{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                height: 506px;
+                max-height: 100%;
+                background: #F6F6F6;
+            }
+            #contacts{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                width: 100%;
+                height: 506px;
+                max-height: 100%;
+                background-color: white;
+            }
+           .hover:hover{
+
+                color:darkorange;
+            }
+            img{
+                max-width:100%;
+            }
+
+            #cross>p{
+                display:none;
+            }
+            #cross{
+                display:none;
+            }
+
+            @media(max-width:500px){
+                .menu{
+                    display:none;
+
+                }
+                #cross{
+                    display:flex;
+                    justify-content: end;
+                    position:absolute;
+                    top:1;
+                }
+                *{
+                    margin: 1%;
+                }
+
+            }
+            .lang{
+                transform: rotate(-90deg);
+            }
+            .lang:hover{
+              background: violet;
+              border-radius: 7px;
+            }
+            @media(max-width:570px){
+                .lang{
+                    display:none;
+                }
+            }
+
+            .minka{
+                display:flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                font-size: 50px;
+            }
+            .un{
+                display:flex;
+            }
+            details > p > p{
+              margin:1%;
+            }
+            details > p > a{
+              color: green;
+            }
+            body > main > details > p > p > a{
+              color: green;
+            }
+        </style>
+        <!-- Разметка JSON-LD, созданная Мастером разметки структурированных данных Google. -->
+            <script type="application/ld+json">
+                {
+                "@context" : "http://schema.org",
+                "@type" : "Article",
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": "https://qucu.ru/figma-landing-page.html"
+                 },
+                "name" : "Верстка лендинга из фигмы",
+                "headline": "Примерная страница сверстанная с помощью html/css/js",
+                "author" : {
+                    "name" : "Amir Navrutdinov",
+                    "alternateName": ["Amir Shikarno", "Амир Наврутдинов"]
+                },
+                "datePublished" : "2021-02-20",
+                "dateModified" : "2024-02-27",
+                "image" : "http://qucu.ru/public/images/saitoverstauzen.jpg",
+                "articleSection" : "I'm interested in programming",
+                "articleBody" : "I write more than code. When I have to solve too complex problems, I write a statement to the police, the prosecutor&#39;s office, and in the most force majeure case to the President.",
+                "url" : "https://qucu.ru/figma-landing-page.html",
+                "publisher" : {
+                    "@type" : "Organization",
+                    "name" : "Веб мастерская имени Барона Сайтоверстаузена",
+                    "logo": {
+                        "@type": "ImageObject",
+                        "url": "https://qucu.ru/public/images/lol/spa.webp"
+                      }
+                }
+                }
+                </script>
+                <!-- Global site tag (gtag.js) - Google Analytics -->
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-CTRLNMFNGY"></script>
+                <script>
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+
+                  gtag('config', 'G-CTRLNMFNGY');
+                </script>
+    </head>
+    <body>
+        <main>
+            <br><p id='cross'>menu</p>
+            <p id="cross2"></p>
+
+            <script>
+                document.querySelector('#cross').addEventListener('click', function(){
+                    // document.querySelector('.close').addEventListener('click', function(){
+
+                    // });
+                    document.querySelector('#cross2').style.cssText=`
+                    display:flex;
+                    position:fixed;
+                    width:375px;
+                    height:812px;
+                    max-width:100%;
+                    max-height:100%;
+                    background-color: white;
+                    `;
+                    document.querySelector('body').style.cssText=`overflow:hidden;`;
+                    document.querySelector('#cross2').innerHTML='<ul class="minka"><p class="un">_</p><a href="#">Home</a> <a href="#about">About_me</a><a href="#skills">Skills</a><a href="#portfolio">Portfolio</a><a href="#contacts">Contacts</a><hr><a href="https://www.figma.com/file/5D9pDuLtS042hzaoN69Kd7/Free--Landing--Page-Template?node-id=0%3A1" target="_blank">Figma</a><span>_</span></ul>';
+                    document.querySelector('#cross2').addEventListener('click', function(){
+                        document.querySelector('#cross2').innerHTML='<ul class="minka"><a href="#">Home</a> <a href="#about">About_me</a><a href="#skills">Skills</a><a href="#portfolio">Portfolio</a><a href="#contacts">Contacts</a></ul>';
+                        document.querySelector('#cross2').removeAttribute('style');
+                        document.querySelector('#cross2').innerHTML='';
+                        document.querySelector('body').style.cssText=`overflow:scroll;`;
+                    })
+                });
+
+            </script>
+            <div class='menu'>
+                <a href="/">Home</a>
+                <a href="#about">About me</a>
+                <a href="#skills">Skills</a>
+                <a href="#portfolio">Portfolio</a>
+                <a href="#contacts">Contacts</a>
+
+            </div>
+            <br>
+            <hr>
+            <br>
+            <div class='twoBlock'>
+                <strong style="font-size: 47px;">Baron<br> Siteverstausen</strong>
+
+                <p>Wizard, Magician, Witch<br>999 years old, Earth</p>
+
+                <p class='lang'><span id='rus'>RU</span> | <span id='eng'>ENG</span></p>
+            </div><br>
+            <img src="public/images/saitoverstauzen.jpg" alt="Baron Siteverstausen">
+            <br>
+            <details>
+              <summary>Some details</summary>
+              <p>More info about the details.</p>
+            </details>
+            <div class="aboutBox">
+                <div id="about">
+                    <h2>About me</h2>
+                    <p>Hi, I'm Siteverstausen, a company of highly qualified front-end developers from the Earth.</p>
+                    <p>I'm interested in programming</p>
+                    <p>I write more than code
+                        When I have to solve too complex problems, I write a statement to the police, the prosecutor's office, and in the most force majeure case to the President.</p>
+                </div>
+            </div>
+            <div id="skills" class="skil"><br>
+                <h2>Skills</h2><br>
+                <p>I work in areas such as writing, programming, responsive page layout.</p>
+                <div style="display:flex; flex-direction: row; flex-wrap: wrap; height:100%; justify-content:center;">
+                    <div class="column">
+                        <img src="public/images/figma/fot.png" alt="фотографирование" class="imG">
+                        <p>★★★★★✩</p>
+                    </div>
+                    <div class="column">
+                        <img src="public/images/figma/vera-v-uspeh.png" alt="хорошо мотивирован" class="imG">
+                        <p>★★★★★★</p>
+                    </div>
+                    <div class="column">
+                        <img src="public/images/figma/kod.png" alt="Программирование" class="imG">
+                        <p>★★★★✩✩</p>
+                    </div>
+                    <div class="column">
+                        <img src="public/images/figma/pisatelstvo.png" alt="Писательство" class="imG">
+                        <p>★★★✩✩✩</p>
+                    </div>
+                </div>
+            </div>
+            <div id='portfolio'>
+                <h2>Portfolio</h2>
+                <a href="https://qucu.ru/landing-page.html"><img src="public/images/figma/site.png" alt="сайт"></a>
+                <a href="https://qucu.ru/landing-page.html">Online site store - Homepage</a>
+            </div>
+            <div id="contacts">
+                <h2>Contacts</h2>
+                <p>Want to know more or just chat?<br>you are welcome!</p>
+                <a href="https://qucu.ru/feedback-form.html"><button style="border-radius: 15px; background-color: black; color:white; margin:15px; padding:5px; width:180px"><strong class="hover">Send message</strong></button></a>
+                    <div class="row">
+                    <a href="https://www.linkedin.com/in/amir-navrutdinov-76374a119?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BhNUdUn0eTLqXB6ai0VQTwg%3D%3D"><p style="width: 40px; height:40px;border:solid black 4px; border-radius:10px;display:flex;justify-content: center; align-items: center;font-size: 35px;"><strong>in</strong></p></a>
+                    <a href="https://www.instagram.com/nasobe.ru/?hl=ru"><p style="width: 40px; height:40px;border:solid black 4px; border-radius:10px;display:flex;justify-content: center; align-items: center;font-size: 35px;"><strong style="margin-left: 7px;">O</strong><span style="display:flex;margin-bottom: 50px;">.</span></p>
+                    </a>
+                    <a href="https://qucu.ru"><p style="width: 40px; height:40px;border:solid black 4px; border-radius:50%;display:flex;justify-content: center; align-items: center;">Site</p></a>
+                    </div><br>
+                <p style="color:grey;">Like me on<br>Linkedin, Instagram</p>
+            </div>
+
+        </main>
+
+    </body>
+  <script type="text/javascript">
+  window.addEventListener('DOMContentLoaded',()=>{
+    const toolBackpack={
+      click:"on",
+      colorLanguage : function(){
+        // console.log(this.click);
+        if(this.click=="on"){
+          document.querySelector('#rus').style.cssText=`color:black;`;
+          document.querySelector('#eng').style.cssText=`color:red;`;
+        }else{
+          document.querySelector('#rus').style.cssText=`color:blue;`;
+          document.querySelector('#eng').style.cssText=`color:black;`;
+        }
+      }
+    };
+    let textin='<h2>Ways to get your site to the top with SEO optimization.</h2><p> What SEO works: \“if you google Order One Page\”, my page with this optimization technique is in the top!</p><p>At a time when \“highly qualified, Moscow fat men\” scold javascript with css {th}. This \“outdated\” javascript and css is top notch!</p><p>What was done: “title, description, structured data markup, semantic tags instead of template engines”. And most importantly, speed. No opengraph, no extra links. Naked javascript and semantic tags. What is applicable for SEO optimization? No donor links, because. you can get banned from low-quality sites and disappear forever from the search for bold keywords. For bold links, contextual advertising is used.</p><p>And thanks to contest advertising with all the above methods of SEO optimization by keywords (tatl, description, semantic tags instead of bootstrap). <a href="https://www.google.com/search?channel=fs&client=ubuntu-sn&q=%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C+%D0%BE%D0%B4%D0%BD%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%87%D0%BD%D0%B8%D0%BA"> Заказать одностраничник</a>. In the top.</p><p>Preprocessors are written in the same way as CSS with a slight difference. But the ease of interaction javascript , css looks simpler faster and more feature rich. And speed is key! If you add or modify an already finished site. That! Modifying an entire site with jQuery included. It will be a real test: if the code is compressed, there are no hints ... And fixing one function will break something important in another universe on the dimension of a parallel world.</p><p>Where to find the benefits of Sass, Less - when it\'s the same css. This is the same as looking for differences in the Yandex browser and Google Chrome. Yes, they are visible, BUT! The Yandex browser is the same Google Chrome, one to one, only the last letter of the alphabet is smeared with a shitty name: “Yandex”. When the main principle is understood, the essence of the meaning is captured, it is not worth becoming an expert in the types of “emissions of everyday life”. Yes, okay, there was a “blowout”, it floated by here, everyone saw it, but I don’t understand such areas!</p><p>It is much more important to look at other deeds! If you google: yandex robot, and then compare it with another query: robot from dynemix robot.<p>';
+    let textinRus='<h2>Способы вывести сайт в топ с помощью SEO оптимизации.</h2> <p>Что из SEO работает: “если загуглить Заказать одностраничник”, моя страница с этой техникой оптимизации, находится в топе! </p><p>В то время когда “высококвалифицированные, московские жирдяи” ругают яваскрипт с css{ом}. Этот “устаревший”  javascript and css занимает почетный топ!</p><p>Что было сделано: “тайтл, дескрипшн, структурированная разметка данных, семантические теги вместо шаблонизаторов”. И главное скорость. Никакого опенграфа, никаких лишних ссылок. Голый яваскрипт и семантические теги. Что применимо для SEO оптимизации? Никаких донорских ссылок, т.к. можно получить бан с низкокачественных сайтов и навсегда пропать из поиска по жирным ключевикам. Для жирных ссылок используется контекстная реклама.</p><p>И благодаря контестной рекламе со всеми перечисленными способами SEO потимизации по ключевики (татл, дескрипшин, семантические теги вместо ботстрапа).  <a href="https://www.google.com/search?channel=fs&client=ubuntu-sn&q=%D0%97%D0%B0%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D1%8C+%D0%BE%D0%B4%D0%BD%D0%BE%D1%81%D1%82%D1%80%D0%B0%D0%BD%D0%B8%D1%87%D0%BD%D0%B8%D0%BA"> Заказать одностраничник</a>.  В топе.</p><p>Препроцессоры имеют тот же самый способ написания как и CSS с небольшим отличием. Но простота взаимодействия javascript , css выглядит проще быстрее и многофункциональнее. А скорость это главное! Если дописывать или модифицировать уже готовый сайт. То! Модификация целого сайта с подключенным jQuery. Будет настоящим испытанием: если код сжат, нет подсказок… Ии исправив одну функцию сломается что нибудь важное в другой вселенной на измерении параллельного мира.</p><p>Где найти преимущества Sass, Less - когда это тот же самый css. Это тоже самое что искать различия в яндекс браузере и гугл хроме. Да, они есть их видно, нО! Браузер яндекса -это тот же самый гугл хром, один в один, только обмазан говняным названием последний буквы алфавита: “яндекс”. Когда понятен главный принцип, уловлена суть смысла, не стоит становится экспертов в видах “выбросов повседневности”. Да, ладно, был “выброс”, проплывал тут мимо, все его видели, но в таких сферах я не разбираюсь!</p><p>Куда важнее посмотреть на другие деяния! Если загуглить: яндекс робот, а потом сравнить его с другим запросом: робот от робот дайнемикс.<p>';
+    document.querySelector('details > p').innerHTML=`${textin}`;
+    function language(){
+      if(toolBackpack.click=="on"){
+        document.querySelector('.twoBlock > strong:nth-child(1)').innerHTML='baron <br> siteverstausen';
+        document.querySelector('.twoBlock > p:nth-child(2)').innerHTML='Wizard, Magician, Witch<br>999 years old, Earth';
+        document.querySelector('body > main:nth-child(1) > details:nth-child(13) > summary:nth-child(1)').innerHTML='Some details';
+        document.querySelector('body > main:nth-child(1) > details:nth-child(13) > p:nth-child(2)').innerHTML=`${textin}`;
+
+        document.querySelector('#about > h2:nth-child(1)').innerHTML=`About me`;
+        document.querySelector('#about > p:nth-child(2)').innerHTML='Hi, I\'m Siteverstausen, a company of highly qualified front-end developers from the Earth.';
+        document.querySelector('#about > p:nth-child(3)').innerHTML='I\'m interested in programming';
+        document.querySelector('#about > p:nth-child(4)').innerHTML='I write more than code When I have to solve too complex problems, I write a statement to the police, the prosecutor\'s office, and in the most force majeure case to the President.';
+
+        document.querySelector('#skills > h2:nth-child(2)').innerHTML=`Skills`;
+        document.querySelector('#skills > p:nth-child(4)').innerHTML='I work in areas such as writing, programming, responsive page layout.';
+        document.querySelector('#contacts > h2:nth-child(1)').innerHTML='Contacts';
+        document.querySelector('#contacts > p:nth-child(2)').innerHTML='Want to know more or just chat? <br>you are welcome!';
+      }else{
+        document.querySelector('.twoBlock > strong:nth-child(1)').innerHTML='барон <br> сайтоверстаузен';
+        document.querySelector('.twoBlock > p:nth-child(2)').innerHTML='волшебник, фокусник<br> c 999 лет, проживание Планета Земля';
+        document.querySelector('body > main:nth-child(1) > details:nth-child(13) > summary:nth-child(1)').innerHTML='Немного деталей';
+        document.querySelector('body > main:nth-child(1) > details:nth-child(13) > p:nth-child(2)').innerHTML=`${textinRus}`;
+
+        document.querySelector('#about > h2:nth-child(1)').innerHTML=`Обомне`;
+        document.querySelector('#about > p:nth-child(2)').innerHTML='Привет, я Siteverstausen — компания высококвалифицированных фронтенд-разработчиков с платеты Земля.';
+        document.querySelector('#about > p:nth-child(3)').innerHTML='меня интересует программирование';
+        document.querySelector('#about > p:nth-child(4)').innerHTML='Я пишу больше, чем код Когда мне приходится решать слишком сложные задачи, я пишу заявление в полицию, прокуратуру, а в самом форс-мажорном случае Президенту.';
+
+        document.querySelector('#skills > h2:nth-child(2)').innerHTML=`Навыки`;
+        document.querySelector('#skills > p:nth-child(4)').innerHTML='Я работаю в таких областях, как письмо, программирование, адаптивная верстка.';
+        document.querySelector('#contacts > h2:nth-child(1)').innerHTML='Контакты';
+        document.querySelector('#contacts > p:nth-child(2)').innerHTML='Хотите узнать больше или просто поболтать?пожалуйста!';
+
+      }
+    };//language
+    document.querySelector('#eng').style.cssText=`color:red;`;
+
+    document.querySelector('#eng').addEventListener('click',()=>{
+
+      toolBackpack.click="on";
+      language();
+      toolBackpack.colorLanguage();
+    });
+
+    document.querySelector('#rus').addEventListener('click',()=>{
+      toolBackpack.click="off";
+      language();
+      toolBackpack.colorLanguage();
+    });
+  });
+  </script>
+
+</html>

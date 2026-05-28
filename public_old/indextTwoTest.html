@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>dfsdf</title>
+  </head>
+  <body>
+    <!--
+     XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                            Here commentsBlock!
+    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    -->
+    <div id="comments" style="width:100%;max-width:100%"></div>
+    <a href="https://qucu.ru/comments/" style="font-size: 17px;">https://qucu.ru/comments/</a>
+    <script type="text/javascript">
+      const site={
+        origin: 'https://qucu.ru',
+        referrer: "https://qucu.ru/#"
+      }
+        // const id='nasoberu';// important!!!
+        const importantBag={id:"a003",site:window.location.href};
+        const script =document.createElement('script');
+        const url ='https://qucu.ru/allow-cors/';
+        async function goComments(){
+          await fetch(url,{
+            origin:site.origin,
+            method: "POST",
+            referrer: site.referrer,
+            referrerPolicy: "origin-when-cross-origin",
+            mode:"cors",
+            credentials: "omit",
+            cache: "no-store",
+          }).then(response=>response.text()).then(result=>{
+            document.querySelector('#comments').append(script);
+            let oK = document.querySelector('#comments > script');
+            oK.innerHTML=result;
+          });
+        };
+        setTimeout(()=>goComments(),300);
+    </script>
+  </body>
+</html>

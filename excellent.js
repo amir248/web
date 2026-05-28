@@ -80,14 +80,6 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, "public"))); // !!!!
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
-const port=3700;
-const host="0.0.0.0";
-const client = new Client(dbConfig);
-
-client.connect();
-
-
-
 
 app.use(session({
   secret: process.env.SESSION_SECRET || "superSecretKey",
@@ -103,7 +95,18 @@ app.use(session({
 }));
 
 const commentsRouter = require("./custom_modules/comments.js");
-app.use("/", commentsRouter);
+app.use("/comments", commentsRouter);
+
+const port=3700;
+const host="0.0.0.0";
+const client = new Client(dbConfig);
+
+client.connect();
+
+
+
+
+
 
 // Helmet: безопасные заголовки
 app.use(helmet({
@@ -151,7 +154,8 @@ app.use(
         "https://new.qucu.ru",
         "https://nasobe.ru",
         "https://github.qucu.ru",
-        "https://qucu.ru"
+        "https://qucu.ru",
+        "https://challenges.cloudflare.com"
       ],
 
       "img-src": [
@@ -1104,6 +1108,7 @@ app.get('/delete-user/:id', requireAuth, async (req, res) => {
     console.error("Ошибка при удалении пользователя:", err);
     res.status(500).send("Ошибка сервера");
   }
+
 
 
 // // COMMENTS SYSTEM

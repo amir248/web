@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Amir web developer and advertiser</title>
+    <link rel="icon" href="https://qucu.ru/images/js.svg">
+    <meta name="description" content="Amir Navrutdinov web developer, html,css,js,nodejs, contextual advertising.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style media="screen">
+      :root{
+        --max-width:900px;
+        --width:100%;
+        --block-width:400px;
+      }
+      *{
+        margin:0;
+        border:0;
+      }
+      body{
+        background:rgba(0,70,0,0.3);
+        font-size:20px;
+      }
+      main{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+
+        width:var(--width);
+      }
+      header{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        flex-direction:column;
+        min-height:100vh;
+        width:var(--width);
+        max-width:var(--max-width);
+        background:rgba(10,255,10,0.1);
+      }
+      header > h1{
+        background:black;
+        color:coral;
+        text-shadow:yellow 1px 1px;
+        width:var(--width);
+        max-width:var(--max-width);
+        text-align:center;
+      }
+      article{
+        display:flex;
+        justify-content:baseline;
+        align-items:center;
+        flex-direction:column;
+        min-height:100vh;
+        width:100%;
+        max-width:var(--max-width);
+        background:rgba(10,255,10,0.1);
+      }
+
+      article > h2{
+        width:100%;
+        color:green;
+        max-width:var(--max-width);
+        text-shadow:black 1px 1px;
+        text-align:center;
+        background:black;
+      }
+      article > .twoSection{
+        align-items:baseline;
+      }
+      article > .twoSection > .blockList{
+        justify-content:baseline;
+      }
+      .twoSection{
+        display:flex;
+        justify-content:space-around;
+        align-items:center;
+        width:var(--width);
+        max-width:var(--max-width);
+        flex-direction:row;
+        flex-wrap:wrap;
+      }
+      .twoSection:nth-child(8){
+        background:rgba(250,250,220,0.3);
+      }
+      .blockList{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-direction:column;
+        /* background: rgba(0,244,0,0.1); */
+        max-width:var(--block-width);
+        width:var(--width);
+      }
+      img{
+        max-width:400px;
+        width:100%;
+      }
+      .oneSection{
+        display:flex;
+        width:100%;
+        max-width:var(--max-width);
+        margin-top:1%;
+        justify-content:space-around;
+      }
+      .oneSection:nth-child(4) a{
+        border-radius:7px;
+        border: 3px red solid;
+      }
+      .oneSection:nth-child(4) a:hover{
+        border-radius:7px;
+        border: 3px green solid;
+        background:rgba(0,233,0,0.3);
+        color:coral;
+        text-shadow:black 1px 1px;
+      }
+      .color-green{
+        color:green;
+
+      }
+      .color-red{
+        color:red;
+      }
+
+      article > .oneSection:nth-child(4) > h2{
+        background:black;
+        width:var(--width);
+        color:violet;
+        text-align:center;
+        text-shadow:1px 1px yellow;
+      }
+      .blockList > span{
+        background: rgba(150,50,50,0.3);
+      }
+      article > .twoSection:nth-child(4){
+        background:rgba(250,250,240,0.3);
+      }
+      article > .twoSection:nth-child(6){
+        background:rgba(250,250,240,0.3);
+      }
+      .threeSection{
+        display:flex;
+        flex-direction:column;
+      }
+      .threeSection > h2{
+        background:black;
+        width:var(--width);
+        color:red;
+        text-align:center;
+        text-shadow:1px 1px yellow;
+      }
+      @media(max-width:400px){
+        header > .oneSection{
+          flex-direction:column;
+        }
+        .oneSection > a{
+            margin-top:3%;
+        }
+      }
+      #comments{
+        margin-left:auto;
+        margin-right:auto;
+        max-width:900px;
+        width:100%;
+        background:rgba(7,7,7,0.7);
+      }
+      p{
+        margin:1%;
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "person",
+        "url": "https://qucu.ru/resume/Amir.html",
+        "name": "Амир Наврутдинов",
+        "alternateName": ["Amir Navrutdinov","Amir Shikarno", "Амир Шикарно"],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+7-9528885656",
+          "email": "chikchicly@gmail.com",
+          "contactType": "frontend developer html, css, js, node.js",
+          "url": "https://www.facebook.com/Amir.Shikarno/"
+          }
+      }
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CTRLNMFNGY"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-CTRLNMFNGY');
+</script>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Amir web developer and advertiser</h1>
+        <div class="twoSection">
+          <div class="blockList">
+            <picture>
+              <source media="(max-width: 3940px)" srcset="/public_old/resume/img-resume/lol.webp" />
+              <source media="(max-width: 3940px)" alt="Amir web developer" srcset="/public_old/resume/img-resume/lol.jpg">
+
+              <source srcset="/public_old/resume/img-resume/DSC_7777.webp" type="image/webp" />
+              <img src="/public_old/resume/img-resume/DSC_7777.JPG" alt="Amir web developer" width="400px;">
+            </picture>
+          </div>
+          <div class="blockList">
+            <strong>Amir Navrutdinov</strong>
+            <p>17/07/1987</p>
+            <p style="color:red;text-shadow:1px 1px black">Skills:</p>
+            <p>Node.js , JavaScript , English(beginner), googlovost', ES6, HTML, Linux, SQL, HTML5, Git, AngularJS, React, ssh, Ajax, MySQL, CSS3, Ubuntu, contextual advertising, SEO</p>
+          </div>
+
+        </div>
+        <div class="oneSection">
+          <p>I am writing a comment system on the website “<a href="https://www.google.com/search?q=web+workshop+named+after+baron+sajtoverstauzen&client=ubuntu-sn&hs=v1Q&sca_esv=575083004&channel=fs&sxsrf=AM9HkKmo7U6vpVz2JiwBp-Q2ZmGLaWXHnQ%3A1697777076102&ei=tAUyZdvzBa-GwPAPyoGd-AQ&oq=web&gs_lp=Egxnd3Mtd2l6LXNlcnAiA3dlYioCCAAyBBAjGCcyBBAjGCcyBBAjGCcyEBAAGIAEGBQYhwIYsQMYgwEyCxAAGIAEGLEDGIMBMgsQABiABBixAxiDATILEAAYgAQYsQMYgwEyCBAAGIAEGLEDMhAQABiABBgUGIcCGLEDGIMBMgsQABiABBixAxiDAUiNKVDeElixGHABeAGQAQCYAXagAdwCqgEDMC4zuAEDyAEA-AEBwgIKEAAYRxjWBBiwA8ICChAAGIoFGLADGEPCAhEQLhiABBixAxiDARjHARjRA8ICCxAuGIAEGLEDGIMBwgIKEC4YigUYsQMYQ8ICBxAAGIoFGEPiAwQYACBBiAYBkAYK&sclient=gws-wiz-serp">Web Workshop named after Baron Sajtoverstauzen</a>”, I plan to create a working website with the ability to easily register and identify the comment system for any site by ID. Now this comment system is also built into any website, but registration is not yet ready due to the difficulty of combining the database with express passport on the express.js framework with records in the mysql database. The comment system can be seen by typing “<a href="https://www.google.com/search?q=web+workshop+named+after+baron+sajtoverstauzen&client=ubuntu-sn&hs=v1Q&sca_esv=575083004&channel=fs&sxsrf=AM9HkKmo7U6vpVz2JiwBp-Q2ZmGLaWXHnQ%3A1697777076102&ei=tAUyZdvzBa-GwPAPyoGd-AQ&oq=web&gs_lp=Egxnd3Mtd2l6LXNlcnAiA3dlYioCCAAyBBAjGCcyBBAjGCcyBBAjGCcyEBAAGIAEGBQYhwIYsQMYgwEyCxAAGIAEGLEDGIMBMgsQABiABBixAxiDATILEAAYgAQYsQMYgwEyCBAAGIAEGLEDMhAQABiABBgUGIcCGLEDGIMBMgsQABiABBixAxiDAUiNKVDeElixGHABeAGQAQCYAXagAdwCqgEDMC4zuAEDyAEA-AEBwgIKEAAYRxjWBBiwA8ICChAAGIoFGLADGEPCAhEQLhiABBixAxiDARjHARjRA8ICCxAuGIAEGLEDGIMBwgIKEC4YigUYsQMYQ8ICBxAAGIoFGEPiAwQYACBBiAYBkAYK&sclient=gws-wiz-serp">Web Workshop named after Baron Sajtoverstauzen</a>” in the search.</p>
+        </div>
+        <div class="oneSection">
+          <a href="tel:+79528885656">+79528885656</a> <a href="https://www.linkedin.com/in/chik-chicly?trk=contact-info">linkedin</a> <a href="https://wa.me/+79528885656">write to WhatsApp, Amir</a>
+        </div>
+      </header>
+      <article>
+        <h2>Education</h2>
+        <div class="twoSection">
+          <div class="blockList"><br>
+            <h2 class="orange">Skills lvl</h2><br>
+            <div>
+              <h3>HTML<br><span class="color-green">///////////////////////////</span><span class="color-red">///</span><sup>90%</sup></h3>
+              <h3>CSS<br><span class="color-green">///////////////////////////</span><span class="color-red">///</span><sup>90%</sup></h3>
+              <h3>JS<br><span class="color-green">////////////////////////////</span><span class="color-red">//</span><sup>93%</sup></h3>
+              <h3>PHP<br><span class="color-green">//////////</span><span class="color-red">////////////////////</span><sup>30%</sup></h3>
+              <h3>Photoshop (Gimp)<br><span class="color-green">/////////////////////////////</span><span class="color-red">/</span><sup>99%</sup></h3>
+              <h3>the photo<br><span class="color-green">/////////////////////////////</span><span class="color-red">/</span><sup>99%</sup></h3>
+
+                <h3>Linux "ubuntu"<br><span class="color-green">/////////////////////</span><span class="color-red">/////////</span><sup>70%</sup></h3>
+                <h3>Linux "bash"<br><span class="color-green">////////</span><span class="color-red">//////////////////////</span><sup>35%</sup></h3>
+                <h3>MySQL<br><span class="color-green">/////</span><span class="color-red">/////////////////////////</span><sup>20%</sup></h3>
+                <h3>Node.js<br><span class="color-green">///////////////</span><span class="color-red">///////////////</span><sup>50%</sup></h3>
+                <h3>English<br><span class="color-green">///////</span><span class="color-red">///////////////////////</span><sup>30%</sup></h3>
+
+                <h3>Ajax, fetch, XMLHttpRequest,<br><span class="color-green">/////////////////////</span><span class="color-red">/////////</span><sup>70%</sup></h3>
+                <h3>SSH<br><span class="color-green">////////////////////////////</span><span class="color-red">//</span><sup>90%</sup></h3>
+                  <h3>C<br><span class="color-green">////</span><span class="color-red">//////////////////////////</span><sup>10%</sup></h3>
+                  <h3>SEO<br><span class="color-green">///////////////////////////</span><span class="color-red">///</span><sup>90%</sup></h3>
+            </div>
+          </div>
+          <div class="blockList">
+            <span class="padding">
+              <h3>Courses:</h3>
+              <p>PHP<br><img src="/public_old/resume/img-resume/php.jpg" width="200px" alt='certificate php'></p>
+              <p>HTML<br><img src="/public_old/resume/img-resume/html.jpg" width="200px" alt='certificate html'></p>
+              <p>JS<br><img src="/public_old/resume/img-resume/js.jpg" width="200px" alt='certificate javascript'></p>
+              <p>CSS<br><img src="/public_old/resume/img-resume/css.jpg" width="200px" alt='certificate css'></p>
+              <p>Angular<br><img src="/public_old/resume/img-resume/angular.jpg" width="200px" alt='certificate angular'></p>
+              <p>frontend developer<br> <img src="/public_old/resume/img-resume/tusur.png" alt="frontend developer in tusur" width="200px"></p>
+              <p>
+                Python
+                <picture>
+                  <source srcset="/public_old/resume/img-resume/d8fe6572-a632-4ef3-8bd4-8d3a204d8b88.webp" type="image/webp" />
+                  <img src="/public_old/resume/img-resume/d8fe6572-a632-4ef3-8bd4-8d3a204d8b88.jpg" alt="python">
+                </picture>
+              </p>
+            </span>
+          </div>
+          <div class="oneSection">
+            <p>The main courses that helped are lessons from an Indian on YouTube</p>
+          </div>
+        </div>
+        <div class="threeSection">
+          <h2>Soft skills</h2>
+<div class="oK">
+  <span style="float:left;font-size:75px;">👌</span>
+  <p>Communication skills. The ability to negotiate with other people, work in a team, and argue your position. Leadership qualities and emotional intelligence - the ability to understand other people's feelings and control your own.
+Self-organization skills. Ability to effectively organize your work and manage time wisely.
+Creative skills. The ability to think outside the box.
+Ability to work with information. Search and analyze, draw conclusions. Search for information on the Internet or ask complex questions on stackoverflow.
+Stress resistance. Maintain functionality. High stress resistance.</p>
+
+</div>
+
+        </div>
+        <div class="oneSection">
+          <h2>Experience:</h2>
+        </div>
+
+        <div class="twoSection">
+          <div class="blockList">
+            <span> November 2021 —
+            March 2022</span>
+            <span>5-months</span>
+          </div>
+          <div class="blockList">
+            <strong>Яндекс
+          www.yandex.ru</strong>
+          Information technology, system integration, Internet • Internet company (search engines, payment systems, social networks, information, educational and entertainment resources, website promotion, etc.)
+          <span>5th category assessor</span>
+          I was doing useless and completely unpaid nonsense, but for Moscow this is money, whereas for a real Russian person this “Moscow money” is not money that is valued only in Moscow because of the great Moscow poverty. Damn Moscow, follow the warship!
+          </div>
+        </div>
+        <div class="twoSection">
+          <div class="blockList">
+            <span> August 2021 —
+  October 2021</span>
+  <span>3-months</span>
+          </div>
+          <div class="blockList">
+            <strong>Яндекс
+Москва, www.yandex.ru</strong>
+Information technology, system integration, Internet
+• Internet company (search engines, payment systems, social networks,
+informational, educational and entertainment resources, website promotion and
+other)
+<span>Operator category 5</span>
+I tried to get a job because there is no paid work in Tomsk. There is every one, but it’s paid
+no, and all because of the filthy, finished Moscow (rat bunch of war criminals of the third
+Reich), Moscow as a dwarf mini state, reduced, mini compact. Bunker
+type.
+          </div>
+        </div>
+        <div class="twoSection">
+          <div class="blockList">
+            <span>February 2020 —
+  June 2020</span>
+<span>5-months</span>
+          </div>
+          <div class="blockList">
+            <strong>Biliton</strong>
+  <span>SEO specialist</span>
+  semantic adaptive layout, structured data, semantic tags, title,
+   description.
+          </div>
+        </div>
+        <div class="twoSection">
+          <div class="blockList">
+          <span>2020 - until today</span>
+          </div>
+          <div class="blockList">
+            <strong>self-employed</strong>
+            I am writing a website "web workshop named after Baron Sajtoverstauzen", a comment system that can be tested on the site <a href="https://qucu.ru/comments">here</a>
+            and <a href="https://qucu.ru">full site</a>
+          </div>
+        </div>
+
+      </article>
+      <!--
+       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                              Here commentsBlock!
+      XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      -->
+      <div id="comments"></div>
+      <a href="https://qucu.ru/comments/" style="font-size: 17px;">https://qucu.ru/comments/</a>
+      <script type="text/javascript">
+        const site={
+          origin: 'https://qucu.ru/resume/',
+          referrer: "https://qucu.ru/resume/Amir.html"
+        }
+        const importantBag={id:"resume",site:window.location};
+          // const id='nasoberu';// important!!!
+          const script =document.createElement('script');
+          const url ='https://qucu.ru/allow-cors/';
+          async function goComments(){
+            await fetch(url,{
+              origin:site.origin,
+              method: "POST",
+              referrer: site.referrer,
+              referrerPolicy: "origin-when-cross-origin",
+              mode:"cors",
+              credentials: "omit",
+              cache: "no-store",
+            }).then(response=>response.text()).then(result=>{
+              document.querySelector('#comments').append(script);
+              let oK = document.querySelector('#comments > script');
+              oK.innerHTML=result;
+            });
+          };
+          setTimeout(()=>goComments(),300);
+      </script>
+    </main>
+  </body>
+  <script type="text/javascript">
+
+    let searchName=location.search;
+    // rusName=;
+    if(searchName=='?rusName'){
+      document.querySelector('header > h1').innerHTML=`Амир Наврутдинов`;
+      document.querySelector('head > meta[name="description"]').innerHTML=`Резюме. Веб программист Амир Наврудтинов`;
+    }else if(searchName=='?html-coder'){
+      document.querySelector('header > h1').innerHTML=`sinner HTML CODER`;
+      document.querySelector('head > meta[name="description"]').innerHTML=`professional HTML CODER from russia`;
+    }else if(searchName=='?JS-programmer'){
+      document.querySelector('header > h1').innerHTML=`JS programmer`;
+      document.querySelector('head > meta[name="description"]').innerHTML=`javascript programmer Amir Navrutdinov. Resume.`;
+    }else if(searchName=='?frontend-developer'){
+      document.querySelector('header > h1').innerHTML=`frontend developer`;
+      document.querySelector('head > meta[name="description"]').innerHTML=`professional frontend developer Amir Navrutdinov`;
+    }else if(searchName=='?nodejs-programmer'){
+      document.querySelector('header > h1').innerHTML=`nodejs programmer`;
+      document.querySelector('head > meta[name="description"]').innerHTML=`backend programmer Amir Navrutdinov from russia`;
+    }else if(searchName=='?layout-design'){
+      document.querySelector('header > h1').innerHTML=`ВЕРСТАЛЬЩИК`;
+      document.querySelector('head > meta[name="description"]').innerHTML=`верстальщик который запускает сайты с контекстной рекламой и сео оптимизацией`;
+    }else if(searchName=='?programmer'){
+      document.querySelector('header > h1').innerHTML=`web programmer`;
+      document.querySelector('head > meta[name="description"]').innerHTML=`web programmer Supser hero and person from russia`;
+    }else if(searchName=='?advertiser'){
+      document.querySelector('header > h1').innerHTML=`advertiser`;
+      document.querySelector('head > meta[name="description"]').innerHTML=`Рorder a website with SEO optimization and promotion in contextual advertising`;
+    }else{
+      console.log("else");
+    }
+    const listImgWebp=['/public_old/resume/img-resume/lol.webp','/public_old/resume/img-resume/lolTwo.webp','/public_old/resume/img-resume/lolThree.webp'];
+    const listImg=['/public_old/resume/img-resume/lol.jpg','/public_old/resume/img-resume/lolTwo.jpg','/public_old/resume/img-resume/lolThree.jpg'];
+    let numberClick=+0;
+    document.querySelector('img').addEventListener('click',()=>{
+      numberClick++;
+      if(numberClick>=listImg.length){
+        numberClick=0;
+      }
+      document.querySelector('picture > source:nth-child(1)').setAttribute('srcset',`${listImgWebp[numberClick]}`);
+      document.querySelector('picture > source:nth-child(2)').setAttribute('src',`${listImg[numberClick]}`);
+    });
+    function onClicksToPhoto(x){
+      countPhClick=+0;
+      let marginLeftN=+0;
+      function marginLeft(){
+        if(window.innerWidth<900){
+          return marginLeftN=0;
+        }else if(window.innerWidth>1300){
+          return marginLeftN='17%';
+        }else if(window.innerWidth>1000){
+          return marginLeftN='10%';
+        }else{
+          return marginLeftN='1%';
+        }
+      }
+      marginLeft();
+      document.querySelector(x).addEventListener('click',()=>{
+        countPhClick++;
+        // console.log('click '+countPhClick+"_"+window.innerWidth);
+        document.querySelector(x).style.cssText=`
+        position:fixed;
+        top:0;
+        z-index:99;
+        left:${marginLeftN};
+        max-width:var(--max-width);
+        width:100%;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        heigh:100vh;
+        `;
+        let div=document.createElement('div');
+        div.setAttribute('id','blackBox');
+        document.querySelector('body').append(div);
+        document.querySelector('#blackBox').style.cssText=`
+        background:black;
+        width:100%;
+        height:100vh;
+        top:0;
+        position:fixed;
+        `;
+        document.querySelector('body').style.cssText=`
+          overflow: hidden;
+        `;
+        if(countPhClick==2){
+          let one = document.getElementById('blackBox');
+          let two = document.querySelector('body');
+          two.removeChild(one);
+          // elem.parentNode.removeChild(elem);
+          document.querySelector('#blackBox').remove();
+
+
+
+          document.querySelector(x).style.cssText=`
+          position:relative;
+          // left:0;
+          display:block;
+          max-width:400px;
+          width:100%;
+          `;
+          document.querySelector('body').style.cssText=`
+            overflow:auto;
+          `;
+          countPhClick=0;
+        }
+      });
+    }
+    onClicksToPhoto('.padding > p:nth-child(2) > img:nth-child(2)');
+    onClicksToPhoto('.padding > p:nth-child(3) > img:nth-child(2)');
+    onClicksToPhoto('.padding > p:nth-child(4) > img:nth-child(2)');
+    onClicksToPhoto('.padding > p:nth-child(5) > img:nth-child(2)');
+    onClicksToPhoto('.padding > p:nth-child(6) > img:nth-child(2)');
+    onClicksToPhoto('.padding > p:nth-child(7) > img:nth-child(2)');
+
+  </script>
+</html>

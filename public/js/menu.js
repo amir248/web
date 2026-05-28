@@ -82,7 +82,7 @@ function menu777(){
     width:100%;
     height:100%;
     background:grey;
-    z-index:0;
+    z-index:2;
     `
     menuOpen.setAttribute('id','menu');
     // menuOpen.innerHTML='there will be a menu here';

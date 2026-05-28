@@ -1,0 +1,261 @@
+*{
+    margin: 0;
+    
+}
+html{
+    scroll-behavior:smooth;
+}
+/*-----------------фоны трех страниц -----------------------------*/
+.imgkod{
+    margin: 0;
+    border: 0;
+    background-image: url(kod.jpg);
+    /* width: 100%; */
+    min-height: 100%;
+    max-height: 100%;
+    word-wrap: break-word;
+    overflow: auto;
+    
+}
+.imgexample{
+    background-image: url(example.jpg);
+    background: palegoldenrod;
+    margin: 0;
+    border: 0;
+    width: 100%;
+    overflow: auto;
+    min-height: 100%;
+    word-wrap: break-word;
+    
+    
+}
+.imgodds{
+    display: inline-block;
+    background-image: url(contacts.jpg);
+    overflow: visible;
+    margin: 0;
+    border: 0;
+    width: 100%;
+    min-height: 100%;
+    word-wrap: break-word;
+    
+}
+/*----------конц фонам ----------------------------------*/
+@media (max-width:304px){
+    .text {
+        font-size: 9px;
+    }
+    #textnaglavnoi{
+        width: 250px;
+        margin: 10px;
+    }
+    .text{
+        font-size: 12px;
+    }
+}
+@media (max-width:400px){
+    .text{
+        font-size: 14px;
+    }
+    .text{
+        font-size: 22px;
+    }
+    
+}
+@media(max-height: 400px){
+    #textnaglavnoi{
+        display: none;
+    }
+    .text{
+        font-size: 12px;
+    }
+}
+@media(max-height: 500px){
+    #textnaglavnoi{
+        display:none;
+    }
+    .prim{
+        width: 100vh;
+    }
+}
+@media(max-height: 800px){
+    #textnaglavnoi{
+        font-size: 18px;
+    }
+    .text{
+        font-size: 12px;
+    }
+}
+@media (min-width: 800px){
+    #textnaglavnoi{
+        font-size: 24px;
+        
+        margin-left: 300px;
+        
+    }
+    
+    
+}
+/*@media(min-width: 1200px){
+    #social_network_buttons{
+        margin-right: 150px;
+        margin-top: 125px;
+    }
+}*/
+@media(max-height: 500px){
+    #social_network_buttons{
+        margin-top: 10%;
+    }
+}
+/*-----------------------------------------*/
+
+
+
+/*--------------------текст с главной страницы и кнопки, а также остальное содержимое. ------------*/
+#textnaglavnoi{
+    text-align: left;
+    width: 600px;
+    min-width: 100px;
+    max-width: 90%;
+    margin-left: 10%;
+    word-wrap: break-word;
+    margin-top: 17%;
+    border: 25px;
+}
+.text{
+    text-shadow: rgb(204, 78, 78) 2px 2px 3px;
+    
+    text-align: right;
+    color: white;
+    
+    
+    font-size: 18px;
+}
+#social_network_buttons{
+    display: flex;
+    /*margin-bottom: 20%;*/
+    margin-top: 15%;
+    float: right;
+    margin-right: 5%;
+    padding: 24px;
+    
+  
+}
+#d:hover{
+    width:75px;
+    height:90px;
+}
+#fotochka{ 
+    
+    color: rgb(255, 255, 255);
+    background-color: rgba(134, 253, 15, 0.1);
+}
+#fotochka:hover{
+    background-color: rgb(34, 163, 34);
+}
+#fotochka-text{
+    padding: 25px;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+#foto_left{
+    
+    display: none;
+}
+/* -------------------------------------------------------------------------------------------------------*/
+.prim{
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: auto;
+    max-width: 100%;
+    width: 600px;
+    min-width: 50%;
+    max-height: 100%;
+    
+}
+.prem{
+    
+    width:600px;
+    max-width: 100%;
+    min-width:50%;
+    text-align: center;
+    font-size:24px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom:black ;
+    text-shadow: wheat 2px 2px 7px ;
+}
+.rab{ 
+    background-color: #89855c;
+    font-size: 22px;
+    text-shadow: #ad8f6d 1px 1px 3px;
+    max-width: 90%;
+    min-width:100px;
+    width: 700px;
+    margin-left: 30px;
+    padding: 10px;
+    border: 1px solid #5e4121;
+    display: block;
+}
+.beautiful{
+    
+    
+    margin-top: 25px;
+    font-size: 22px;
+    text-shadow: white 1px 1px 3px;
+    max-width: 90%;
+    min-width: 100px;
+    width: 350px;
+    text-align: right;
+    margin-right: auto;
+    margin-left: auto; 
+    padding: 10px;
+    
+   
+}
+.vs{
+    color: wheat;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    font-size: 70px;
+    text-shadow: 2px 2px 10px red;
+}
+.beautifulborder{
+    background-color: #ccffd1;
+    border: 25 px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    border: 1px solid red; 
+  
+}
+.imgrab{
+    float: right;
+}
+.shikarno{
+    float: left;
+}
+/* ----тут очень важная кнопка меню ---------*/
+#verh{
+    bottom:30px;
+    position: fixed;
+    right: 30px;
+}
+.verh_invisible{
+    opacity: 0;
+}
+/* -------------------------------------------
+------украшение для ссылок, портфолио---------
+--------------------------------------------*/
+.fon_ssulok{
+    background-color: rgba(3, 138, 3, 0.3);
+    
+    border: 1px solid rgba(250, 124, 124, 0.9);
+    padding: 1%;
+
+}
+.fon_ssulok:hover{
+    background-color: rgba(247, 103, 105, 0.3)
+}

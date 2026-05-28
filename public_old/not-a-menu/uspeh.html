@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+       
+        <style>
+            *{
+                
+                margin:0;
+                font-size: 5vh;
+            }
+            .dropdown{
+              
+                background-color: brown;
+                padding:1%;
+            }
+            .dropdown-content{
+                display:none;
+                position:absolute;
+                width:300px;
+                max-width: 100%;
+                background-color: coral;
+            }
+            .dropdown:hover .dropdown-content{
+                display: block;
+            }
+            .vidosOk{
+                display:flex;
+                max-width: 100%;
+                width:700px;
+                height: 300px;
+                background-color: bisque;
+            }
+            .vidos{
+                display:none;
+            }
+        </style>
+     <main>
+        <section>
+            <div class="dropdown">&
+
+            <ul class="dropdown-content">
+                <li>menu</li>
+                <li>uno</li>
+                <li>do</li>
+            </ul>
+        </div>
+            </legend>
+        </section>
+        <script>
+            // console.log(event.target.tagName);
+        </script>
+<p style="max-width: 100%;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti est, reiciendis reprehenderit, non sapiente tempora aperiam labore quam impedit illum dignissimos eveniet distinctio ratione harum molestiae fuga suscipit velit nemo eius, voluptatum consequatur! Voluptate doloremque, in perspiciatis soluta optio repellat aliquid? Animi cupiditate voluptatem enim repellat eius cum, velit aspernatur?</p>
+<p style="max-width: 100%;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim magni praesentium vel explicabo alias placeat possimus numquam obcaecati autem provident blanditiis dolores inventore architecto assumenda, deserunt voluptates ducimus, asperiores eaque itaque rerum, aliquid labore. Odio obcaecati explicabo dolores voluptatem, hic, quo saepe cum voluptas reprehenderit qui, tenetur et ipsa aperiam exercitationem asperiores? Earum repellat modi sed perspiciatis eum quisquam, iure ducimus quos error laudantium inventore vero, doloremque culpa omnis ipsum aperiam necessitatibus, voluptas veniam! Rerum veniam dolor accusantium sint, laborum quae amet perspiciatis, tenetur vel quidem, voluptas itaque! Magni ex in officia ut praesentium voluptatibus rem odio excepturi eligendi doloribus.</p>
+
+<div id="vidos">
+    <div calass="vidos">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/9h9wSx890tw?start=6853" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+</main>
+<script>
+    var options = {
+root: null,
+rootMargin: '0px',
+threshold: 1.0
+}
+var callback = function(entries, observer) {
+/* Content excerpted, show below */
+let nuvot = document.querySelector('#vidos');
+nuvot2 = nuvot.classList.remove('vidos');
+nuvot2 = nuvot.classList.add('vidosOk');
+console.log(nuvot2);
+console.log('это в теле колбека')
+};
+var observer = new IntersectionObserver(callback, options);
+
+var target = document.querySelector('#vidos');
+observer.observe(target);
+</script>
+
+    </body>
+   
+</html>

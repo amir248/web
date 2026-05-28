@@ -118,7 +118,7 @@ forma.addEventListener("submit", async (e) => {
   
   
   try {
-    const response = await fetch("https://qucu.ru/"+`${id}`+`${type}`, {
+    const response = await fetch("https://qucu.ru/comments/"+`${id}`+`${type}`, {
       method: "POST",
       credentials: "include", // 🔥 ОБЯЗАТЕЛЬНО
       headers: {
@@ -126,6 +126,7 @@ forma.addEventListener("submit", async (e) => {
       },
       body: JSON.stringify(data)
     });
+    console.log(document.cookie);
     if (response.ok) {
       console.log("Комментарий отправлен!");
       sendButton.disabled=true;
@@ -160,7 +161,7 @@ function escapeHTML(str) {
 
 async function loadComments() {
   try {
-    const response = await fetch("https://qucu.ru/"+`${id}`+`${type}`);
+    const response = await fetch("https://qucu.ru/comments/"+`${id}`+`${type}`);
     if (!response.ok) throw new Error("Ошибка загрузки комментариев");
     const comments = await response.json();
     // контейнер для вывода

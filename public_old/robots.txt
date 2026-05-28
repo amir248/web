@@ -1,0 +1,17 @@
+User-agent: *
+host: https://qucu.ru
+Allow: /
+sitemap: https://qucu.ru/sitemap.xml
+sitemap: https://qucu.ru/sitemap-multilending.xml
+sitemap: https://qucu.ru/blozhik/sitemap-blozhik.xml
+sitemap: https://qucu.ru/resume/sitemap-resume.xml
+disallow: /cgi-bin/
+
+disallow: /blozhik/add-news-post
+disallow: /yandexMetrica.html
+disallow: /scandirmenu.php
+disallow: /sitemap.php
+disallow: /admin-of-this-site.php
+
+User-agent: Yandex
+host: https://qucu.ru/?yandex

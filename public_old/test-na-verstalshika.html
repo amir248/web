@@ -1,0 +1,343 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <link rel="canonical" href="https://qucu.ru/test-na-verstalshika.html">
+        <meta name="description" content="Тест на верстальщика, проф пригодность для верстки html, css, html coder">
+        <title>Тест на верстальщика html</title>
+
+        <style>
+        *{
+          margin:0;
+        }
+        .boxo{
+          display: flex;
+          word-wrap: break-word;
+          justify-content: center;
+          padding: 2%;
+
+        }
+        .line{
+          display: flex;
+          flex-direction: column;
+          width: 600px;
+          max-width: 100%;
+        }
+        .otvet{
+          display: flex;
+          justify-content: center;
+          font-size: 18px;
+          color: red;
+        }
+        @media(max-width: 600px){
+          h1{
+            font-size: 22px;
+          }
+        }
+        body{
+          background-color: rgb(205, 235, 205);
+          min-height: 100vh;
+        }
+        .block{
+          min-height: 100vh;
+
+        }
+        .bor{
+          background-color: rgb(250, 235, 235);
+          border: 3px solid rgb(11, 37, 10);
+          padding: 12px;
+        }
+        .bor:hover{
+          background-color:violet;
+          border: 3px solid rgb(11, 37, 10);
+        }
+        </style>
+        <!-- Разметка JSON-LD, созданная Мастером разметки структурированных данных Google. -->
+        <script type="application/ld+json">
+        {
+          "@context" : "http://schema.org",
+          "@type" : "Article",
+          "headline" : "Тест на предрасположенность верстальщиству html/css",
+          "name" : "Тест на предрасположенность к верстальщиству html/css",
+          "author" : {
+            "@type" : "Person",
+            "name" : "Амир Наврутдинов",
+            "alternateName": ["Amir Shikarno", "Amir Navrutdinov"],
+            "url" : "https://qucu.ru/resume/Amir.html"
+          },
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://qucu.ru/test-na-verstalshika.html"
+          },
+          "datePublished" : "2020-03-27",
+          "dateModified": "2024-02-27",
+          "image" : "https://qucu.ru/",
+          "articleSection" : "наверстываеть упущенное за себя и за Сашку",
+          "articleBody" : "Пройти бесплатный онлайн тест на профпригодность для такой почетаемой профессии как верстальщик веб сайтов",
+          "url" : "",
+          "publisher" : {
+            "@type" : "Organization",
+            "name" : "Веб мастерская имени Барона Сайтоверстаузена",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://qucu.ru/public/images/logo.png"
+            }
+          }
+        }
+      </script>
+    </head>
+    <body>
+      <div class="block">
+
+        <article class="boxo">
+            <div class='line'>
+                <h1>Тест на предрасположенность к верстальщиству html/css</h1>
+                <sub>Пройти бесплатный онлайн тест на профпригодность для такой почетаемой профессии как верстальщик веб сайтов.</sub>
+
+                <div id='BoxTest'>
+                    <table align="center">
+                        <div id="table1">
+                       <fieldset>
+                            <legend>Легко ли, понять новую информацию?</legend>
+                                  <label><input type="radio" name="one" value="1" onchange="result()" id="od">Да</label>
+                                    <label><input type="radio" name="one" value="2" onchange="result()" id="od2">Нет</label>
+                            </fieldset>
+                        </div>
+                        <fieldset>
+                            <legend>Помогут ли связи с администрацией в программировании?</legend>
+                          <label>
+                          <input type="radio" name="two" value="1" onchange="result()">Да</labe>
+                          <label><input type="radio" name="two" value="2" onchange="result()">Нет</label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Имеется возможность, забыть все новое и преминить другое новое?</legend>
+                          <label><input type="radio" name="three" value="1" onchange="result()">Да</label>
+                            <label><input type="radio" name="three" value="2" onchange="result()">Нет</label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Легко использовать логические приёми, такие как: "если бы, да кабы, или, или или"?</legend>
+                          <label><input type="radio" name="four" value="1" onchange="result()">Да</label>
+                          <label><input type="radio" name="four" value="2" onchange="result()">Нет</label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>По вечерам вместо того чтобы валятся на диване перед телевизором, тебе более важно наверстываеть упущенное за других?</legend>
+                          <label><input type="radio" name="five" value="1" onchange="result()">Да</label>
+                          <label><input type="radio" name="five" value="2" onchange="result()">Нет</label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Профессиональный html coder должут знать не только "азбуку телепузиков(html coder{ow})"?</legend>
+                          <label><input type="radio" name="sixe" value="1" onchange="result()">Да</label>
+                          <label><input type="radio" name="sixe" value="2" onchange="result()">Нет</label>
+                        </fieldset>
+                        <fieldset>
+                            <legend>Ура!</legend>
+                          <label><input type="radio" name="seven" value="1" onchange="result()">Да</label>
+                          <label><input type="radio" name="seven" value="2" onchange="result()">Нет</label>
+                        </fieldset>
+                        <tr align="right">
+                            <td><button id='otvet' class='bor'>Получить ответ!</button></td>
+
+                        </tr>
+
+                    </table>
+                    <sub class="otvet"></sub>
+                    <script>
+                    document.getElementsByName("one").onclick = function(){
+                    table1.style.background= '#ffe2e2';
+                    }
+                    document.getElementsByName("one").onclick = function(){
+                    table1.style.background= '#ffe2e2';
+                    }
+                    const Summary={};
+                        function result(){
+                            if(document.getElementsByName("one")[0].checked){
+                            Summary.one=100;
+                            console.log(Summary.one + Summary.two + Summary.three + Summary.four + Summary.five + Summary.sixe +Summary.seven);
+                          }else if(document.getElementsByName("one")[1].checked){
+                            Summary.one=0;
+                            }else{
+                                console.log('else');
+                            }
+                            if(document.getElementsByName("two")[0].checked){
+                              Summary.two=0;
+                            }else if(document.getElementsByName("two")[1].checked){
+                              Summary.two=100;
+                            }else{
+                                return;
+                            }
+                            if(document.getElementsByName("three")[0].checked){
+                              Summary.three=100;
+                            }else if(document.getElementsByName("three")[1].checked){
+                              Summary.three=0;
+                            }else{
+                                return;
+                            }
+                            if(document.getElementsByName("four")[0].checked){
+                              Summary.four=100;
+                            }else if(document.getElementsByName("four")[1].checked){
+                              Summary.four=0;
+                            }else{
+                                return;
+                            }
+                              if(document.getElementsByName("five")[0].checked){
+                              Summary.five=100;
+                            }else if(document.getElementsByName("five")[1].checked){
+                              Summary.five=0;
+                              }else{
+                                  return;
+                              }
+                            if(document.getElementsByName("sixe")[0].checked){
+                            Summary.sixe=100;
+                          }else if(document.getElementsByName("sixe")[1].checked){
+                            Summary.sixe=0;
+                            }else{
+                                return;
+                            }
+                            if(document.getElementsByName("seven")[0].checked){
+                              Summary.seven=100;
+                          }else if(document.getElementsByName("seven")[1].checked){
+                              Summary.seven=0;
+                            }else{
+                                return;
+                              }
+                            }
+                            let summar;
+
+                        otvet.onclick = function(){
+
+
+                        }
+                        document.querySelector('button').addEventListener('click',()=>{
+                          summar=Summary.one + Summary.two + Summary.three + Summary.four + Summary.five + Summary.sixe +Summary.seven;
+                          console.log(summar);
+                          console.log('addEventListener');
+                          if(summar==700){
+                              document.querySelector('.otvet').innerHTML ="100% из 100%<br><span style='font-size:37px;'>😇</span> Да Вы уважаемый Барон Сайтоверстаузен!";
+                          }else if(summar==600){
+                              document.querySelector('.otvet').innerHTML ="Молодцы!";
+                          }else if(summar==500){
+                              document.querySelector('.otvet').innerHTML ="Не плохо, не плохо, но могло быть и лушче.";
+                          }else if(summar==400){
+                              document.querySelector('.otvet').innerHTML ="Не Барон Сайтоверстаузен, но упущенное наверстаете. При большом желании.";
+                          }else if(summar==300){
+                              document.querySelector('.otvet').innerHTML ="Верстальщик среднего звена.";
+                          }else if(summar==200){
+                              document.querySelector('.otvet').innerHTML ="Ну если очень постораться, то вполне возможно стать верстальщиком.";
+                          }else if(summar==100){
+                              document.querySelector('.otvet').innerHTML ="А надо ли оно вообще верстать сайты?.";
+                          }else{
+                              document.querySelector('.otvet').innerHTML ="О_о <span style='font-size:35px;'>😱</span> Лучше промолчать чем прокомментировать Ваши результаты.";
+                              // "Даже не думай! Наверстывать упущенное.";
+                          }
+                        });
+                    </script>
+                </div>
+
+            </div>
+        </article>
+        <!-- Счетчики -->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-CTRLNMFNGY"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-CTRLNMFNGY');
+        </script>
+ <div style="display:flex;justify-content:center;align-items:center;flex-direction:column;">
+   <!--
+    XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                           Here commentsBlock!
+   XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+   -->
+   <div id="comments"></div>
+   <a href="https://qucu.ru/comments/" style="font-size: 17px;">https://qucu.ru/comments/</a>
+   <script type="text/javascript">
+     const site={
+       origin: 'https://qucu.ru/',
+       referrer: "https://qucu.ru/"
+     }
+     const importantBag={id:"nasoberu",site:window.location};
+       // const id='nasoberu';// important!!!
+       const script =document.createElement('script');
+       const url ='https://qucu.ru/allow-cors/';
+       async function goComments(){
+         await fetch(url,{
+           origin:site.origin,
+           method: "POST",
+           referrer: site.referrer,
+           referrerPolicy: "origin-when-cross-origin",
+           mode:"cors",
+           credentials: "omit",
+           cache: "no-store",
+         }).then(response=>response.text()).then(result=>{
+           document.querySelector('#comments').append(script);
+           let oK = document.querySelector('#comments > script');
+           oK.innerHTML=result;
+         });
+       };
+       setTimeout(()=>goComments(),300);
+   </script>
+</div>
+</div>
+    </body>
+
+
+
+
+<script>
+
+    //--------------------------------------------------------------
+    //--------ОТПРАВИТЬ ЗАПРОС ЧТОБЫ ПОЛУЧИТЬ МЕНЮ------------------
+    //--------------------------------------------------------------
+function run(){
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", 'public_old/menu/menu.html', true);
+    xhr.onreadystatechange = function() {//Вызывает функцию при смене состояния.
+    if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+    document.getElementById("menu").innerHTML = this.responseText;
+        }
+    }
+    xhr.send();
+}
+/*--------------------------------------------------------------------------
+----------------ТУТ_ПРОИСХОДИТ_ОБНОВЛЕНИЕ_МЕНЮШКИ!--------------------------
+--------------------------------------------------------------------------*/
+                    //setInterval(run, 700);
+                    run();
+</script>
+
+    <!-- <script>
+    function run2(){
+        var open = new XMLHttpRequest();
+        open.open("GET", '/menu/disqus.html' , true);
+        open.onreadystatechange = function() {//Вызывает функцию при смене состояния.
+            if(open.readyState == XMLHttpRequest.DONE && open.status == 200) {
+            document.querySelector("#disqusus").innerHTML = this.responseText;
+            }
+        }
+        open.send();
+    }
+
+        run2();
+
+    </script>
+    <?php $_SERVER['SERVER_NAME']."/menu.html" ?> -->
+
+    <!-- ХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХ
+                     Начало меню!
+     ХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХХ-->
+ <div id="menu"></div>
+
+ <noscript>
+ <a href="https://qucu.ru">
+ </noscript>
+ <button class="burg"><span style="font-size:47px;">🍔</span>
+ </button>
+ <noscript>
+ </a>
+ </noscript>
+<link rel="stylesheet" href="public_old/menu/style-menu.css">
+<script src="public_old/menu/script-menu.js"></script>
+</html>

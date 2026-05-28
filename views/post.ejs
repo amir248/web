@@ -51,16 +51,16 @@
         async function loadAssets() {
           try {
             // Загружаем CSS
-            // const cssResponse = await fetch("https://comments.qucu.ru/style", {
-            //   credentials: "include"
-            // });
-            // const cssText = await cssResponse.text();
-            // const style = document.createElement("style");
-            // style.textContent = cssText;
-            // document.head.append(style);
+            const cssResponse = await fetch("https://qucu.ru/comments/style", {
+              credentials: "include"
+            });
+            const cssText = await cssResponse.text();
+            const style = document.createElement("style");
+            style.textContent = cssText;
+            document.head.append(style);
 
             // Загружаем JS
-            const jsResponse = await fetch("https://qucu.ru/js/blozh", {
+            const jsResponse = await fetch("https://qucu.ru/comments/js/blozh", {
               credentials: "include"
             });
             const jsText = await jsResponse.text();
@@ -79,6 +79,6 @@
         </script>
 
   </main>
-  <script defer src='/dateScript.js'></script>
+  <script defer src='../js/dateScript.js'></script>
 </body>
 </html>
