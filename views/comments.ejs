@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>comments sustem</title>
+    <!-- <link rel="stylesheet" href="/public/style/main.css">
+    <link rel="stylesheet" href="/public/style/registration.css"> -->
+    <link rel="icon" href="https://qucu.ru/img/js.svg" type="image/svg+xml">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Разметка JSON-LD, созданная Мастером разметки структурированных данных Google. -->
+  <script type="application/ld+json">
+  {
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "name": "Comments",
+  "headline": "sustem comments",
+  "author" : {
+    "@type" : "Person",
+    "name" : "Amir Navrutdinov",
+    "alternateName": ["Amir Shikarno", "Амир Наврутдинов"],
+    "url" : "https://qucu.ru/resume/Amir.html"
+  },
+  "datePublished": "2023-04-07",
+  "dateModified":"2026-04-13",
+  "image": "https://qucu.ru/public/images/great-job.png",
+  "articleSection": "Супер шикарная система комментаривев",
+  "articleBody": "Эта система комментариев без записи в базу данных. Сообщения записываются массивом в документ json форматa. После чего отправляются с сервера обратно в документ. С использованием одного только javascript. Как говорится в пословице: &quot;все гениальное просто&quot;. Рабочую систему комментариев можно скачать по ссылки с моего гитхаба https://github.com/amir248/comments Вот вам пожалуйста рабочая система комментариев в открытом доступе, это не то что условно бесплатная система комментариев как &quot;дискус&quot;. Сначало она бесплатная, а потом загромаждает все поля видимости жесточайшими ракламными блоками.",
+  "url": "https://comments.qucu.ru/",
+  "publisher" : {
+    "@type" : "Organization",
+    "name" : "веб мастерская имени Барона Сайтоверстаузена",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://comments.qucu.ru/"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://comments.qucu.ru/"
+    }
+  }
+  }
+  </script>
+   <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
+    <style media="screen">
+      *{
+        margin:0;
+      }
+      body{
+        width:900px;
+        max-width:100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      main{
+        display:flex;
+        justify-content: center;
+        align-items: baseline;
+        flex-direction: column;
+        max-width: 900px;
+        width:100%;
+      }
+      #comments{
+        width:900px;
+        max-width:100%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      #comments fieldset{
+        background: rgba(0,255,0,0.1);
+        border-radius:3px;
+      }
+      body strong{
+        text-align: left;
+        background: black;
+      }
+    .oK{
+        width:100%;
+        max-width:100%;
+    }
+    .oK > div{
+       
+        width:100%;
+        max-width:100%;
+        word-break: break-all;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        white-space: normal;
+    }
+    body > strong{
+      color:green;
+    }
+</style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+  </head>
+  <body>
+    <h1><%=title%></h1>
+    <strong><span style="color:red;">Внимание!</span> <span style="color:violet;">Внимание!</span> Если не подтвердить Email акаунт будет удален автоматические, тоесть програмно.</strong>
+    <p><%=text%></p>
+    <strong>
+      <span id="ID"></span>
+<a href="https://github.com/amir248/comments">GitHub</a>
+<br>
+<a href="https://github.qucu.ru/"> Example from GitHub</a>
+</strong>
+     <code>
+    <div>
+<div><span> </span><span>async</span><span> </span><span>function</span><span> </span><span>loadAssets</span><span>() {</span></div>
+<div><span> </span><span>try</span><span> {</span></div>
+<div><span> </span><span>// Загружаем CSS</span></div>
+<div><span> </span><span>const</span><span> </span><span>cssResponse</span><span> = </span><span>await</span><span> </span><span>fetch</span><span>(</span><span>"https://comments.qucu.ru/style"</span><span>);</span></div>
+<div><span> </span><span>const</span><span> </span><span>cssText</span><span> = </span><span>await</span><span> </span><span>cssResponse</span><span>.</span><span>text</span><span>();</span></div>
+<div><span> </span><span>const</span><span> </span><span>style</span><span> = </span><span>document</span><span>.</span><span>createElement</span><span>(</span><span>"style"</span><span>);</span></div>
+<div><span> </span><span>style</span><span>.</span><span>textContent</span><span> = </span><span>cssText</span><span>;</span></div>
+<div><span> </span><span>document</span><span>.</span><span>head</span><span>.</span><span>append</span><span>(</span><span>style</span><span>);</span></div>
+<br />
+<div><span> </span><span>// Загружаем JS с ID пользователя</span></div>
+<div><span> </span><span>const</span><span> </span><span>jsResponse</span><span> = </span><span>await</span><span> </span><span>fetch</span><span>(</span><span>`https://comments.qucu.ru/no-captcha/</span><span><span>Your ID</span>`</span><span>);</span></div>
+<div><span> </span><span>const</span><span> </span><span>jsText</span><span> = </span><span>await</span><span> </span><span>jsResponse</span><span>.</span><span>text</span><span>();</span></div>
+<div><span> </span><span>const</span><span> </span><span>js</span><span> = </span><span>document</span><span>.</span><span>createElement</span><span>(</span><span>"script"</span><span>);</span></div>
+<div><span> </span><span>js</span><span>.</span><span>type</span><span> = </span><span>"text/javascript"</span><span>;</span></div>
+<div><span> </span><span>js</span><span>.</span><span>textContent</span><span> = </span><span>jsText</span><span>;</span></div>
+<div><span> </span><span>document</span><span>.</span><span>head</span><span>.</span><span>append</span><span>(</span><span>js</span><span>);</span></div>
+<br />
+<div><span> </span><span>console</span><span>.</span><span>log</span><span>(</span><span>"JS и CSS успешно подгружены для пользователя #Your ID!"</span><span>);</span></div>
+<div><span> } </span><span>catch</span><span> (</span><span>err</span><span>) {</span></div>
+<div><span> </span><span>console</span><span>.</span><span>error</span><span>(</span><span>"Ошибка загрузки:"</span><span>, </span><span>err</span><span>);</span></div>
+<div><span> }</span></div>
+<div><span> }</span></div>
+<br />
+<div><span> </span><span>loadAssets</span><span>();</span></div>
+</div>
+  </code>
+  <strong>DOWNLOAD <a href="https://qucu.ru/app-comments.apk
+">CommentsApp</a></strong> <a href="https://new.qucu.ru/">Page Persons</a>
+  <div id="comments"></div>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+    window.USER_ID = "<%= userId %>";
+
+    const idElem = document.querySelector("#ID");
+    if (idElem) {
+        idElem.textContent = window.USER_ID;
+    }
+
+    async function loadAssets() {
+        try {
+            // Загружаем CSS
+            const cssResponse = await fetch("https://qucu.ru/style", { credentials: "include" });
+            const cssText = await cssResponse.text();
+            const style = document.createElement("style");
+            style.textContent = cssText;
+            document.head.append(style);
+
+            // Загружаем JS с ID пользователя
+            const jsResponse = await fetch(`https://qucu.ru/js/<%= userId %>`, { credentials: "include" });
+            const jsText = await jsResponse.text();
+            // console.log("Fetched JS content:", jsText); // ✅ лог для проверки
+
+            const js = document.createElement("script");
+            js.type = "text/javascript";
+            js.textContent = jsText;
+            document.head.append(js);
+
+            console.log(`JS и CSS успешно подгружены для пользователя #<%= userId %>!`);
+        } catch (err) {
+            console.error("Ошибка загрузки:", err);
+        }
+    }
+
+    loadAssets();
+});
+
+  </script>
+  </body>
+   <script defer src="https://new.qucu.ru/js/menu.js"></script>
+</html>

@@ -1,35 +1,109 @@
-const style=document.createElement("link");
-if(window.location.hostname!=="https://new.qucu.ru/"){
-    style.setAttribute('href','https://new.qucu.ru/css/menu.css');
-}else{
-    style.setAttribute('href','css/menu.css');
-}
-style.setAttribute('rel','stylesheet');
-document.querySelector('head').append(style);
-
-
-const menuText=['<a href="https://fleamarket.qucu.ru/">Fleamarket</a>','<a href="https://qucu.ru">Main</a>','<a href="https://new.qucu.ru/">Persons</a>','<a href="https://comments.qucu.ru/">Comments</a>','<a href="https://comments.qucu.ru/app-comments.apk">Download App</a>','<a href="https://new.qucu.ru/login">Login</a>','<a href="https://new.qucu.ru/register">Registration</a>','<a href="https://new.qucu.ru/about">About</a>'];
-
-const menuAround=document.createElement("div");
-menuAround.classList.add("menu");
-setTimeout(()=>{
-    menuAround.textContent="🍔";
-},733);
-
-document.querySelector("body").prepend(menuAround);
-const listMenu=document.createElement("div");
-listMenu.classList.add("listMenu");
-
-document.querySelector("body").prepend(listMenu);
-let countClick=+0;
-document.querySelector('.menu').addEventListener("click",()=>{
-    countClick++;
-    
-    const openMenu=document.createElement("div");
-    listMenu.innerHTML=`${menuText}`;
-    setTimeout(()=>{
-        listMenu.classList.toggle("openListMenu");
-    },333);
-    
+document.querySelector('.menu2').addEventListener('click',()=>{
+  menu777();
 });
+document.querySelector('.menu').addEventListener('click',menu777);
+function menuOk(){
+  if(document.querySelector('.menu2')){
+    // console.log('burger Yest');
+    let count = +0;
+    document.querySelector('.menu2').onclick=function(){
+            count +=1;
+            //-----------------
+            //------open-close---
+            //------------------
+            document.getElementsByTagName('body')[0].style.cssText=`overflow:auto`;
+            //-------------------
+        if(count<=1){
+            document.querySelector("#offmenu").classList.add("openmenu");
+                            //---------------------------------
+                            document.getElementsByTagName('body')[0].style.cssText=`overflow:hidden`;
+                            //--------------------------------
+        }else{
+            document.querySelector("#offmenu").classList.remove('openmenu');
+            count =0;
+            console.log("Menu close!");
+        }
+    }
+  }else{
+    // console.log('burgeraNet');
+  }
+}//menuOk
 
+// //--------------------------------------------------------------
+// //--------ОТПРАВИТЬ ЗАПРОС ЧТОБЫ ПОЛУЧИТЬ МЕНЮ------------------
+// //--------------------------------------------------------------
+let put= `/var/www/html/menu/menu.html`;
+let put1= `http://localhost:3700/menu/menu.html`;
+let put3;
+
+if(window.location.pathname=='/yandex/'){
+  // console.log(window.location.pathname);
+  
+}
+// console.log(window.location.hostname);
+if(window.location.pathname==="https://qucu.ru/yandex/"||"http://localhost:3000/yandex/"||"/yandex/"){
+  put3="/menu/menuG.html";
+  // console.log(window.location.pathname);
+}else if(window.location.href==='http://localhost:3700/'||'192.168.1.177'||'https://qucu.ru/'){
+  put3=`menu/menuG.html`;
+  // console.log(window.location.href);
+  // console.log("menuG"+window.location.href);
+}else{
+  put3=`/menu/menu.html`;
+  // console.log(window.location.href);
+}
+function run(){
+var xhr = new XMLHttpRequest();
+xhr.open("GET", `${put3}`, true);
+xhr.onreadystatechange = function() {//Вызывает функцию при смене состояния.
+if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+document.getElementById("menu").innerHTML = this.responseText;
+}
+}
+xhr.send();
+}
+run();
+
+let countClick=+0;
+function menu777(){
+  countClick++;
+  if(countClick==1){
+    // console.log('click');
+
+    let menuOpen=document.createElement('div');
+    menuOpen.style.cssText=`
+    display:flex;
+    position:fixed;
+    font-size:33px;
+    justify-content:center;
+    align-items:center;
+    text-shadow:1px 1px black;
+    top:0;
+    width:100%;
+    height:100%;
+    background:grey;
+    z-index:0;
+    `
+    menuOpen.setAttribute('id','menu');
+    // menuOpen.innerHTML='there will be a menu here';
+    document.querySelector("#offmenu").classList.add("openmenu");
+
+    document.querySelector('nav').prepend(menuOpen);
+
+    document.getElementsByTagName('body')[0].style.cssText=`overflow:hidden`;
+  }else if(countClick==2){
+    countClick=0;
+    removeOpenMenu();
+  }
+  // menuOk();
+
+  document.getElementById('menu').addEventListener('click',()=>{
+    countClick=0;
+    removeOpenMenu();
+  });
+}
+function removeOpenMenu(){
+  document.getElementsByTagName('body')[0].style.cssText=`overflow:auto`;
+  document.querySelector("#offmenu").classList.remove('openmenu');
+  document.querySelector("#menu").remove();
+}

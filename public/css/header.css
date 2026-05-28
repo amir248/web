@@ -1,0 +1,502 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  width:100%;
+  height:100vh;
+  color:white;
+  background:black;
+  font-size: 20px;
+  font-family: arial;
+}
+header{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  /* height:100vh; */
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background: #171717;
+}
+header > nav{
+  background: black;
+  max-width:1300px;
+  width:100%;
+}
+header > nav > ol{
+  /* display:inline-block; */
+  display:flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  width:100%;
+  min-width: 700px;
+  max-width:1300px;
+  position:relative;
+}
+header > nav > ol > a > li{
+  margin-right: 7px;
+  display:inline-block;
+  transform: skew(0.07turn, 0deg);
+  background: green;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  color:transparent;
+  color:none;
+}
+body > header > nav > ol > label > li{
+  margin-right: 7px;
+  display:inline-block;
+  transform: skew(0.07turn, 0deg);
+  background: green;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  color:transparent;
+  color:none;
+}
+body > header > nav > ol > label{
+  text-decoration: none;
+  font-size: 25px;
+  color:transparent;
+}
+header > nav > ol > a{
+  text-decoration: none;
+  font-size: 25px;
+  color:transparent;
+
+}
+header > nav > ol > li{
+  margin-right: 7px;
+  display:inline-block;
+  transform: skew(0.07turn, 0deg);
+  background: green;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  color:transparent;
+  color:none;
+  z-index: 9;
+}
+header > nav > ol > li{
+  text-decoration: none;
+  font-size: 25px;
+  color:transparent;
+
+}
+body > header > nav > ol > a:nth-child(1) > li:after{
+  content: 'home';
+  /* transform: skew(-0.07turn, 0deg); */
+  right:7px;
+  position: absolute;
+  color:black;
+  text-shadow: 1px 1px grey;
+  transition: all 1s ease-out;
+  transform:rotate(0deg) skew(-0.07turn, 0deg);
+}
+body > header > nav > ol > a:nth-child(1):hover > li:after{
+  content: 'home';
+  /* transform: ; */
+  color:white;
+  text-shadow: 1px 1px black;
+  right:7px;
+  position: absolute;
+  transition: all 1s ease-out;
+  transform:rotate(360deg)skew(-0.07turn, 0deg);
+}
+body > header > nav > ol > a:nth-child(2) > li:after{
+  content: 'about';
+  right:7px;
+  position: absolute;
+  color:black;
+  text-shadow: 1px 1px grey;
+  transition: all 1s ease-out;
+  transform:rotate(0deg) skew(-0.07turn, 0deg);
+}
+body > header > nav > ol > a:nth-child(2):hover > li:after{
+  content: 'about';
+  right:7px;
+  position: absolute;
+  color:white;
+  text-shadow: 1px 1px black;
+  transition: all 1s ease-out;
+  transform:rotate(360deg)skew(-0.07turn, 0deg);
+}
+body > header > nav > ol > a:nth-child(3) > li:after{
+  content: 'photo';
+  right:7px;
+  position: absolute;
+  color:black;
+  text-shadow: 1px 1px grey;
+  transition: all 1s ease-out;
+  transform:rotate(0deg) skew(-0.07turn, 0deg);
+}
+
+body > header > nav > ol > a:nth-child(3):hover > li:after{
+  content: 'photo';
+  right:7px;
+  position: absolute;
+  color:white;
+  text-shadow: 1px 1px black;
+  transition: all 1s ease-out;
+  transform:rotate(360deg)skew(-0.07turn, 0deg);
+}
+body > header > nav > ol > a:nth-child(4) > li:after{
+  content: 'advertiser';
+  right:7px;
+  position: absolute;
+  color:black;
+  text-shadow: 1px 1px grey;
+  transition: all 1s ease-out;
+  transform:rotate(0deg) skew(-0.07turn, 0deg);
+}
+body > header > nav > ol > a:nth-child(4):hover > li:after{
+  content: 'advertiser';
+  right:7px;
+  position: absolute;
+  color:white;
+  text-shadow: 1px 1px black;
+  transition: all 1s ease-out;
+  transform:rotate(360deg)skew(-0.07turn, 0deg);
+}
+body > header > nav > ol > a:nth-child(5) > li:after{
+  content: 'contact';
+  right:7px;
+  position: absolute;
+  color:black;
+  text-shadow: 1px 1px grey;
+  transition: all 1s ease-out;
+  transform:rotate(0deg) skew(-0.07turn, 0deg);
+}
+body > header > nav > ol > a:nth-child(5):hover > li:after{
+  content: 'contact';
+  right:7px;
+  position: absolute;
+  color:white;
+  text-shadow: 1px 1px black;
+  transition: all 1s ease-out;
+  transform:rotate(360deg)skew(-0.07turn, 0deg);
+}
+body > header > nav > ol > a:nth-child(6) > li:after{
+  content: '🍔';
+  right:7px;
+  position: absolute;
+  color:black;
+  text-shadow: 1px 1px grey;
+  transition: all 1s ease-out;
+  transform:rotate(0deg)skew(-0.07turn, 0deg);
+}
+body > header > nav > ol > a:nth-child(6):hover > li:after{
+  content: '🍔';
+  right:7px;
+  position: absolute;
+  color:white;
+  text-shadow: 1px 1px black;
+  transition: all 1s ease-out;
+  transform:rotate(360deg) skew(-0.07turn, 0deg);
+}
+ /* replace this menu */
+body > header > nav > ol > li:after{
+  content: '🍔';
+  right:7px;
+  position: absolute;
+  color:black;
+  text-shadow: 1px 1px grey;
+  transition: all 1s ease-out;
+  transform:rotate(0deg)skew(-0.07turn, 0deg);
+}
+body > header > nav > ol > li:hover:after{
+  content: '🍔';
+  right:7px;
+  position: absolute;
+  color:white;
+  text-shadow: 1px 1px black;
+  transition: all 1s ease-out;
+  transform:rotate(360deg) skew(-0.07turn, 0deg);
+}
+/* here menu oK */
+body > header > nav > ol > a:nth-child(8) > li:after{
+  content: 'comments';
+  right:7px;
+  position: absolute;
+  color:black;
+  text-shadow: 1px 1px grey;
+  transition: all 1s ease-out;
+  transform:rotate(0deg)skew(-0.07turn, 0deg);
+}
+body > header > nav > ol > a:nth-child(8):hover > li:after{
+  content: 'comments';
+  right:7px;
+  position: absolute;
+  color:white;
+  text-shadow: 1px 1px black;
+  transition: all 1s ease-out;
+  transform:rotate(360deg)skew(-0.07turn, 0deg);
+}
+/* body > header:nth-child(1) > nav:nth-child(1) > ol:nth-child(2) > label:nth-child(9) > li:nth-child(2) */
+body > header > nav > ol > label > li:after{
+  content: 'Rus';
+  right:27px;
+  position: absolute;
+  color:black;
+  text-shadow: 1px 1px grey;
+  transition: all 1s ease-out;
+  transform:rotate(0deg)skew(-0.07turn, 0deg);
+}
+body > header > nav > ol > label > li:hover:after{
+  content: 'Rus';
+  right:27px;
+  position: absolute;
+  color:white;
+  text-shadow: 1px 1px black;
+  transition: all 1s ease-out;
+  transform:rotate(360deg)skew(-0.07turn, 0deg);
+}
+header > nav > ol > a > li:hover{
+  background: yellow;
+  color:black;
+  transform:skew(0,07turn,0deg);
+  color:transparent;
+}
+header > nav > .menu > span{
+  width:30px;
+  height:3px;
+  background: yellow;
+  display:block;
+  margin:7px;
+}
+/* //// */
+/* body > header:nth-child(1) > nav:nth-child(1) > ol:nth-child(2) > label:nth-child(10) */
+body > header > nav > ol > label:nth-child(10) > li:after{
+  content: '中國人';
+  right:27px;
+  position: absolute;
+  color:black;
+  text-shadow: 1px 1px grey;
+  transition: all 1s ease-out;
+  transform:rotate(0deg)skew(-0.07turn, 0deg);
+  min-width:90px;
+  left:7px;
+}
+
+body > header > nav > ol > label:nth-child(10) > li:hover:after{
+  content: '中國人';
+  right:27px;
+  position: absolute;
+  color:white;
+  text-shadow: 1px 1px black;
+  transition: all 1s ease-out;
+  transform:rotate(360deg)skew(-0.07turn, 0deg);
+}
+header > nav > ol > a > li:hover{
+  background: yellow;
+  color:black;
+  transform:skew(0,07turn,0deg);
+  color:transparent;
+}
+header > nav > .menu > span{
+  width:30px;
+  height:3px;
+  background: yellow;
+  display:block;
+  margin:7px;
+}
+/* //// */
+@media(max-width:700px){
+  header > nav > .menu{
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    height:57px;
+    /* width:100%; */
+    margin-right:3%;
+  }
+  header > nav > ol{
+    display:none;
+  }
+}
+@media(min-width:700px){
+  header > nav > .menu > span{
+    display:none;
+  }
+  header > nav > .menu{
+    display:none;
+  }
+}
+header > section{
+  width:100%;
+  max-width: 1300px;
+  text-align: center;
+  margin-bottom:35px;
+  background: black;
+}
+ /* this end header  */
+
+.aboutThisPage{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  max-width: 500px;
+  flex-direction: column;
+  line-height: 1.7;
+}
+.aboutThisPage > h1{
+  width:100%;
+  max-width: 500px;
+}
+.mainCenter{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  max-width: 900px;
+  flex-wrap: wrap;
+}
+body > header > div > div > h1 > span:nth-child(1){
+  font-size: 49px;
+  color:green;
+  text-transform: uppercase;
+}
+body > header > div > div > h1 > span:nth-child(3){
+  font-size: 30px;
+  color:yellow;
+  text-transform: uppercase;
+}
+body > header > div > picture > img{
+  width:100%;
+  max-width: 300px;
+  border-radius: 7px;
+}
+body > header > section{
+  width:100%;
+  justify-content: center;
+  align-items: center;
+  display:flex;
+  flex-wrap: wrap;
+}
+body > header > section > a{
+  /* color:green; */
+  font-size: 33px;
+  margin:3%;
+  text-decoration: none;
+  transform: skew(-0.07turn, 0deg);
+  padding: 7px;
+  position: relative;
+  /* color:transparent; */
+  background: yellow;
+  padding: 3px;
+  display:block;
+  transform: skew(-0.07turn, 0deg);
+  box-shadow:3px 3px 33px grey;
+}
+body > header > section > a > p{
+  text-decoration: none;
+  color:transparent;
+  font-size: 33px;
+}
+/* transform: skew(0.07turn, 0deg); */
+/* padding: 7px; */
+/* font-size: 33px;
+margin:3%; */
+/* display:flex; */
+/* position: absolute; */
+/* body > header > section > p{
+  transform: skew(-0.07turn, 0deg);
+  position: relative;
+  color:none;
+
+} */
+/* body > header > section > p:after{
+  color:transparent;
+  content: 'WhataApp';
+  transform: skew(-0.07turn, 0deg);
+  position: absolute;
+  bottom:7px;
+  right:14px;
+
+} */
+body > header > section > a:nth-child(1) > p:after{
+  content: 'WhatsApp';
+  transform: skew(0.07turn, 0deg);
+  position: absolute;
+  bottom:27px;
+  right:24px;
+  color:green;
+  text-shadow: 1px 1px black;
+  transform:rotate(0deg);
+  transition: all 1s ease-out;
+}
+body > header > section > a:nth-child(1):hover > p:after{
+  content: 'WhatsApp';
+  transform: skew(0.07turn, 0deg);
+  position: absolute;
+  bottom:27px;
+  right:24px;
+  color:yellow;
+  text-shadow: 1px 1px black;
+  transform:rotate(360deg);
+  transition: all 1s ease-out;
+}
+body > header > section > a:nth-child(2) > p:after{
+  content: 'Linkedin';
+  transform: skew(0.07turn, 0deg);
+  position: absolute;
+  bottom:-10px;
+  right:14px;
+  color:green;
+  text-shadow: 1px 1px black;
+  transform:rotate(0deg);
+  transition: all 1s ease-out;
+}
+body > header > section > a:nth-child(2):hover > p:after{
+  content: 'Linkedin';
+  transform: skew(0.07turn, 0deg);
+  position: absolute;
+  bottom:-10px;
+  right:14px;
+  color:yellow;
+  text-shadow: 1px 1px black;
+
+  transform:rotate(360deg);
+  transition: all 1s ease-out;
+}
+body > header > section > a:nth-child(3):hover > p:after{
+  content: 'GitHub';
+  transform: skew(0.07turn, 0deg);
+  position: absolute;
+  bottom:7px;
+  right:-10px;
+  color:yellow;
+  text-shadow: 1px 1px black;
+
+  transform:rotate(0deg);
+  transition: all 1s ease-out;
+}
+body > header > section > a:nth-child(3) > p:after{
+  content: 'GitHub';
+  transform: skew(0.07turn, 0deg);
+  position: absolute;
+  bottom:7px;
+  right:-10px;
+  color:green;
+  text-shadow: 1px 1px black;
+
+  transform:rotate(360deg);
+  transition: all 1s ease-out;
+}
+body > header > section > a:hover{
+  color: yellow;
+  /* padding: 7px; */
+  display:block;
+  /* transform: skew(-0.07turn, 0deg); */
+  background: green;
+  color:black;
+}

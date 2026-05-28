@@ -22,11 +22,17 @@ const crypto = require("crypto");
 const { getMaxListeners } = require('events');
 const cron = require("node-cron");
 const cors = require('cors');
+const fs = require('fs');
+const helmet = require('helmet');
 
+const cookieParser = require('cookie-parser');
+app.use(cookieParser());
+
+const jsonParser = express.json();
 app.use(express.urlencoded({ extended: true })); // для form-urlencoded
 app.use(express.json()); // для JSON, если используется
 // comments/modules/cors.js
-const myCors = require("../comments/modules/cors");
+const myCors = require("./custom_modules/cors");
 
 app.use(myCors);// myCors!!!!!!!!!!
 
@@ -34,6 +40,7 @@ const sendMessageRoute = require('./custom_modules/send-massages-express');
 
 app.set("trust proxy", 1); // доверяем первому прокси
 // Ограничитель: максимум 5 запросов с одного IP за минуту
+
 const limiter = rateLimit({
   windowMs: 1 * 60 * 1000, // окно = 1 минута
   max: 3, // количество запросов
@@ -68,8 +75,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 app.set('view engine', 'ejs');
-app.set("views", path.join(__dirname, "views"));
-app.use(express.static(path.join(__dirname, "views")));
+// app.set("views", path.join(__dirname, "views"));
+// app.use(express.static(path.join(__dirname, "views")));
 app.use(express.static(path.join(__dirname, "public"))); // !!!!
 app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 
@@ -79,32 +86,6 @@ const client = new Client(dbConfig);
 
 client.connect();
 
-
-
-// ======== Middleware ========
-// const allowedOrigins = [
-//   'https://qucu.ru',
-//   'https://new.qucu.ru',
-//   'https://comments.qucu.ru',
-//   'https://send-json.qucu.ru',
-//   'https://wealth.qucu.ru',
-//   'https://nasobe.ru'
-// ];
-
-// app.use(cors({
-//   origin: function(origin, callback){
-//     console.log('CORS origin:', origin);
-//     if (!origin) return callback(null, true); // Postman, curl, серверные запросы
-//     if (allowedOrigins.includes(origin)) {
-//       console.log( "CORS orign: ", origin);
-//       callback(null, true);
-//     } else {
-//       console.log("CORS blocked origin:", origin);
-//       callback(new Error('Not allowed by CORS'));
-//     }
-//   },
-//   credentials: true,
-// }));
 
 
 
@@ -120,17 +101,100 @@ app.use(session({
     maxAge: 1000 * 60 * 60 * 24 * 7 // срок жизни 7 дней
   }
 }));
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "https://send-json.qucu.ru");
-//   res.header("Access-Control-Allow-Credentials", "true");
-//   res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-//   res.header("Access-Control-Allow-Headers", "Origin, Content-Type, Accept, Authorization");
 
-//   if (req.method === "OPTIONS") {
-//     return res.sendStatus(200);
-//   }
-//   next();
-// });
+const commentsRouter = require("./custom_modules/comments.js");
+app.use("/", commentsRouter);
+
+// Helmet: безопасные заголовки
+app.use(helmet({
+  contentSecurityPolicy: false,
+  crossOriginResourcePolicy: false,
+  crossOriginEmbedderPolicy: false,
+  referrerPolicy: { policy: "strict-origin-when-cross-origin" }
+}));
+// app.use(helmet());
+
+
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; connect-src 'self' https://comments.qucu.ru https://nasobe.ru; style-src 'self' 'unsafe-inline' https://comments.qucu.ru https://nasobe.ru; script-src 'self' 'unsafe-inline' https://comments.qucu.ru https://nasobe.ru;"
+  );
+  next();
+});
+
+
+
+app.use(
+  helmet.contentSecurityPolicy({
+    useDefaults: true,
+    directives: {
+      "default-src": ["'self'", "https://qucu.ru"],
+
+      "script-src": [
+        "'self'",
+        "'unsafe-inline'",
+        "https://challenges.cloudflare.com",
+        "https://cdn.jsdelivr.net",
+        "https://comments.qucu.ru",
+        "https://new.qucu.ru",
+        "https://github.qucu.ru",
+        "https://nasobe.ru",
+        "https://qucu.ru"
+      ],
+
+      "style-src": [
+        "'self'",
+        "'unsafe-inline'",
+        "https://cdn.jsdelivr.net",
+        "https://comments.qucu.ru",
+        "https://new.qucu.ru",
+        "https://nasobe.ru",
+        "https://github.qucu.ru",
+        "https://qucu.ru"
+      ],
+
+      "img-src": [
+        "'self'",
+        "data:",
+        "https://challenges.cloudflare.com",
+        "https://qucu.ru",
+        "https://comments.qucu.ru",
+        "https://new.qucu.ru",
+        "https://nasobe.ru",
+        "https://github.qucu.ru"
+      ],
+
+      "connect-src": [
+        "'self'",
+        "https://challenges.cloudflare.com",
+        "https://comments.qucu.ru",
+        "https://new.qucu.ru",
+        "https://qucu.ru",
+        "https://github.qucu.ru",
+        "https://nasobe.ru"
+      ],
+
+      // 🔥 ВОТ КЛЮЧЕВОЙ МОМЕНТ
+      "frame-src": [
+        "https://challenges.cloudflare.com"
+      ],
+
+      // кто МОЖЕТ встраивать ТВОЙ сайт
+      "frame-ancestors": [
+        "'self'",
+        "https://nasobe.ru",
+        "https://send-json.qucu.ru/",
+        "https://qucu.ru",
+        "https://comments.qucu.ru",
+        "https://new.qucu.ru",
+        "https://github.qucu.ru"
+      ],
+
+      "object-src": ["'none'"]
+    }
+  })
+);
 
 
 app.get("/profile3", (req, res) => {
@@ -327,24 +391,8 @@ app.post("/logout", (req, res) => {
     });
   });
 });
-// app.post('/logout', (req, res) => {
-//   req.session.destroy(err => {
-//     if (err) {
-//       console.error("Ошибка при выходе:", err);
-//       return res.json({ success: false, message: "Ошибка сервера" });
-//     }
 
-//     // Для кросс-домена cookie обязательно с SameSite=None и Secure
-//     res.clearCookie('connect.sid', { 
-//       httpOnly: true, 
-//       secure: true, 
-//       sameSite: 'None',
-//       domain: '.qucu.ru'
-//     });
 
-//     res.json({ success: true, message: "Вы вышли из системы" });
-//   });
-// });
 
 // ================== Фоновая задача ==================
 // Удаляем неподтвержденных пользователей старше 24 часов
@@ -993,7 +1041,7 @@ app.get('/blozhik', async (req, res) => {
   }
 });
 
-app.get('/', async (req, res) => {
+app.get('/user', async (req, res) => {
   try {
     const result = await client.query('SELECT * FROM barbarians'); // получаем всех пользователей
     const users = result.rows;
@@ -1002,6 +1050,9 @@ app.get('/', async (req, res) => {
     console.error(err);
     res.send('Ошибка при получении данных');
   }
+});
+app.get('/', async (req, res)=>{
+  res.render('1');
 });
 app.get('/index-table', requireAuth, async (req, res) => {
   try {
@@ -1053,12 +1104,139 @@ app.get('/delete-user/:id', requireAuth, async (req, res) => {
     console.error("Ошибка при удалении пользователя:", err);
     res.status(500).send("Ошибка сервера");
   }
+
+
+// // COMMENTS SYSTEM
+
+// app.get("/style", (req, res) => {
+//   console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!11')
+//   fs.readFile(__dirname+"/css/web-workshop.css", "utf8", (err, data) => {
+//     if (err) return res.sendStatus(500);
+//     res.type("text/css").send(data);
+//   });
+// });
+
+
+// // Скрипт без капчи
+// app.get("/no-captcha/:id", (req, res) => {
+//   const id = req.params.id;
+//   console.log("JS requested (no captcha) for id:", id);
+
+//   fs.readFile("public/js/1script.js", "utf8", (error, data) => {
+//     if (error) {
+//       console.error("Error reading file:", error);
+//       return res.sendStatus(500);
+//     }
+
+//     const injected = `const ID_FROM_SERVER = "${id}";\n` + data;
+//     console.log("GET 1script.js (no captcha)");
+//     res.type("application/javascript").send(injected);
+//   });
+// });
+//   console.log(__dirname+" JS requested for id:");
+
+// app.get("/js/:id", (req, res) => {
+//   const id = req.params.id;  // <-- вот тут он будет
+//   console.log(__dirname+" JS requested for id:", id);
+//   fs.readFile("public/js/1scriptCaptcha.js", "utf8", (error, data) => {
+//     if (error) {
+//       console.error("Error reading file:", error);
+//       return res.sendStatus(500);
+//     }
+//     // Вставляем переменную id внутрь скрипта
+//     const injected = `const ID_FROM_SERVER = "${id}";\n` + data;
+//     // console.log(injected);
+//     console.log("GET 1script.js");
+//     res.type("application/javascript").send(injected);
+//   });
+// });
+// // GET комментариев
+// app.get("/:id/:type", (req, res) => {
+//   const { id } = req.params;
+//   let type = decodeURIComponent(req.params.type); // "blozhik/landing_full_stack"
+
+//   // Заменяем все слэши на дефисы
+//   type = type.replace(/\//g, "-");
+
+//   const file = `comments/${id}/${type}.json`;
+
+//   try {
+//     const comments = JSON.parse(fs.readFileSync(file, "utf-8"));
+//     res.json(comments);
+//   } catch {
+//     res.json([]);
+//   }
+// }); // app.get
+
+
+
+// // POST комментария
+// app.post("/:id/:type",requireAuth, (req, res) => {
+//   const id = req.params.id;
+//   let type = decodeURIComponent(req.params.type);
+//   type = type.replace(/\//g, "-");
+
+//   const dir = path.join(__dirname, "comments", id);
+//   const file = path.join(dir, `${type}.json`);
+
+//   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+
+//   const comment = req.body;
+//   let comments = [];
+//   try {
+//     comments = JSON.parse(fs.readFileSync(file, "utf-8"));
+//   } catch {}
+
+//   comments.unshift(comment);
+//   fs.writeFileSync(file, JSON.stringify(comments, null, 2));
+//   res.send({ status: "ok" });
+// });//POST comments
+// // Выход
+app.get('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      console.error("Ошибка при выходе:", err);
+      return res.status(500).send("Ошибка сервера");
+    }
+    res.clearCookie('connect.sid'); // удаляем cookie сессии
+    res.redirect('/'); // перенаправляем на страницу логина
+  });
+});
+app.post("/logout", (req, res) => {
+  console.log("SESSION:", req.session);
+  console.log("COOKIE HEADER:", req.headers.cookie);
+  if (!req.session) {
+    return res.json({ success: true, message: "Нет сессии" });
+  }
+
+  req.session.destroy(err => {
+    if (err) {
+      console.error("Ошибка при уничтожении сессии:", err);
+      return res.status(500).json({
+        success: false,
+        message: "Ошибка сервера при logout",
+      });
+    }
+
+    // 🔥 ВАЖНО: параметры должны совпадать с теми, что при установке cookie
+    res.clearCookie("connect.sid", {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+      domain: ".qucu.ru"
+    });
+
+    return res.json({
+      success: true,
+      message: "Вы вышли из системы",
+    });
+  });
+});
 });
 // Обработчик 404 (если ни один маршрут не сработал)
 app.use((req, res) => {
   res.status(404).render("404");
 });
-
 // ======== Старт сервера ========
 
 app.listen(`${port}`, () => console.log('Server started on : '+`${host}`+` : `+`${port}`));
