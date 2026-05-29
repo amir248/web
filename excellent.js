@@ -37,6 +37,7 @@ const myCors = require("./custom_modules/cors");
 app.use(myCors);// myCors!!!!!!!!!!
 
 const sendMessageRoute = require('./custom_modules/send-massages-express');
+const fleaMarketRouter = require("./custom_modules/fleamarket");
 
 app.set("trust proxy", 1); // доверяем первому прокси
 // Ограничитель: максимум 5 запросов с одного IP за минуту
@@ -1238,6 +1239,9 @@ app.post("/logout", (req, res) => {
   });
 });
 });
+
+app.use("/market", fleaMarketRouter);
+
 // Обработчик 404 (если ни один маршрут не сработал)
 app.use((req, res) => {
   res.status(404).render("404");
