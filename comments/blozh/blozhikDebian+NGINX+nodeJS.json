@@ -1,5 +1,12 @@
 [
   {
+    "name": "Lucky",
+    "date": "Sun Jun 07 2026 02:40:28 GMT+0000 (Greenwich Mean Time)",
+    "loc": "https://qucu.ru/blozhik/Debian+NGINX+nodeJS",
+    "id": "blozh",
+    "message": "hi"
+  },
+  {
     "name": "ChikChicly",
     "date": "Thu May 28 2026 09:14:21 GMT+0700 (Krasnoyarsk Standard Time)",
     "loc": "https://qucu.ru/blozhik/Debian+NGINX+nodeJS",
