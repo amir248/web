@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/fleamarket.css">
+    <title>FleaMarket — Барахолка онлайн, продажа и покупка товаров</title>
+    <meta name="description" content="FleaMarket — бесплатная онлайн-барахолка. Продавайте и покупайте товары: велосипеды, книги, электронику и многое другое. Удобно, быстро и безопасно!">
+</head>
+<body>
+
+<header>
+    <h1>Барахолка FleaMarket</h1>
+</header>
+
+<main>
+    <%- include('aside') %>
+    <section>
+        <h2>Каталог товаров</h2>
+    <div class="categories">
+        <% categories.forEach(cat => { %>
+            <% if(cat === selectedCategory) { %>
+               <span>|</span> <strong><%= cat %></strong>
+            <% } else { %>
+               <span>|</span>  <a href="/market/?category=<%= cat %>"><%= cat %></a>
+            <% } %>
+        <% }) %>
+    </div>
+
+    <% products.forEach(product => { %>
+  <div class="product">
+    <img src="<%= product.image %>" alt="<%= product.title %>">
+    <div class="product-details">
+      <h3><%= product.title %></h3>
+      <p>Цена: <%= product.price %></p>
+      <p><%= product.description %></p>
+      <a href="/market/product/<%= product.id %>" target="_blank">Подробнее</a>
+    </div>
+  </div>
+<% }) %>
+
+    <!-- <h2>Добавить своё объявление</h2>
+    <form action="#" method="POST">
+        <input type="text" name="title" placeholder="Название товара" required>
+        <input type="text" name="price" placeholder="Цена" required>
+        <textarea name="description" placeholder="Описание товара" rows="4" required></textarea>
+        <input type="url" name="image" placeholder="Ссылка на изображение">
+        <button type="submit">Добавить товар</button>
+    </form> -->
+    <a href="/market/add">
+        <p  class="butLink">Добавить товар</p>
+    </a>
+    </section>
+    
+</main>
+<%- include('footer') %>
+</body>
+<script defer src="/js/main.js"></script>
+<script defer src="https://qucu.ru/js/menu1.js"></script>
+
+</html>

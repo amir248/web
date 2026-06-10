@@ -3,17 +3,11 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Главная страница -->
-  <url>
-    <loc>https://new.qucu.ru/</loc>
-    <lastmod>2025-10-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
+
 
   <!-- О проекте -->
   <url>
-    <loc>https://new.qucu.ru/about</loc>
+    <loc>https://qucu.ru/about</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -21,7 +15,7 @@
 
   <!-- Демонстрация комментариев -->
   <url>
-    <loc>https://new.qucu.ru/comments</loc>
+    <loc>https://qucu.ru/comments</loc>
     <lastmod>2025-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

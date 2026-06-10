@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title><%= product.title %></title>
+    <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
+    <meta name="description" content="<%- product.description %>"/>
+    <link rel="stylesheet" href="/css/fleamarketPage.css">
+</head>
+<body>
+    <main>
+        <h1><%= product.title %></h1>
+        <img src="<%= product.image %>" alt="<%= product.title %>">
+        <p>Категория: <%= product.category %></p>
+        <p>Цена: <%= product.price %></p>
+        <p>Описание: <%= product.description %></p>
+        <p>Автор: <%= product.author %></p>
+
+        <% if (session.user) { %>
+            <p>Контакты: <%= product.contactEmail || 'Не указано' %></p>
+            <p>Номер: <%= product.contactTell || 'Не указано' %></p>
+        <% } else { %>
+            <p>Чтобы узнать контакты автора, <a href="/login">войдите</a></p>
+        <% } %>
+
+        <a href="/market" target="_self">Назад к списку</a>
+    </main>
+    <%- include("footer") %>
+</body>
+<script defer src="/js/main.js"></script>
+<script defer src="https://qucu.ru/js/menu1.js"></script>
+</html>

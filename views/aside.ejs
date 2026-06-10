@@ -1,0 +1,11 @@
+<aside>
+    <% if (session.user) { %>
+        <h3>Hi! <%= session.user.login %></h3>
+        <a href="/logout">Выйти</a>
+        <a href="/market/add">Добавить объявление</a>
+    <% } else { %>
+        <a href="/login">Войти</a>
+    <% } %>
+
+
+</aside>

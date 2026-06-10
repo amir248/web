@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Продать ненужные вещи</title>
+    <meta name="description" content="Барахолка бесплатных объявлений">
+    <link rel="shortcut icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/fleamarketPage.css">
+</head>
+<body>
+    <header class="header">
+        <h1>Добавить объявление</h1>
+        <% if (session.user) { %>
+            <p>Вы вошли как <strong><%= session.user.name || session.user.login %></strong> | 
+            <a href="/logout">Выйти</a> <span> |</span>
+            <a href="/market/">На главную</a></p>
+        <% } else { %>
+            <p><a href="/">На главную</a></p>
+        <% } %>
+    </header>
+
+    <main class="main">
+        <form action="/market/addMarket" method="POST" class="form-add">
+            <input type="text" name="title" placeholder="Название товара" required>
+            <input type="text" name="price" placeholder="Цена" required>
+            <textarea name="description" placeholder="Описание товара" rows="4" required></textarea>
+            <input type="url" name="image" placeholder="Ссылка на изображение">
+            <select name="category" required>
+                <option value="">Выберите категорию</option>
+                <% categories.forEach(cat => { %>
+                    <option value="<%= cat %>"><%= cat %></option>
+                <% }) %>
+            </select>
+            <input type="email" name="contactEmail" placeholder="Email для связи (опционально)">
+            <input type="text" name="contactTell" placeholder="Телефон для связи (опционально)">
+            <button type="submit">Добавить товар</button>
+        </form>
+    </main>
+    <%- include('footer') %>
+</body>
+<script defer src="/js/main.js"></script>
+<script defer src="https://new.qucu.ru/js/menu.js"></script>
+</html>
