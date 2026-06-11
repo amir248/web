@@ -1,95 +1,5 @@
 [
   {
-    "id": 1778494519933,
-    "title": "товар",
-    "price": "договорная ",
-    "description": "очень хороший товар",
-    "image": "https://qucu.ru/img/icon.png",
-    "category": "Книги",
-    "author": "Batman",
-    "createdAt": "2026-05-11T10:15:19.933Z"
-  },
-  {
-    "id": 1778494690032,
-    "title": "Ручной коммунист",
-    "price": "договорная",
-    "description": "Совсем ручной коммунист, покладистый, приучен к туалету. Спокой, очень милый.",
-    "image": "https://qucu.ru/img/icon.png",
-    "category": "Дом и сад",
-    "author": "Lucky",
-    "createdAt": "2026-05-11T10:18:10.032Z"
-  },
-  {
-    "id": 1778494931642,
-    "title": "ыва",
-    "price": "ыфаыа",
-    "description": "ываыфа",
-    "image": "https://qucu.ru/img/icon.png",
-    "category": "Дом и сад",
-    "author": "AntiCommunist",
-    "createdAt": "2026-05-11T10:22:11.642Z"
-  },
-  {
-    "id": 1778495441161,
-    "title": "Процессор",
-    "price": "500",
-    "description": "Процессор intel G1",
-    "image": "https://qucu.ru/img/icon.png",
-    "category": "Электроника",
-    "author": "Amir",
-    "contactEmail": "lucky@qucu.ru",
-    "contactTell": "+79538885656",
-    "createdAt": "2026-05-11T10:30:41.162Z"
-  },
-  {
-    "id": 1778495762543,
-    "title": "oK",
-    "price": "7",
-    "description": "товар простой",
-    "image": "https://qucu.ru/img/icon.png",
-    "category": "Одежда",
-    "author": "Batman",
-    "contactEmail": "уьфшдющтоау",
-    "contactTell": "+795234232",
-    "createdAt": "2026-05-11T10:36:02.543Z"
-  },
-  {
-    "id": 1778496132622,
-    "title": "ываф",
-    "price": "ыфа",
-    "description": "ф",
-    "image": "https://qucu.ru/img/icon.png",
-    "category": "Книги",
-    "author": "Lucky",
-    "contactEmail": "ыуа",
-    "contactTell": "343",
-    "createdAt": "2026-05-11T10:42:12.622Z"
-  },
-  {
-    "id": 1778497440072,
-    "title": "Антикоммунистическая балда",
-    "price": "777",
-    "description": "На Окенаве это приспособление назвали \"Костыль мистера Ли\". Обладает: ударно дробящим действием, неприхотлив в эксплуатации, прост в использовании.",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-6-GPiI0C1phwk6qTXwiVvT8hwg6KHtNHlg&s",
-    "category": "Прочее",
-    "author": "AntiCommunist",
-    "contactEmail": "",
-    "contactTell": "",
-    "createdAt": "2026-05-11T11:04:00.072Z"
-  },
-  {
-    "id": 1778498672391,
-    "title": "Тклефон",
-    "price": "7000",
-    "description": "Кнопочный ,ез гарантий",
-    "image": "https://qucu.ru/img/icon.png",
-    "category": "Электроника",
-    "author": "Lucky",
-    "contactEmail": "lucky@qucu.ru",
-    "contactTell": "",
-    "createdAt": "2026-05-11T11:24:32.391Z"
-  },
-  {
     "id": 1778551812495,
     "title": "утренний вайбкодинг",
     "price": "100",
@@ -160,5 +70,17 @@
     "contactEmail": "mail@vru.ru",
     "contactTell": "003",
     "createdAt": "2026-06-09T08:43:46.954Z"
+  },
+  {
+    "id": 1781092527894,
+    "title": "Коммунистишончик",
+    "price": "7",
+    "description": "наш Очочественный! ",
+    "image": "/img/icon.png",
+    "category": "Прочее",
+    "author": "Lucky",
+    "contactEmail": "emae@mail.vru",
+    "contactTell": "911",
+    "createdAt": "2026-06-10T11:55:27.894Z"
   }
 ]
