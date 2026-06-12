@@ -290,6 +290,7 @@ app.get("/profile/view/:login", async (req, res) => {
 app.get('/add', (req, res) => {
   res.render('add');
 });
+// IDENTIFICATION
 function requireAuth(req, res, next) {
   if (req.session && req.session.user) {
     next(); // всё ок
@@ -297,6 +298,7 @@ function requireAuth(req, res, next) {
     res.redirect('/login'); // не авторизован → на логин
   }
 }
+
 // Простая форма логина
 app.get('/login', loginLimiter, (req, res) => {
   res.render('login');
@@ -590,7 +592,7 @@ app.post("/resend-verification", async (req, res) => {
       [verificationToken, email]
     );
 
-    const verifyLink = `https://new.qucu.ru/verify-email?token=${verificationToken}`;
+    const verifyLink = `https://qucu.ru/verify-email?token=${verificationToken}`;
 
     // Отправляем письмо
     const transporter = nodemailer.createTransport({
@@ -670,7 +672,7 @@ app.post("/register", registerLimiter, async (req, res) => {
     });
 
     // Ссылка для подтверждения
-    const verifyLink = `https://new.qucu.ru/verify-email?token=${verificationToken}`;
+    const verifyLink = `https://qucu.ru/verify-email?token=${verificationToken}`;
 
     // Отправка письма
     try {
@@ -1110,7 +1112,7 @@ app.get('/delete-user/:id', requireAuth, async (req, res) => {
     res.status(500).send("Ошибка сервера");
   }
 
-
+});
 
 // // COMMENTS SYSTEM
 
@@ -1238,7 +1240,7 @@ app.post("/logout", (req, res) => {
     });
   });
 });
-});
+// });
 
 app.use("/market", fleaMarketRouter);
 

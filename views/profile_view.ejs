@@ -12,6 +12,18 @@
       width:100%;
       max-width:400px;
     }
+     .links{
+      margin:33px;
+      font-size:20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .links > a{
+      margin:7px;
+      padding:7px;
+    }
   </style>
   <link rel="icon" href="/nodejs.svg" type="image/svg+xml">
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
@@ -46,7 +58,7 @@
     <p><strong>Образование:</strong> <%= user.education %></p>
     <p><strong>website:</strong> <%= user.website %></p>
 
-    <div style="text-align:center; margin-top:1rem;">
+    <div class="links">
       <a href="/comments">Comments system</a> | 
       <a href="/profile/edit">Редактировать профиль</a> | <a href="/ava">Загрузить аватарку</a> | <a href="/">Главная</a> | <a href="/profile/change-password/">сменить пароль </a> |
       <a href="/logout">Выйти</a>

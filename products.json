@@ -1,29 +1,5 @@
 [
   {
-    "id": 1778551812495,
-    "title": "утренний вайбкодинг",
-    "price": "100",
-    "description": "С самого утренего пахмелья, начать вайбкодинг, неистовый и непредсказуемый!",
-    "image": "https://qucu.ru/img/icon.png",
-    "category": "Услуги",
-    "author": "Batman",
-    "contactEmail": "03@mail.vru",
-    "contactTell": "03",
-    "createdAt": "2026-05-12T02:10:12.495Z"
-  },
-  {
-    "id": 1778578372891,
-    "title": "Отдам квадроберов в хорошие руки",
-    "price": "просто так",
-    "description": "Квадроберы спокойные, покладистые, к туалету приручены, иногда умеют разговаривать. ",
-    "image": "https://youngspace.ru/wp-content/uploads/2024/06/photo_2024-06-05_13-12-13.webp",
-    "category": "Животные",
-    "author": "AnunnakHer",
-    "contactEmail": "neotlozhnayaDURKAskoraya@rz.hy",
-    "contactTell": "103",
-    "createdAt": "2026-05-12T09:32:52.891Z"
-  },
-  {
     "id": 1778846756522,
     "title": "Коммунистическое чудо \"анти\"",
     "price": "0",
@@ -82,5 +58,17 @@
     "contactEmail": "emae@mail.vru",
     "contactTell": "911",
     "createdAt": "2026-06-10T11:55:27.894Z"
+  },
+  {
+    "id": 1781173629622,
+    "title": "Hi",
+    "price": "777",
+    "description": "Sgjjvdr",
+    "image": "/img/icon.png",
+    "category": "Электроника",
+    "author": "Amir",
+    "contactEmail": "",
+    "contactTell": "911",
+    "createdAt": "2026-06-11T10:27:09.622Z"
   }
 ]

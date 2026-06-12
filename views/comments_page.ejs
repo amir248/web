@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Комментарии пользователя <%= userId %></title>
   <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 </head>
 <body>
@@ -53,7 +54,7 @@
         document.head.append(style);
 
         // Загружаем JS с ID пользователя
-        const jsResponse = await fetch("https://qucu.ru/comments/no-captcha/<%= userId %>", {
+        const jsResponse = await fetch("https://qucu.ru/comments/js/<%= userId %>", {
               credentials: "include"
             });
         const jsText = await jsResponse.text();

@@ -5,7 +5,9 @@ function menu(){
             oM.src='js/menu.js';
             document.querySelector('body').append(oM);
         }
-        resolve(openMenu());
+        setTimeout(()=>{
+            resolve(openMenu());
+        },333);
     })
 }
 function language(){

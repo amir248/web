@@ -1,5 +1,23 @@
 [
   {
+    "name": "unknown guest",
+    "message": "Hgff"
+  },
+  {
+    "name": "Amir",
+    "date": "Thu Jun 11 2026 17:12:36 GMT+0700 (Krasnoyarsk Standard Time)",
+    "loc": "https://qucu.ru/comments/",
+    "id": "7",
+    "message": "Hi "
+  },
+  {
+    "name": "Lucky",
+    "date": "Thu Jun 11 2026 08:24:14 GMT+0700 (Krasnoyarsk Standard Time)",
+    "loc": "https://nasobe.ru/comments/",
+    "id": "7",
+    "message": "oK   "
+  },
+  {
     "name": "Amir",
     "date": "Wed Jun 10 2026 18:13:55 GMT+0700 (Krasnoyarsk Standard Time)",
     "loc": "https://qucu.ru/comments/",

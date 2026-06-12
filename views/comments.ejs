@@ -90,6 +90,18 @@
     body > strong{
       color:green;
     }
+     .links{
+      margin:33px;
+      font-size:20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+    .links > a{
+      margin:7px;
+      padding:7px;
+    }
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
@@ -132,9 +144,10 @@
 <div><span> </span><span>loadAssets</span><span>();</span></div>
 </div>
   </code>
-  <strong>DOWNLOAD <a href="https://qucu.ru/app-debug.apk">CommentsApp</a></strong> <a href="https://qucu.ru/user">Page Persons</a>
+<div class="links">
+  <strong>DOWNLOAD <a href="https://qucu.ru/app-release-signed.apk">CommentsApp</a></strong> <a href="https://qucu.ru/user">Page Persons</a>
   <div id="comments"></div>
-
+</div>
   <script>
     window.addEventListener("DOMContentLoaded", () => {
     window.USER_ID = "<%= userId %>";

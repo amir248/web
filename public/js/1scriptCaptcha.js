@@ -71,7 +71,7 @@ if(!localStorage.getItem("username")){
   const register=document.createElement("a");
   register.setAttribute("title","Registarion");
   register.href="https://qucu.ru/register";
-  register.textContent="🪄";
+  register.textContent="🪄(регистрация)";
   document.querySelector(".login").append(register);
 }else{
   // console.log('non');
@@ -235,6 +235,7 @@ async function doLogin() {
       document.querySelector(".permission").remove();
       checkProfile();
       alert("Успешный вход!");
+      bye();
     } else {
       alert(data.message || "Ошибка входа");
     }
@@ -310,7 +311,7 @@ function bye(){
     const logOutBtn=document.createElement("span");
     logOutBtn.setAttribute("id","logOutBtn");
     logOutBtn.classList.add("logOut");
-    logOutBtn.textContent="👋";
+    logOutBtn.textContent="👋(выход)";
     logOutBtn.setAttribute("title","logOut");
     document.querySelector("#comments > div").append(logOutBtn);
     if (logOutBtn) {

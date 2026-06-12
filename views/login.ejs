@@ -38,20 +38,89 @@
         }
     </style>
     <link rel="icon" href="/nodejs.svg" type="image/svg+xml">
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script defer src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 </head>
 <body>
     <main>
-        <form method="POST" action="/login">
-            <input type="text" name="username" placeholder="Логин" required />
-            <input type="password" name="password" placeholder="Пароль" required />
-            <button type="submit">Войти</button>
+        <form id="loginForm">
+            <input id="login" type="text" name="name" placeholder="Логин" required />
+            <input id="password" type="password" name="password" placeholder="Пароль" required />
+            <div id="cf-login"></div>
+            <button id="push">Войти</button>
             <a href="/register">Регистранция</a>
         </form>
     </main>
    
   
 </body>
+<script>
+    let loginCaptchaToken = null;
+    let cloudFlaresLogin = null;
+window.onload=()=>{
+       const cloudFlaresLogin = turnstile.render("#cf-login", {
+        sitekey: "0x4AAAAAACV49q7NnLFk2P0U",
+        callback: (token) => {
+        loginCaptchaToken = token;
+        },
+        "expired-callback": () => {
+        loginCaptchaToken = null;
+        }
+    });
+}
+    if(document.getElementById("push")){
+        document.getElementById("push").addEventListener("click", (e) => {
+            e.preventDefault();
+            doLogin();
+        });
+        }else{
+        // console.log('Final Fantasy');
+    }
+
+    async function doLogin() {
+        const login = document.getElementById("login").value;
+        const password = document.getElementById("password").value;
+
+        if (!loginCaptchaToken) {
+            alert("Пройдите капчу");
+            return;
+        }
+        // https://qucu.ru/login3-proxy-captcha
+        try {
+            const res = await fetch("https://qucu.ru/login3", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+            body: JSON.stringify({
+                login,
+                password,
+                "cf-turnstile-response": loginCaptchaToken
+            })
+            });
+
+            const data = await res.json();
+
+            // токен одноразовый
+            loginCaptchaToken = null;
+            turnstile.reset(cloudFlaresLogin);
+
+            if (res.ok) {
+            localStorage.setItem("username", login);
+            // document.querySelector(".permission").remove();
+            // checkProfile();
+            // alert("Успешный вход!");
+           
+                window.location.href = data.redirect || "https://qucu.ru/profile";
+
+            bye();
+            } else {
+                alert(data.message || "Ошибка входа");
+            }
+
+        } catch (err) {
+            console.error(err);
+        }
+    }//do Login
+</script>
  <script defer src="js/menu1.js"></script>
 </html>

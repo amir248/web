@@ -53,7 +53,7 @@
     async function loadAssets() {
       try {
         // Загружаем CSS
-        const cssResponse = await fetch("https://comments.qucu.ru/style", {
+        const cssResponse = await fetch("https://qucu.ru/comments/style", {
               credentials: "include"
             });
         const cssText = await cssResponse.text();
@@ -62,7 +62,7 @@
         document.head.append(style);
 
         // Загружаем JS с ID пользователя
-        const jsResponse = await fetch(`https://comments.qucu.ru/no-captcha/${window.USER_ID}`, {
+        const jsResponse = await fetch(`https://qucu.ru/comments/js/${window.USER_ID}`, {
               credentials: "include"
             });
         const jsText = await jsResponse.text();
