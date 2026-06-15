@@ -201,11 +201,11 @@ gtag('config', 'G-CTRLNMFNGY');
         <div class="twoSection">
           <div class="blockList">
             <picture>
-              <source media="(max-width: 3940px)" srcset="/public_old/resume/img-resume/lol.webp" />
-              <source media="(max-width: 3940px)" alt="Amir web developer" srcset="/public_old/resume/img-resume/lol.jpg">
+              <source media="(max-width: 3940px)" srcset="/resume/img-resume/lol.webp" />
+              <source media="(max-width: 3940px)" alt="Amir web developer" srcset="/resume/img-resume/lol.jpg">
 
-              <source srcset="/public_old/resume/img-resume/DSC_7777.webp" type="image/webp" />
-              <img src="/public_old/resume/img-resume/DSC_7777.JPG" alt="Amir web developer" width="400px;">
+              <source srcset="/resume/img-resume/DSC_7777.webp" type="image/webp" />
+              <img src="/resume/img-resume/DSC_7777.JPG" alt="Amir web developer" width="400px;">
             </picture>
           </div>
           <div class="blockList">
@@ -251,17 +251,17 @@ gtag('config', 'G-CTRLNMFNGY');
           <div class="blockList">
             <span class="padding">
               <h3>Courses:</h3>
-              <p>PHP<br><img src="/public_old/resume/img-resume/php.jpg" width="200px" alt='certificate php'></p>
-              <p>HTML<br><img src="/public_old/resume/img-resume/html.jpg" width="200px" alt='certificate html'></p>
-              <p>JS<br><img src="/public_old/resume/img-resume/js.jpg" width="200px" alt='certificate javascript'></p>
-              <p>CSS<br><img src="/public_old/resume/img-resume/css.jpg" width="200px" alt='certificate css'></p>
-              <p>Angular<br><img src="/public_old/resume/img-resume/angular.jpg" width="200px" alt='certificate angular'></p>
-              <p>frontend developer<br> <img src="/public_old/resume/img-resume/tusur.png" alt="frontend developer in tusur" width="200px"></p>
+              <p>PHP<br><img src="/resume/img-resume/php.jpg" width="200px" alt='certificate php'></p>
+              <p>HTML<br><img src="/resume/img-resume/html.jpg" width="200px" alt='certificate html'></p>
+              <p>JS<br><img src="/resume/img-resume/js.jpg" width="200px" alt='certificate javascript'></p>
+              <p>CSS<br><img src="/resume/img-resume/css.jpg" width="200px" alt='certificate css'></p>
+              <p>Angular<br><img src="/resume/img-resume/angular.jpg" width="200px" alt='certificate angular'></p>
+              <p>frontend developer<br> <img src="/resume/img-resume/tusur.png" alt="frontend developer in tusur" width="200px"></p>
               <p>
                 Python
                 <picture>
-                  <source srcset="/public_old/resume/img-resume/d8fe6572-a632-4ef3-8bd4-8d3a204d8b88.webp" type="image/webp" />
-                  <img src="/public_old/resume/img-resume/d8fe6572-a632-4ef3-8bd4-8d3a204d8b88.jpg" alt="python">
+                  <source srcset="/resume/img-resume/d8fe6572-a632-4ef3-8bd4-8d3a204d8b88.webp" type="image/webp" />
+                  <img src="/resume/img-resume/d8fe6572-a632-4ef3-8bd4-8d3a204d8b88.jpg" alt="python">
                 </picture>
               </p>
             </span>
@@ -354,30 +354,29 @@ type.
       <div id="comments"></div>
       <a href="https://qucu.ru/comments/" style="font-size: 17px;">https://qucu.ru/comments/</a>
       <script type="text/javascript">
-        const site={
-          origin: 'https://qucu.ru/resume/',
-          referrer: "https://qucu.ru/resume/Amir.html"
-        }
-        const importantBag={id:"resume",site:window.location};
-          // const id='nasoberu';// important!!!
-          const script =document.createElement('script');
-          const url ='https://qucu.ru/allow-cors/';
-          async function goComments(){
-            await fetch(url,{
-              origin:site.origin,
-              method: "POST",
-              referrer: site.referrer,
-              referrerPolicy: "origin-when-cross-origin",
-              mode:"cors",
-              credentials: "omit",
-              cache: "no-store",
-            }).then(response=>response.text()).then(result=>{
-              document.querySelector('#comments').append(script);
-              let oK = document.querySelector('#comments > script');
-              oK.innerHTML=result;
+        async function loadAssets() {
+          try{
+            // Загружаем CSS
+            const cssResponse = await fetch("https://qucu.ru/comments/style",{
+              credentials: "include" // <- cookie
             });
-          };
-          setTimeout(()=>goComments(),300);
+            const cssText = await cssResponse.text();
+            const style = document.createElement("style");
+            style.textContent = cssText;
+            document.head.append(style);
+            // Загружаем JS
+            const jsResponse = await fetch("https://qucu.ru/comments/js/Amir",{
+              credentials: "include" // <- cookie
+            });
+            const jsText = await jsResponse.text();
+            const js = document.createElement("script");
+            js.type = "text/javascript";
+            js.textContent = jsText;
+            document.head.append(js);
+            console.log("JS и CSS успешно подгружены!");
+            }catch(err){console.error("Ошибка загрузки:", err)};
+          }
+        loadAssets();
       </script>
     </main>
   </body>
@@ -412,8 +411,8 @@ type.
     }else{
       console.log("else");
     }
-    const listImgWebp=['/public_old/resume/img-resume/lol.webp','/public_old/resume/img-resume/lolTwo.webp','/public_old/resume/img-resume/lolThree.webp'];
-    const listImg=['/public_old/resume/img-resume/lol.jpg','/public_old/resume/img-resume/lolTwo.jpg','/public_old/resume/img-resume/lolThree.jpg'];
+    const listImgWebp=['/resume/img-resume/lol.webp','/resume/img-resume/lolTwo.webp','/resume/img-resume/lolThree.webp'];
+    const listImg=['/resume/img-resume/lol.jpg','/resume/img-resume/lolTwo.jpg','/resume/img-resume/lolThree.jpg'];
     let numberClick=+0;
     document.querySelector('img').addEventListener('click',()=>{
       numberClick++;
