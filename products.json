@@ -58,5 +58,17 @@
     "contactEmail": "",
     "contactTell": "911",
     "createdAt": "2026-06-11T10:27:09.622Z"
+  },
+  {
+    "id": 1782219220332,
+    "title": "Future Design",
+    "price": "7000",
+    "description": "Excellent vibe code with chat GPT and real results/\r\nНадо кричать во все поисковики: \"Амир Джан братан хелп, хелп!",
+    "image": "/img/icon.png",
+    "category": "Услуги",
+    "author": "Lucky",
+    "contactEmail": "mail@ok.bok",
+    "contactTell": "",
+    "createdAt": "2026-06-23T12:53:40.332Z"
   }
 ]
