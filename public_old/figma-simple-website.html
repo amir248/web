@@ -102,45 +102,77 @@
 {
   "@context" : "http://schema.org",
   "@type" : "Product",
-  "sku": "figma layout website",
+  "sku": "FIGMA-LANDING-001",
   "name" : "Лендинг по макету из фигмы",
   "image" : "https://qucu.ru/public/images/figma/123.png",
-
   "url" : "https://qucu.ru/figma-simple-website.html",
   "description": "Сайт по макету из фигмы. Заказать верстку лендинга по макету из фигмы, с сео оптимизацией и продвижением в контекстной рекламе. Структурированная разметка данных.",
-       "mpn": "777",
-       "brand": {
-         "@type": "Brand",
-         "name": "Веб мастерская имени барона сайтоверстаузена"
-       },
-       "review": {
-         "@type": "Review",
-         "reviewRating": {
-           "@type": "Rating",
-           "ratingValue": "5",
-           "bestRating": "5"
-         },
-         "author": {
-           "@type": "Person",
-           "name": "Amir Navrutdinov"
-         }
-       },
-       "aggregateRating": {
-         "@type": "AggregateRating",
-         "ratingValue": "5",
-         "reviewCount": "1"
-       },
-
+  "mpn": "777",
+  "brand": {
+    "@type": "Brand",
+    "name": "Веб мастерская имени барона сайтоверстаузена"
+  },
+  "review": {
+    "@type": "Review",
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Amir Navrutdinov"
+    }
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "1"
+  },
   "offers": {
-        "@type": "Offer",
-        "url": "https://qucu.ru/figma-simple-website.html",
-        "priceCurrency": "USD",
-        "price": "300",
-        "priceValidUntil": "2022-04-24",
-        "itemCondition": "https://schema.org/UsedCondition",
-        "availability": "https://schema.org/InStock"
+    "@type": "Offer",
+    "url": "https://qucu.ru/figma-simple-website.html",
+    "priceCurrency": "USD",
+    "price": "300",
+    "priceValidUntil": "2026-12-31",
+    "itemCondition": "https://schema.org/NewCondition",
+    "availability": "https://schema.org/InStock",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "applicableCountry": "RU",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "merchantReturnDays": 14,
+      "returnMethod": "https://schema.org/ReturnByMail",
+      "returnFees": "https://schema.org/FreeReturn"
+    },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "0",
+        "currency": "USD"
+      },
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "RU"
+      },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 2,
+          "unitCode": "DAY"
+        },
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 3,
+          "unitCode": "DAY"
+        }
       }
-
+    }
+  }
 }
 </script>
   </head>
