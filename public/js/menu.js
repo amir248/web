@@ -32,8 +32,8 @@ function menuOk(){
 // //--------------------------------------------------------------
 // //--------ОТПРАВИТЬ ЗАПРОС ЧТОБЫ ПОЛУЧИТЬ МЕНЮ------------------
 // //--------------------------------------------------------------
-let put= `/var/www/html/menu/menu.html`;
-let put1= `http://localhost:3700/menu/menu.html`;
+let put= `/var/www/html/menu/menuG.html`;
+let put1= `http://localhost:3700/menu/menuG.html`;
 let put3;
 
 if(window.location.pathname=='/yandex/'){
@@ -43,14 +43,14 @@ if(window.location.pathname=='/yandex/'){
 // console.log(window.location.hostname);
 if(window.location.pathname==="https://qucu.ru/yandex/"||"http://localhost:3000/yandex/"||"/yandex/"){
   put3="/menu/menuG.html";
-  // console.log(window.location.pathname);
+  console.log(window.location.pathname +"_if");
 }else if(window.location.href==='http://localhost:3700/'||'192.168.1.177'||'https://qucu.ru/'){
   put3=`menu/menuG.html`;
-  // console.log(window.location.href);
+  console.log(window.location.href + " _else if");
   // console.log("menuG"+window.location.href);
 }else{
-  put3=`/menu/menu.html`;
-  // console.log(window.location.href);
+  put3=`/menu/menuG.html`;
+  console.log(window.location.href + " _else");
 }
 function run(){
 var xhr = new XMLHttpRequest();

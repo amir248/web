@@ -113,3 +113,5 @@ document.querySelector('#languageChina').addEventListener('click',()=>{
       });
 
     }//ifElseCreateElement
+    languageChina();
+    language();

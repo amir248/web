@@ -14,12 +14,14 @@ function language(){
     return new Promise((resolve)=>{
         function openLanguage(){
             let oL=document.createElement('script');
-            oL.src='js/language.js';
+            oL.src='/js/language.js';
             document.querySelector('body').append(oL);
         }
-        resolve(openLanguage());
+        setTimeout(()=>{
+            resolve(openLanguage());
+        },1);
     })
-}
+}; //language();
 function russianShip(){
     return new Promise((resolve)=>{
         function deepDown(){
@@ -41,7 +43,7 @@ function gallaryPhoto(){
     })
 }
 async function main(){
-    // await language();
+    await language();
     await menu();
     await russianShip();
 
