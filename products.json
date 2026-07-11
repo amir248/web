@@ -1,17 +1,5 @@
 [
   {
-    "id": 1781092527894,
-    "title": "Коммунистишончик",
-    "price": "7",
-    "description": "наш Очочественный! ",
-    "image": "/img/icon.png",
-    "category": "Прочее",
-    "author": "Lucky",
-    "contactEmail": "emae@mail.vru",
-    "contactTell": "911",
-    "createdAt": "2026-06-10T11:55:27.894Z"
-  },
-  {
     "id": 1781173629622,
     "title": "Hi",
     "price": "777",
