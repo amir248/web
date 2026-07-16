@@ -1,17 +1,5 @@
 [
   {
-    "id": 1781173629622,
-    "title": "Hi",
-    "price": "777",
-    "description": "Sgjjvdr",
-    "image": "/img/icon.png",
-    "category": "Электроника",
-    "author": "Amir",
-    "contactEmail": "",
-    "contactTell": "911",
-    "createdAt": "2026-06-11T10:27:09.622Z"
-  },
-  {
     "id": 1782219220332,
     "title": "Future Design",
     "price": "7000",
