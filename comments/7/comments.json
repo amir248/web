@@ -1,39 +1,17 @@
 [
   {
     "name": "Amir",
-    "date": "Mon Jul 27 2026 00:10:31 GMT+0000 (Greenwich Mean Time)",
+    "date": "Sun Aug 02 2026 08:10:47 GMT+0700 (Krasnoyarsk Standard Time)",
     "loc": "https://qucu.ru/comments/",
     "id": "7",
-    "message": "проверка!"
-  },
-  {
-    "name": "unknown guest",
-    "message": "Fh "
+    "message": "<style> *{body:background:green;};</style>"
   },
   {
     "name": "Amir",
-    "date": "Fri Jun 12 2026 09:07:11 GMT+0700 (Krasnoyarsk Standard Time)",
+    "date": "Sun Aug 02 2026 08:09:39 GMT+0700 (Krasnoyarsk Standard Time)",
     "loc": "https://qucu.ru/comments/",
     "id": "7",
-    "message": "😆 "
-  },
-  {
-    "name": "unknown guest",
-    "message": "Hgff"
-  },
-  {
-    "name": "Amir",
-    "date": "Thu Jun 11 2026 17:12:36 GMT+0700 (Krasnoyarsk Standard Time)",
-    "loc": "https://qucu.ru/comments/",
-    "id": "7",
-    "message": "Hi "
-  },
-  {
-    "name": "Lucky",
-    "date": "Thu Jun 11 2026 08:24:14 GMT+0700 (Krasnoyarsk Standard Time)",
-    "loc": "https://nasobe.ru/comments/",
-    "id": "7",
-    "message": "oK   "
+    "message": "<script> console.log('oooK') </script>"
   },
   {
     "name": "Amir",
