@@ -10,5 +10,17 @@
     "contactEmail": "mail@ok.bok",
     "contactTell": "",
     "createdAt": "2026-07-09T21:35:29.920Z"
+  },
+  {
+    "id": 1785888918537,
+    "title": "how are you?",
+    "price": "99999999",
+    "description": "just example",
+    "image": "/img/icon.png",
+    "category": "Прочее",
+    "author": "Lucky",
+    "contactEmail": "",
+    "contactTell": "",
+    "createdAt": "2026-08-05T00:15:18.537Z"
   }
 ]
